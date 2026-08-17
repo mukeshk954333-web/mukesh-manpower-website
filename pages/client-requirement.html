@@ -1,6 +1,6 @@
 <!-- ==========================================
      MUKESH MANPOWER - ALL INDIA CORPORATE REQUIREMENT & ESTIMATE
-     File: pages/client-requirement.html (With Live Overtime Calculation)
+     File: pages/client-requirement.html (100% Instant Live Calculation)
      ========================================== -->
 
 <!DOCTYPE html>
@@ -124,7 +124,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label for="stateSelect" class="block text-xs font-semibold text-gray-300 mb-1">कार्यस्थल का राज्य (Work Location / State) <span class="text-brand-red">*</span></label>
-                            <select id="stateSelect" required class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+                            <select id="stateSelect" onchange="updateRates()" required class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
                                 <option value="">-- राज्य / UT चुनें --</option>
                                 <option value="Delhi">दिल्ली (NCR)</option>
                                 <option value="Haryana">हरियाणा (गुड़गांव/फरीदाबाद)</option>
@@ -194,11 +194,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
                         <div>
                             <label for="helperCount" class="block text-xs font-semibold text-gray-300 mb-1">हेल्पर / लेबर संख्या (Unskilled)</label>
-                            <input type="number" id="helperCount" min="0" value="0" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+                            <input type="number" id="helperCount" min="0" value="0" oninput="calculateQuotation()" onchange="calculateQuotation()" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
                         </div>
                         <div>
                             <label for="helperRate" class="block text-xs font-semibold text-gray-300 mb-1">हेल्पर मानक दर (₹ प्रति व्यक्ति / दिन)</label>
-                            <input type="number" id="helperRate" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
+                            <input type="number" id="helperRate" oninput="calculateQuotation()" onchange="calculateQuotation()" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
                         </div>
                     </div>
 
@@ -206,11 +206,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
                         <div>
                             <label for="skilledCount" class="block text-xs font-semibold text-gray-300 mb-1">मिस्त्री / कारपेंटर संख्या (Skilled)</label>
-                            <input type="number" id="skilledCount" min="0" value="0" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+                            <input type="number" id="skilledCount" min="0" value="0" oninput="calculateQuotation()" onchange="calculateQuotation()" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
                         </div>
                         <div>
                             <label for="skilledRate" class="block text-xs font-semibold text-gray-300 mb-1">मिस्त्री मानक दर (₹ प्रति व्यक्ति / दिन)</label>
-                            <input type="number" id="skilledRate" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
+                            <input type="number" id="skilledRate" oninput="calculateQuotation()" onchange="calculateQuotation()" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
                         </div>
                     </div>
 
@@ -218,11 +218,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
                         <div>
                             <label for="operatorCount" class="block text-xs font-semibold text-gray-300 mb-1">मशीन ऑपरेटर (JCB / पोकलेन / क्रेन)</label>
-                            <input type="number" id="operatorCount" min="0" value="0" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+                            <input type="number" id="operatorCount" min="0" value="0" oninput="calculateQuotation()" onchange="calculateQuotation()" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
                         </div>
                         <div>
                             <label for="operatorRate" class="block text-xs font-semibold text-gray-300 mb-1">ऑपरेटर मानक दर (₹ प्रति व्यक्ति / दिन)</label>
-                            <input type="number" id="operatorRate" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
+                            <input type="number" id="operatorRate" oninput="calculateQuotation()" onchange="calculateQuotation()" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
                         </div>
                     </div>
 
@@ -286,9 +286,4 @@
                             <select id="paymentCycle" required class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
                                 <option value="हर 8 दिन में (साप्ताहिक भुगतान)">हर 8 दिन में (साप्ताहिक भुगतान)</option>
                                 <option value="हर 15 दिन में (पाक्षिक भुगतान)">हर 15 दिन में (पाक्षिक भुगतान)</option>
-                                <option value="महीने की 1 तारीख को (मासिक भुगतान)">महीने की 1 तारीख को (मासिक भुगतान)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="facility" class="block text-xs font-semibold text-gray-300 mb-1">साइट पर रहने व पानी की व्यवस्था <span class="text-brand-red">*</span></label>
-                            <select id="facility" required class="w-full b
+                                <option value="महीने की 1 तारीख को (मासिक भुगतान)
