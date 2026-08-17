@@ -1,669 +1,264 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MUKESH MANPOWER | Corporate Requirement & Estimate System</title>
-  
-  <!-- Font & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Manpower Requirement - MUKESH MANPOWER</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    :root {
-      --bg-dark: #0a1128;
-      --bg-card: #101f42;
-      --bg-input: #1c2e59;
-      --primary-blue: #1c4ed8;
-      --accent-red: #e11d48;
-      --accent-green: #25D366;
-      --accent-green-dark: #128C7E;
-      --accent-amber: #f59e0b;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --border-color: #2e4479;
-      --focus-ring: #38bdf8;
-    }
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.5;
-      padding: 16px 8px;
-    }
-
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-    }
-
-    /* Header & Branding */
-    header {
-      text-align: center;
-      padding: 24px 16px;
-      background: linear-gradient(180deg, rgba(28, 78, 216, 0.2) 0%, rgba(16, 31, 66, 0.6) 100%);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      margin-bottom: 24px;
-    }
-
-    .brand-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .brand-title span {
-      color: var(--accent-red);
-    }
-
-    .brand-subtitle {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-top: 6px;
-    }
-
-    /* Mode Switcher Banner */
-    .mode-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      padding: 12px 16px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-
-    .mode-indicator {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent-amber);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .admin-toggle-btn {
-      background: transparent;
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .admin-toggle-btn:hover {
-      color: var(--text-main);
-      border-color: var(--text-muted);
-    }
-
-    /* Cards */
-    .card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 10px;
-    }
-
-    .card-header i {
-      color: var(--accent-red);
-      font-size: 1.2rem;
-    }
-
-    .card-header h2 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    /* Form Grids */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    @media (min-width: 640px) {
-      .grid-2 { grid-template-columns: repeat(2, 1fr); }
-      .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    label .req {
-      color: var(--accent-red);
-    }
-
-    input, select, textarea {
-      width: 100%;
-      background-color: var(--bg-input);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 10px 12px;
-      color: var(--text-main);
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--focus-ring);
-      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-
-    /* Warning Notice */
-    .warning-banner {
-      background-color: rgba(225, 29, 72, 0.1);
-      border: 1px solid rgba(225, 29, 72, 0.3);
-      color: #fda4af;
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    /* Category Worker Cards */
-    .worker-row {
-      background-color: rgba(28, 46, 89, 0.5);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 14px;
-      margin-bottom: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .worker-info {
-      flex: 1;
-      min-width: 180px;
-    }
-
-    .worker-info h4 {
-      font-size: 0.95rem;
-      color: var(--text-main);
-    }
-
-    .worker-info p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .worker-qty-control {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .worker-qty-control input {
-      width: 80px;
-      text-align: center;
-    }
-
-    /* Admin Rate Management Panel */
-    .admin-panel {
-      background-color: #162447;
-      border: 2px dashed var(--accent-amber);
-      display: none;
-    }
-
-    .admin-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    /* Calculator Display Cards */
-    .estimate-display {
-      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-      border: 1px solid #3b82f6;
-    }
-
-    .calc-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    @media (min-width: 768px) {
-      .calc-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-
-    .calc-card {
-      background-color: rgba(15, 23, 42, 0.6);
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      text-align: center;
-    }
-
-    .calc-card span {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .calc-card h3 {
-      font-size: 1.15rem;
-      color: var(--focus-ring);
-      margin-top: 4px;
-    }
-
-    /* Clauses & Checkboxes */
-    .checkbox-group {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .checkbox-group input {
-      width: auto;
-      margin-top: 3px;
-      cursor: pointer;
-    }
-
-    .checkbox-group label {
-      font-size: 0.85rem;
-      color: var(--text-main);
-      cursor: pointer;
-      font-weight: 400;
-    }
-
-    /* Action Buttons Area */
-    .action-buttons-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .btn {
-      padding: 14px 24px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      transition: all 0.2s;
-      width: 100%;
-      text-decoration: none;
-    }
-
-    .btn-whatsapp-direct {
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: white;
-      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
-      font-size: 1.05rem;
-    }
-
-    .btn-whatsapp-direct:hover {
-      background: linear-gradient(135deg, #20ba5a 0%, #0d7064 100%);
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background-color: var(--accent-red);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background-color: #be123c;
-    }
-
-    .btn-secondary {
-      background-color: var(--primary-blue);
-      color: white;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-    }
-
-    /* Status and Feedback */
-    .status-toast {
-      padding: 12px;
-      border-radius: 6px;
-      margin-top: 12px;
-      font-size: 0.9rem;
-      display: none;
-    }
-
-    .status-toast.success {
-      background-color: rgba(16, 185, 129, 0.2);
-      border: 1px solid #10b981;
-      color: #6ee7b7;
-    }
-
-    .status-toast.error {
-      background-color: rgba(225, 29, 72, 0.2);
-      border: 1px solid var(--accent-red);
-      color: #fda4af;
-    }
-
-    /* Modal */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      z-index: 1000;
-    }
-
-    .modal-content {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      max-width: 500px;
-      width: 100%;
-      padding: 24px;
-      text-align: center;
-    }
-
-    .modal-content i.success-icon {
-      font-size: 3.2rem;
-      color: #10b981;
-      margin-bottom: 12px;
-    }
-
-    .req-id-badge {
-      display: inline-block;
-      background: var(--bg-dark);
-      border: 1px dashed var(--focus-ring);
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--focus-ring);
-      margin: 12px 0;
-    }
-
-    .footer-disclaimer {
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 24px;
-      padding: 16px;
-      border-top: 1px solid var(--border-color);
-    }
-  </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#DC0000',
+                            blue: '#002D60',
+                            darkBg: '#050505',
+                            cardDark: '#0D1117',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Teko"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="bg-brand-darkBg text-white font-sans antialiased min-h-screen flex flex-col justify-between">
 
-<div class="container">
-  
-  <!-- Header -->
-  <header>
-    <div class="brand-title">
-      <i class="fa-solid fa-users-gear"></i> MUKESH <span>MANPOWER</span>
-    </div>
-    <div class="brand-subtitle">
-      All India Corporate Manpower Requirement, Estimate & Agreement Workflow System
-    </div>
-  </header>
+    <!-- Header -->
+    <header class="bg-black border-b border-brand-blue/60 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-2">
+                <span class="font-display text-2xl font-bold tracking-wider text-white">MUKESH</span>
+                <span class="font-display text-2xl font-bold tracking-wider text-brand-red">MANPOWER</span>
+            </a>
+            <a href="../index.html" class="text-xs font-bold bg-brand-cardDark hover:bg-brand-blue text-gray-200 px-3.5 py-2 rounded-lg border border-brand-blue transition">
+                <i class="fa-solid fa-arrow-left"></i> होमपेज
+            </a>
+        </div>
+    </header>
 
-  <!-- Mode Selector Bar -->
-  <div class="mode-bar">
-    <div class="mode-indicator" id="modeStatus">
-      <i class="fa-solid fa-building-user"></i> <span>CLIENT MODE (Requirement Collection & Estimate)</span>
-    </div>
-    <button type="button" class="admin-toggle-btn" id="toggleAdminBtn" onclick="toggleAdminView()">
-      <i class="fa-solid fa-lock"></i> Admin Configuration
-    </button>
-  </div>
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 sm:py-10 w-full flex-grow">
 
-  <!-- Sensitive Data Warning Notice -->
-  <div class="warning-banner">
-    <i class="fa-solid fa-shield-halved" style="font-size: 1.2rem; margin-top: 2px;"></i>
-    <div>
-      <strong>डेटा सुरक्षा सूचना:</strong> कृपया इस फॉर्म में कोई भी गोपनीय व्यक्तिगत पहचान संख्या (जैसे बैंक विवरण, ओटीपी, पासवर्ड या संवेदनशील आईडी) दर्ज न करें। यह फॉर्म केवल कॉर्पोरेट मैनपावर आवश्यकता आंकलन के लिए है।
-    </div>
-  </div>
+        <div class="text-center mb-8">
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+                कॉर्पोरेट मैनपॉवर मांग (Company Requirement)
+            </h1>
+            <p class="text-xs sm:text-sm text-gray-400 mt-2 max-w-2xl mx-auto">
+                पूरे भारत में अपने प्रोजेक्ट के लिए मिस्त्री, हेल्पर या मशीन ऑपरेटर की मांग और अपना प्रस्तावित रेट (Budget) यहाँ दर्ज करें।
+            </p>
+        </div>
 
-  <!-- Form Start -->
-  <form id="manpowerRequirementForm" onsubmit="handleFormSubmit(event)">
+        <!-- Form Card -->
+        <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-10 shadow-2xl">
+            <form id="companyRequirementForm" class="space-y-6">
 
-    <!-- SECTION 1: Company / Client Details -->
-    <div class="card" id="companyDetailsCard">
-      <div class="card-header">
-        <i class="fa-solid fa-building"></i>
-        <h2>1. कंपनी एवं साइट विवरण (Company & Site Details)</h2>
-      </div>
-      <div class="grid-2">
-        <div class="form-group">
-          <label for="companyName">कंपनी / फर्म का नाम <span class="req">*</span></label>
-          <input type="text" id="companyName" name="companyName" placeholder="e.g. ABC Infra Pvt Ltd" required maxlength="120" />
-        </div>
-        <div class="form-group">
-          <label for="contactPerson">अधिकृत संपर्क व्यक्ति <span class="req">*</span></label>
-          <input type="text" id="contactPerson" name="contactPerson" placeholder="e.g. Ramesh Kumar (HR Manager)" required maxlength="80" />
-        </div>
-        <div class="form-group">
-          <label for="clientMobile">मोबाइल नंबर (10-Digit) <span class="req">*</span></label>
-          <input type="tel" id="clientMobile" name="clientMobile" placeholder="9876543210" pattern="[6-9][0-9]{9}" inputmode="numeric" required />
-        </div>
-        <div class="form-group">
-          <label for="clientEmail">ईमेल (Corporate Email)</label>
-          <input type="email" id="clientEmail" name="clientEmail" placeholder="hr@company.com" maxlength="100" />
-        </div>
-        <div class="form-group">
-          <label for="stateSelect">कार्य स्थल का राज्य (Deployment State) <span class="req">*</span></label>
-          <select id="stateSelect" name="stateSelect" onchange="onStateChange()" required>
-            <option value="">-- राज्य चुनें --</option>
-            <option value="BIHAR">बिहार (Bihar)</option>
-            <option value="DELHI">दिल्ली NCR (Delhi NCR)</option>
-            <option value="HARYANA">हरियाणा (Haryana)</option>
-            <option value="MAHARASHTRA">महाराष्ट्र (Maharashtra)</option>
-            <option value="GUJARAT">गुजरात (Gujarat)</option>
-            <option value="UTTAR_PRADESH">उत्तर प्रदेश (Uttar Pradesh)</option>
-            <option value="WEST_BENGAL">पश्चिम बंगाल (West Bengal)</option>
-            <option value="OTHER">अन्य राज्य (Other State)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="siteAddress">साइट / प्लांट का पूरा पता <span class="req">*</span></label>
-          <textarea id="siteAddress" name="siteAddress" placeholder="Plot No, Industrial Area, District, Landmark..." required maxlength="300"></textarea>
-        </div>
-      </div>
-    </div>
+                <!-- 1. Company Details -->
+                <div class="space-y-4">
+                    <div class="border-b border-gray-800 pb-2 text-brand-blueLight font-bold text-sm">
+                        <i class="fa-solid fa-building"></i> 1. कंपनी एवं संपर्क विवरण
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-gray-300 mb-1">कंपनी / ठेकेदार का नाम *</label>
+                            <input type="text" id="companyName" required placeholder="कंपनी का नाम" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-300 mb-1">संपर्क व्यक्ति का नाम *</label>
+                            <input type="text" id="contactPerson" required placeholder="आपका नाम" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                        </div>
+                    </div>
 
-    <!-- ADMIN PANEL: Rates Configuration -->
-    <div class="card admin-panel" id="adminRatePanel">
-      <div class="card-header">
-        <i class="fa-solid fa-sliders" style="color: var(--accent-amber);"></i>
-        <h2 style="color: var(--accent-amber);">ADMIN: बिलिंग रेट प्रबंधन (Rate Management)</h2>
-      </div>
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
-        यह सेक्शन केवल अधिकृत एडमिन के लिए है। क्लाइंट को यह इंटरनल रेट पैनल नहीं दिखता।
-      </p>
-      <div class="grid-3">
-        <div class="form-group">
-          <label for="admHelperRate">हेल्पर बिलिंग दर (₹/दिन)</label>
-          <input type="number" id="admHelperRate" oninput="calculateEstimates()" min="1" step="1" />
-        </div>
-        <div class="form-group">
-          <label for="admSkilledRate">कुशल / कारीगर दर (₹/दिन)</label>
-          <input type="number" id="admSkilledRate" oninput="calculateEstimates()" min="1" step="1" />
-        </div>
-        <div class="form-group">
-          <label for="admOperatorRate">ऑपरेटर दर (₹/दिन)</label>
-          <input type="number" id="admOperatorRate" oninput="calculateEstimates()" min="1" step="1" />
-        </div>
-      </div>
-      <div class="admin-actions">
-        <button type="button" class="btn btn-secondary" style="width: auto;" onclick="saveCustomRates()">
-          <i class="fa-solid fa-floppy-disk"></i> Save Custom State Rate
-        </button>
-        <button type="button" class="btn btn-outline" style="width: auto;" onclick="resetToStandardRates()">
-          <i class="fa-solid fa-rotate-left"></i> Reset Standard Rate
-        </button>
-      </div>
-    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-gray-300 mb-1">मोबाइल नंबर (WhatsApp) *</label>
+                            <input type="tel" id="mobileNumber" required maxlength="10" placeholder="10 अंकों का मोबाइल नंबर" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-300 mb-1">कार्यस्थल का राज्य *</label>
+                            <select id="stateSelect" required class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                                <option value="">-- राज्य चुनें --</option>
+                                <option value="Delhi">दिल्ली (NCR)</option>
+                                <option value="Maharashtra">महाराष्ट्र</option>
+                                <option value="Karnataka">कर्नाटक</option>
+                                <option value="Gujarat">गुजरात</option>
+                                <option value="Uttar Pradesh">उत्तर प्रदेश</option>
+                                <option value="Bihar">बिहार</option>
+                                <option value="Jharkhand">झारखंड</option>
+                                <option value="Punjab">पंजाब</option>
+                                <option value="Haryana">हरियाणा</option>
+                                <option value="Rajasthan">राजस्थान</option>
+                                <option value="West Bengal">पश्चिम बंगाल</option>
+                                <option value="Madhya Pradesh">मध्य प्रदेश</option>
+                                <option value="Odisha">ओडिशा</option>
+                                <option value="Chhattisgarh">छत्तीसगढ़</option>
+                                <option value="Tamil Nadu">तमिलनाडु</option>
+                                <option value="Other">अन्य राज्य</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- SECTION 2: Manpower Requirements -->
-    <div class="card" id="manpowerQtyCard">
-      <div class="card-header">
-        <i class="fa-solid fa-people-carry-box"></i>
-        <h2>2. मैनपावर आवश्यकता विवरण (Category & Quantities)</h2>
-      </div>
+                <!-- 2. Manpower Requirement & Rates -->
+                <div class="space-y-4">
+                    <div class="border-b border-gray-800 pb-2 text-brand-blueLight font-bold text-sm">
+                        <i class="fa-solid fa-users"></i> 2. कामगारों की आवश्यकता एवं कंपनी का रेट
+                    </div>
 
-      <!-- Category: Helper -->
-      <div class="worker-row">
-        <div class="worker-info">
-          <h4>हेल्पर / अनस्किल्ड वर्कर (General Helper / Unskilled)</h4>
-          <p>लोडिंग, अनलोडिंग, मैटेरियल शिफ्टिंग, हाउसकीपिंग एवं जनरल हेल्पर कार्य</p>
-        </div>
-        <div class="worker-qty-control">
-          <label for="qtyHelper">संख्या:</label>
-          <input type="number" id="qtyHelper" name="qtyHelper" value="0" min="0" max="500" oninput="calculateEstimates()" />
-        </div>
-      </div>
+                    <!-- Mistry -->
+                    <div class="p-4 bg-black rounded-lg border border-gray-800 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-gray-300 mb-1">मिस्त्री (Skilled) की संख्या</label>
+                            <input type="number" id="mistryCount" min="0" placeholder="कितने मिस्त्री चाहिए?" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-300 mb-1">कंपनी द्वारा प्रस्तावित रेट (₹/दिन)</label>
+                            <input type="number" id="mistryRate" min="0" placeholder="आप क्या रेट देंगे?" class="w-full bg-brand-darkBg border border-gray-700 text-yellow-400 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                        </div>
+                    </div>
 
-      <!-- Category: Skilled -->
-      <div class="worker-row">
-        <div class="worker-info">
-          <h4>कुशल कारीगर (Skilled Trades / Technician)</h4>
-          <p>वेल्डर, फिटर, इलेक्ट्रीशियन, कारपेंटर, मेशन, प्लंबर</p>
-        </div>
-        <div class="worker-qty-control">
-          <label for="qtySkilled">संख्या:</label>
-          <input type="number" id="qtySkilled" name="qtySkilled" value="0" min="0" max="500" oninput="calculateEstimates()" />
-        </div>
-      </div>
+                    <!-- Helper -->
+                    <div class="p-4 bg-black rounded-lg border border-gray-800 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-gray-300 mb-1">हेल्पर (Unskilled) की संख्या</label>
+                            <input type="number" id="helperCount" min="0" placeholder="कितने हेल्पर चाहिए?" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-300 mb-1">कंपनी द्वारा प्रस्तावित रेट (₹/दिन)</label>
+                            <input type="number" id="helperRate" min="0" placeholder="आप क्या रेट देंगे?" class="w-full bg-brand-darkBg border border-gray-700 text-yellow-400 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                        </div>
+                    </div>
 
-      <!-- Category: Operator -->
-      <div class="worker-row">
-        <div class="worker-info">
-          <h4>मशीन ऑपरेटर / ड्राइवर (Machine Operator / Driver)</h4>
-          <p>हाइड्रा, क्रेन ऑपरेटर, फोर्कलिफ्ट, जेसीबी ऑपरेटर</p>
-        </div>
-        <div class="worker-qty-control">
-          <label for="qtyOperator">संख्या:</label>
-          <input type="number" id="qtyOperator" name="qtyOperator" value="0" min="0" max="200" oninput="calculateEstimates()" />
-        </div>
-      </div>
+                    <!-- Machine Operator -->
+                    <div class="p-4 bg-black rounded-lg border border-gray-800 space-y-3">
+                        <div>
+                            <label class="block text-xs text-gray-300 mb-1">कौन सी मशीन का ऑपरेटर चाहिए?</label>
+                            <input type="text" id="machineName" placeholder="उदा. JCB, Crane, Poclain..." class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs text-gray-300 mb-1">ऑपरेटर की संख्या</label>
+                                <input type="number" id="operatorCount" min="0" placeholder="कितने ऑपरेटर चाहिए?" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-300 mb-1">ऑपरेटर का प्रस्तावित रेट (₹/दिन)</label>
+                                <input type="number" id="operatorRate" min="0" placeholder="आप क्या रेट देंगे?" class="w-full bg-brand-darkBg border border-gray-700 text-yellow-400 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                            </div>
+                        </div>
+                    </div>
 
-      <div class="grid-3" style="margin-top: 16px;">
-        <div class="form-group">
-          <label for="joiningDate">आवश्यकता तिथि (Tentative Joining) <span class="req">*</span></label>
-          <input type="date" id="joiningDate" name="joiningDate" required />
-        </div>
-        <div class="form-group">
-          <label for="shiftType">कार्य शिफ्ट (Shift Type) <span class="req">*</span></label>
-          <select id="shiftType" name="shiftType" required>
-            <option value="जनरल शिफ्ट (8 घंटे)">जनरल शिफ्ट (8 घंटे)</option>
-            <option value="डे शिफ्ट (12 घंटे / OT लागू)">डे शिफ्ट (12 घंटे / OT लागू)</option>
-            <option value="नाइट शिफ्ट (Night Shift)">नाइट शिफ्ट (Night Shift)</option>
-            <option value="रोटेशनल शिफ्ट (24x7 Coverage)">रोटेशनल शिफ्ट (24x7 Coverage)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="projectDuration">परियोजना अवधि (Tentative Duration) <span class="req">*</span></label>
-          <select id="projectDuration" name="projectDuration" required>
-            <option value="1 महीने से कम">1 महीने से कम</option>
-            <option value="1 से 3 महीने" selected>1 से 3 महीने</option>
-            <option value="3 से 6 महीने">3 से 6 महीने</option>
-            <option value="दीर्घकालिक (Long-term / 1+ Year)">दीर्घकालिक (Long-term / 1+ Year)</option>
-          </select>
-        </div>
-      </div>
-    </div>
+                    <!-- Machine Helper -->
+                    <div class="p-4 bg-black rounded-lg border border-gray-800 space-y-3">
+                        <div>
+                            <label class="block text-xs text-gray-300 mb-1">कौन सी मशीन का हेल्पर चाहिए?</label>
+                            <input type="text" id="machineHelperName" placeholder="उदा. JCB Helper, Drill Helper..." class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs text-gray-300 mb-1">मशीन हेल्पर की संख्या</label>
+                                <input type="number" id="machineHelperCount" min="0" placeholder="कितने मशीन हेल्पर चाहिए?" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-300 mb-1">मशीन हेल्पर का प्रस्तावित रेट (₹/दिन)</label>
+                                <input type="number" id="machineHelperRate" min="0" placeholder="आप क्या रेट देंगे?" class="w-full bg-brand-darkBg border border-gray-700 text-yellow-400 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- SECTION 3: Live Preliminary Indicative Estimate -->
-    <div class="card estimate-display" id="estimateCard">
-      <div class="card-header" style="border-color: rgba(255, 255, 255, 0.15);">
-        <i class="fa-solid fa-calculator" style="color: var(--focus-ring);"></i>
-        <h2 style="color: white;">3. प्रारंभिक सांकेतिक आंकलन (Preliminary Indicative Estimate)</h2>
-      </div>
-      <p style="font-size: 0.8rem; color: #bae6fd;">
-        * यह केवल एक प्रारंभिक आंकलन है। वास्तविक दरें व कमर्शियल शर्तें उपलब्धता, लोकेशन और अंतिम कोटेशन/एग्रीमेंट के अधीन तय की जाएंगी।
-      </p>
+                </div>
 
-      <div class="calc-grid">
-        <div class="calc-card">
-          <span>कुल वर्कर (Workers)</span>
-          <h3 id="displayTotalWorkers">0</h3>
-        </div>
-        <div class="calc-card">
-          <span>दैनिक सब-टोटल (Daily)</span>
-          <h3 id="displayDailyTotal">₹0</h3>
-        </div>
-        <div class="calc-card">
-          <span>15-दिवसीय आंकलन</span>
-          <h3 id="display15Day">₹0</h3>
-        </div>
-        <div class="calc-card">
-          <span>30-दिवसीय आंकलन (Indicative)</span>
-          <h3 id="display30Day">₹0</h3>
-        </div>
-      </div>
-    </div>
+                <!-- Submit Button -->
+                <div class="pt-4">
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-4 rounded-xl text-sm sm:text-base transition shadow-2xl flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>WhatsApp पर अपनी मांग (Requirement) भेजें</span>
+                    </button>
+                </div>
 
-    <!-- SECTION 4: Site Facilities & Commercial Arrangements -->
-    <div clas
+            </form>
+        </div>
+
+    </main>
+
+    <script>
+        document.getElementById('companyRequirementForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 1. Get Company Details
+            const companyName = document.getElementById('companyName').value.trim();
+            const contactPerson = document.getElementById('contactPerson').value.trim();
+            const mobileNumber = document.getElementById('mobileNumber').value.trim();
+            const stateSelect = document.getElementById('stateSelect').value;
+
+            // Validation check for mobile
+            if(!/^[6-9]\d{9}$/.test(mobileNumber)) {
+                alert("कृपया सही 10-अंकीय मोबाइल नंबर दर्ज करें।");
+                return;
+            }
+
+            // 2. Get Requirements & Rates
+            const mistryCount = document.getElementById('mistryCount').value || "0";
+            const mistryRate = document.getElementById('mistryRate').value || "NA";
+            
+            const helperCount = document.getElementById('helperCount').value || "0";
+            const helperRate = document.getElementById('helperRate').value || "NA";
+
+            const machineName = document.getElementById('machineName').value || "कोई नहीं";
+            const operatorCount = document.getElementById('operatorCount').value || "0";
+            const operatorRate = document.getElementById('operatorRate').value || "NA";
+
+            const machineHelperName = document.getElementById('machineHelperName').value || "कोई नहीं";
+            const machineHelperCount = document.getElementById('machineHelperCount').value || "0";
+            const machineHelperRate = document.getElementById('machineHelperRate').value || "NA";
+
+            // 3. Format Message for WhatsApp
+            const message = `🏢 *COMPANY MANPOWER REQUIREMENT*\n\n` +
+                `*Company:* ${companyName}\n` +
+                `*Contact Person:* ${contactPerson}\n` +
+                `*Mobile:* ${mobileNumber}\n` +
+                `*Work State:* ${stateSelect}\n\n` +
+                `------------------------\n` +
+                `*REQUIREMENT & PROPOSED RATES*\n` +
+                `------------------------\n` +
+                `*1. Mistry (Skilled):*\n` +
+                `   - Quantity: ${mistryCount}\n` +
+                `   - Proposed Rate: ₹${mistryRate}/day\n\n` +
+                `*2. Normal Helper:*\n` +
+                `   - Quantity: ${helperCount}\n` +
+                `   - Proposed Rate: ₹${helperRate}/day\n\n` +
+                `*3. Machine Operator:*\n` +
+                `   - Machine: ${machineName}\n` +
+                `   - Quantity: ${operatorCount}\n` +
+                `   - Proposed Rate: ₹${operatorRate}/day\n\n` +
+                `*4. Machine Helper:*\n` +
+                `   - Machine: ${machineHelperName}\n` +
+                `   - Quantity: ${machineHelperCount}\n` +
+                `   - Proposed Rate: ₹${machineHelperRate}/day\n\n` +
+                `_Sent via Mukesh Manpower Website_`;
+
+            // 4. Encode and Send
+            const whatsappNumber = "916379403821"; 
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
