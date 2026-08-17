@@ -1,0 +1,138 @@
+<!-- ==========================================
+     MUKESH MANPOWER - ABOUT US PAGE
+     File: pages/about.html
+     ========================================== -->
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>हमारे बारे में - MUKESH MANPOWER</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#DC0000',
+                            redDark: '#A80000',
+                            blue: '#002D60',
+                            blueLight: '#064A91',
+                            black: '#000000',
+                            darkBg: '#050505',
+                            cardDark: '#0D1117',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Teko"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-darkBg text-white font-sans antialiased">
+
+    <!-- Header Navigation -->
+    <header class="bg-brand-black border-b border-brand-blue/60 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-2">
+                <span class="font-display text-2xl font-bold tracking-wider text-white">MUKESH</span>
+                <span class="font-display text-2xl font-bold tracking-wider text-brand-red">MANPOWER</span>
+            </a>
+            <a href="../index.html" class="text-xs font-bold bg-brand-cardDark hover:bg-brand-blue text-gray-200 px-3.5 py-2 rounded-lg border border-brand-blue transition">
+                <i class="fa-solid fa-arrow-left mr-1.5"></i> होम पर वापस जाएं
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-12">
+
+        <!-- Heading -->
+        <div class="text-center mb-12">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-red bg-brand-cardDark border border-brand-red/30 px-3 py-1 rounded-full">
+                MSME Registered Enterprise
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold mt-4 text-white">हमारे बारे में (About Us)</h1>
+            <p class="text-gray-400 text-sm mt-2">विश्वसनीय मैनपॉवर और निर्माण सहयोग समाधान</p>
+        </div>
+
+        <!-- Vision & Identity Card -->
+        <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-8 mb-8 space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-building-shield text-brand-red"></i>
+                <span>हमारी पहचान और उद्देश्य</span>
+            </h2>
+            <p class="text-sm text-gray-300 leading-relaxed">
+                <strong class="text-white">MUKESH MANPOWER</strong> भारत सरकार के सूक्ष्म, लघु एवं मध्यम उद्यम मंत्रालय (MSME) के अंतर्गत पंजीकृत एक अधिकृत सेवा प्रदाता इकाई है। हमारा मुख्य लक्ष्य कंपनियों, ठेकेदारों और औद्योगिक संस्थानों को समय पर कुशल, अर्ध-कुशल और अकुशल कामगार उपलब्ध कराना है।
+            </p>
+            <p class="text-sm text-gray-300 leading-relaxed">
+                हम ईमानदारी, पूर्ण कानूनी पारदर्शिता और श्रमिक कल्याण को प्राथमिकता देते हुए कामगारों के हुनर को सही प्रोजेक्ट्स से जोड़ने का कार्य करते हैं।
+            </p>
+        </div>
+
+        <!-- Official Registration Details -->
+        <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-8 mb-8">
+            <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-certificate text-brand-blueLight"></i>
+                <span>आधिकारिक पंजीकरण विवरण</span>
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+                <div class="p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
+                    <span class="text-gray-400 block mb-1">उद्यम पंजीकरण संख्या:</span>
+                    <strong class="text-brand-red font-mono text-base">UDYAM-BR-05-0036251</strong>
+                </div>
+                <div class="p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
+                    <span class="text-gray-400 block mb-1">उद्यम का नाम:</span>
+                    <strong class="text-white">MUKESH MANPOWER</strong>
+                </div>
+                <div class="p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
+                    <span class="text-gray-400 block mb-1">उद्यम का प्रकार:</span>
+                    <strong class="text-white">Micro Enterprise (सूक्ष्म उद्यम)</strong>
+                </div>
+                <div class="p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
+                    <span class="text-gray-400 block mb-1">प्रमुख कार्य क्षेत्र:</span>
+                    <strong class="text-white">Services &amp; Construction Support</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Office & Contact Address -->
+        <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-8">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-brand-red"></i>
+                <span>कार्यालय एवं संपर्क सूत्र</span>
+            </h2>
+            <div class="space-y-3 text-sm text-gray-300">
+                <p><strong class="text-white">पता:</strong> धोबनी चौक, ग्राम: तेलिया बगीचा, प्रखंड एवं जिला: बांका, बिहार - 813104</p>
+                <p><strong class="text-white">मोबाइल / WhatsApp:</strong> +91 6379403821</p>
+                <p><strong class="text-white">ईमेल:</strong> mukeshmanpower2026@gmail.com</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-xs text-gray-500 border-t border-gray-900">
+        © 2026 MUKESH MANPOWER. Udyam Reg: UDYAM-BR-05-0036251. सर्वाधिकार सुरक्षित।
+    </footer>
+
+</body>
+      </html>
+
