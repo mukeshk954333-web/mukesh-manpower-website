@@ -384,6 +384,66 @@
     color: #FFFFFF;
 }
 
+/* Rate-Lock & Readonly State */
+input[readonly],
+.mm-input-box input[readonly] {
+    background-color: #161B22 !important;
+    cursor: not-allowed !important;
+    color: #94A3B8 !important;
+    border-color: #334155 !important;
+}
+
+/* Error Validation Styles */
+.error-msg {
+    color: #EF4444;
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+    font-weight: 500;
+}
+
+.input-error,
+.mm-input-box input.input-error,
+.mm-input-box select.input-error {
+    border-color: #EF4444 !important;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Live Quotation Summary Card */
+.mm-summary-card {
+    background-color: rgba(5, 5, 5, 0.85);
+    border: 1px solid rgba(6, 74, 145, 0.4);
+    border-radius: var(--mm-radius-md);
+    padding: 18px 20px;
+    margin: 20px 0;
+}
+
+.mm-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #CBD5E1;
+    margin-bottom: 8px;
+}
+
+.mm-summary-total {
+    border-top: 1px solid var(--mm-border-color);
+    padding-top: 12px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--mm-white);
+}
+
+.mm-summary-total strong {
+    color: var(--mm-red);
+    font-size: 18px;
+}
+
 /* Submit Button */
 .mm-client-submit {
     width: 100%;
@@ -410,6 +470,12 @@
     box-shadow: 0 12px 20px rgba(220, 0, 0, 0.4);
 }
 
+.mm-client-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
 /* WhatsApp Option Button */
 .mm-whatsapp-option {
     display: flex;
@@ -433,5 +499,5 @@
     background-color: #25D366;
     color: #FFFFFF;
     transform: translateY(-2px);
-  }
-  
+   }
+   
