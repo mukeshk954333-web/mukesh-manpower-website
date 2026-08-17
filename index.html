@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUKESH MANPOWER - मैनपॉवर एवं कंस्ट्रक्शन सर्विसेज</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-bg { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="bg-blue-800 text-white font-black text-xl px-3 py-1 rounded">MM</div>
+                <div>
+                    <h1 class="text-xl font-black text-blue-900 leading-none">MUKESH MANPOWER</h1>
+                    <span class="text-xs text-green-700 font-bold tracking-wide">MSME UDYAM CERTIFIED</span>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-6 font-semibold text-gray-700">
+                <a href="#services" class="hover:text-blue-700 transition">सेवाएं</a>
+                <a href="#client-form" class="hover:text-blue-700 transition">वर्कर्स की मांग</a>
+                <a href="#worker-form" class="hover:text-blue-700 transition">कामगार पंजीकरण</a>
+                <a href="#about" class="hover:text-blue-700 transition">हमारे बारे में</a>
+                <a href="#contact" class="hover:text-blue-700 transition">संपर्क</a>
+            </div>
+            <a href="tel:+916379403821" class="bg-blue-800 hover:bg-blue-900 text-white font-bold px-4 py-2 rounded-lg text-sm flex items-center gap-2 shadow">
+                <i class="fa-solid fa-phone"></i> <span>कॉल करें</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-16 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="inline-block bg-blue-700/60 border border-blue-400 text-blue-200 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                Reg No: UDYAM-BR-05-0036251 | Banka, Bihar
+            </span>
+            <h2 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4">
+                विश्वसनीय मैनपॉवर और कुशल कंस्ट्रक्शन सपोर्ट सॉल्यूशंस
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                MUKESH MANPOWER हर प्रकार के निर्माण कार्य, कुशल एवं अकुशल श्रमिकों की आपूर्ति और व्यावसायिक सहयोग के लिए आपकी पहली पसंद है।
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#client-form" class="bg-amber-500 hover:bg-amber-600 text-gray-950 font-bold px-6 py-3 rounded-lg text-base shadow transition">
+                    <i class="fa-solid fa-users-gear mr-2"></i> वर्कर्स की आवश्यकता है (Hire)
+                </a>
+                <a href="#worker-form" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-950 text-white font-bold px-6 py-3 rounded-lg text-base shadow transition">
+                    <i class="fa-solid fa-id-card mr-2"></i> काम / जॉब के लिए पंजीकरण
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Stats -->
+    <section class="bg-white border-b py-6">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="p-2">
+                <p class="text-2xl font-black text-blue-900">100%</p>
+                <p class="text-xs text-gray-600 font-medium">लीगल एवं रजिस्टर्ड</p>
+            </div>
+            <div class="p-2">
+                <p class="text-2xl font-black text-blue-900">24/7</p>
+                <p class="text-xs text-gray-600 font-medium">क्लाइंट सपोर्ट</p>
+            </div>
+            <div class="p-2">
+                <p class="text-2xl font-black text-blue-900">कुशल & अकुशल</p>
+                <p class="text-xs text-gray-600 font-medium">वर्कर्स नेटवर्क</p>
+            </div>
+            <div class="p-2">
+                <p class="text-2xl font-black text-blue-900">बांका, बिहार</p>
+                <p class="text-xs text-gray-600 font-medium">मुख्यालय एवं सेवा क्षेत्र</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 max-w-7xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900">हमारी प्रमुख सेवाएँ (Services)</h2>
+            <p class="text-gray-600 mt-2 text-sm md:text-base">सरकारी उद्यम पंजीकरण के अनुसार हमारी प्रमाणित व्यावसायिक सेवाएँ</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div class="w-12 h-12 bg-blue-100 text-blue-800 rounded-lg flex items-center justify-center text-xl font-bold mb-4">
+                    <i class="fa-solid fa-person-digging"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">मैनपॉवर सप्लाई</h3>
+                <p class="text-sm text-gray-600 mb-4">कुशल एवं अकुशल कामगारों की आपूर्ति:</p>
+                <ul class="text-sm text-gray-700 space-y-1 list-disc list-inside">
+                    <li>राजमिस्त्री, प्लंबर, इलेक्ट्रीशियन</li>
+                    <li>कंस्ट्रक्शन हेल्पर एवं लेबर</li>
+                    <li>अस्थायी एवं अनुबंध आधारित कर्मचारी</li>
+                </ul>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div class="w-12 h-12 bg-amber-100 text-amber-800 rounded-lg flex items-center justify-center text-xl font-bold mb-4">
+                    <i class="fa-solid fa-trowel-bricks"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">सिविल व कंस्ट्रक्शन सपोर्ट</h3>
+                <p class="text-sm text-gray-600 mb-4">निर्माण और ढांचागत परियोजनाओं के लिए:</p>
+                <ul class="text-sm text-gray-700 space-y-1 list-disc list-inside">
+                    <li>बिल्डिंग कंस्ट्रक्शन सहयोग</li>
+                    <li>साइट प्रिपरेशन, एक्सकेवेशन एवं लेबलिंग</li>
+                    <li>रोड और रेलवे प्रोजेक्ट सपोर्ट</li>
+                </ul>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div class="w-12 h-12 bg-green-100 text-green-800 rounded-lg flex items-center justify-center text-xl font-bold mb-4">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">बिजनेस एवं एडमिन सपोर्ट</h3>
+                <p class="text-sm text-gray-600 mb-4">व्यापारिक और प्रबंधकीय सहायता:</p>
+                <ul class="text-sm text-gray-700 space-y-1 list-disc list-inside">
+                    <li>ऑफिस एडमिनिस्ट्रेटिव सपोर्ट</li>
+                    <li>लोकल विज्ञापन एवं मार्केटिंग रिसर्च</li>
+                    <li>व्यावसायिक सहायता सेवाएँ</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forms Section (Two Action Forms) -->
+    <section class="bg-gray-100 py-16 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            <!-- Client Form -->
+            <div id="client-form" class="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fa-solid fa-building text-2xl text-blue-800"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900">वर्कर्स की मांग करें</h3>
+                        <p class="text-xs text-gray-500">कंपनियों और ठेकेदारों के लिए</p>
+                    </div>
+                </div>
+                <form onsubmit="handleClientSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">कंपनी / ठेकेदार का नाम *</label>
+                        <input type="text" id="client_name" required class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="आपका नाम या कंपनी">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">मोबाइल नंबर *</label>
+                        <input type="tel" id="client_phone" required class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="10 अंकों का मोबाइल नंबर">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">कार्य स्थल का स्थान (Location) *</label>
+                        <input type="text" id="client_loc" required class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="उदा. बांका, भागलपुर, या अन्य">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">काम का प्रकार</label>
+                            <select id="client_work_type" class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option>हेल्पर / अनस्किल्ड लेबर</option>
+                                <option>राजमिस्त्री (Mason)</option>
+                                <option>इलेक्ट्रीशियन / प्लंबर</option>
+                                <option>साइट एक्सकेवेशन / जेसीबी</option>
+                                <option>ऑफिस स्टाफ</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">संख्या (No. of Workers)</label>
+                            <input type="number" id="client_workers_count" min="1" class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="उदा. 5">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-800 hover:bg-blue-900 text-white font-bold py-3 rounded-lg transition shadow">
+                        मैनपॉवर रिक्वेस्ट सबमिट करें
+                    </button>
+                </form>
+            </div>
+
+            <!-- Worker Form -->
+            <div id="worker-form" class="bg-white p-8 rounded-xl shadow-md border-t-4 border-amber-500">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fa-solid fa-helmet-safety text-2xl text-amber-600"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900">कामगार पंजीकरण (Job Registration)</h3>
+                        <p class="text-xs text-gray-500">काम की तलाश कर रहे भाइयों के लिए</p>
+                    </div>
+                </div>
+                <form onsubmit="handleWorkerSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">आपका पूरा नाम *</label>
+                        <input type="text" id="worker_name" required class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-500 outline-none" placeholder="उदा. राहुल कुमार">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">मोबाइल नंबर (WhatsApp नंबर) *</label>
+                        <input type="tel" id="worker_phone" required class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-500 outline-none" placeholder="10 अंकों का फोन नंबर">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">आपका हुनर / क्या काम करते हैं? *</label>
+                        <select id="worker_skill" class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-500 outline-none">
+                            <option>हेल्पर / मजदूरी</option>
+                            <option>राजमिस्त्री (Mason)</option>
+                            <option>शटरिंग / कारपेंटर</option>
+                            <option>पेंटर / पुट्टी कारीगर</option>
+                            <option>इलेक्ट्रीशियन / प्लंबर</option>
+                            <option>ड्राइवर / ऑपरेटर</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">आपका गाँव / जिला / राज्य *</label>
+                        <input type="text" id="worker_address" required class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-500 outline-none" placeholder="उदा. बांका, बिहार">
+                    </div>
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-gray-950 font-bold py-3 rounded-lg transition shadow">
+                        अपना नाम दर्ज करें (Free Register)
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About & Legal -->
+    <section id="about" class="py-16 max-w-5xl mx-auto px-4">
+        <div class="bg-white p-8 rounded-2xl shadow-sm border">
+            <h2 class="text-2xl font-bold text-blue-900 mb-4">MUKESH MANPOWER के बारे में</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                <strong>MUKESH MANPOWER</strong> भारत सरकार के सूक्ष्म, लघु एवं मध्यम उद्यम मंत्रालय (MSME) के तहत पंजीकृत एक अधिकृत सेवा प्रदाता संस्था है। हमारा उद्देश्य ठेकेदारों, बिल्डरों और कंपनियों को समय पर योग्य और मेहनती मैनपॉवर उपलब्ध कराना तथा कुशल एवं अकुशल श्रमिकों को नियमित रोजगार के अवसर प्रदान करना है।
+            </p>
+            <div class="bg-blue-50 border-l-4 border-blue-800 p-4 rounded text-sm text-blue-950">
+                <p><strong>उद्यम पंजीकरण संख्या:</strong> UDYAM-BR-05-0036251</p>
+                <p><strong>श्रेणी:</strong> सूक्ष्म उद्यम (Micro Enterprise) | सेवा क्षेत्र (Services)</p>
+                <p><strong>मुख्यालय:</strong> धोबनी चौक, तेलिया बगीचा, बांका (बिहार) - 813104</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="bg-gray-900 text-gray-300 pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+                <h4 class="text-xl font-bold text-white mb-3">MUKESH MANPOWER</h4>
+                <p class="text-sm text-gray-400 mb-4">ईमानदारी, समयबद्धता और गुणवत्तापूर्ण सेवा हमारा आधार है।</p>
+                <p class="text-xs text-green-400 font-semibold">MSME Udyam Verified Enterprise</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-3">कार्यालय पता</h4>
+                <p class="text-sm text-gray-400">वार्ड नंबर: 5, धोबनी चौक</p>
+                <p class="text-sm text-gray-400">तेलिया बगीचा, बांका</p>
+                <p class="text-sm text-gray-400">बिहार - 813104</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-3">संपर्क सूत्र</h4>
+                <p class="text-sm text-gray-400 mb-1"><i class="fa-solid fa-envelope mr-2"></i> mukeshmanpower2026@gmail.com</p>
+                <p class="text-sm text-gray-400"><i class="fa-solid fa-phone mr-2"></i> +91 6379403821</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
+            © 2026 MUKESH MANPOWER. सर्वाधिकार सुरक्षित।
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/916379403821?text=नमस्ते,%20मुझे%20MUKESH%20MANPOWER%20की%20सेवाओं%20के%20बारे%20में%20जानकारी%20चाहिए।" 
+       target="_blank" 
+       class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-xl hover:bg-green-600 transition z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        function handleClientSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('client_name').value;
+            const phone = document.getElementById('client_phone').value;
+            const loc = document.getElementById('client_loc').value;
+            const type = document.getElementById('client_work_type').value;
+            const count = document.getElementById('client_workers_count').value;
+
+            const msg = `नमस्ते, मुझे MUKESH MANPOWER से वर्कर्स चाहिए:%0A- नाम: ${name}%0A- फोन: ${phone}%0A- स्थान: ${loc}%0A- कार्य: ${type}%0A- संख्या: ${count}`;
+            window.open(`https://wa.me/916379403821?text=${msg}`, '_blank');
+        }
+
+        function handleWorkerSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('worker_name').value;
+            const phone = document.getElementById('worker_phone').value;
+            const skill = document.getElementById('worker_skill').value;
+            const addr = document.getElementById('worker_address').value;
+
+            const msg = `नमस्ते, मैं MUKESH MANPOWER में काम के लिए पंजीकरण करना चाहता हूँ:%0A- नाम: ${name}%0A- फोन: ${phone}%0A- हुनर: ${skill}%0A- पता: ${addr}`;
+            window.open(`https://wa.me/916379403821?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+  </html>
+  
