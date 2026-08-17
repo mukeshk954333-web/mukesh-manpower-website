@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Manpower Requirement - MUKESH MANPOWER</title>
+    <title>Corporate Manpower Requirement - MUKESH MANPOWER</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Tailwind CSS -->
@@ -36,10 +36,16 @@
             }
         }
     </script>
+    <style>
+        input[type="number"]::-webkit-inner-spin-button, 
+        input[type="number"]::-webkit-outer-spin-button { opacity: 1; }
+        .error-msg { color: #ef4444; font-size: 0.75rem; margin-top: 0.25rem; display: none; }
+        .input-error { border-color: #ef4444 !important; }
+    </style>
 </head>
 <body class="bg-brand-darkBg text-white font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header class="bg-black border-b border-brand-blue/60 sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="../index.html" class="flex items-center gap-2">
@@ -52,212 +58,270 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main Container -->
     <main class="max-w-4xl mx-auto px-4 py-8 sm:py-10 w-full flex-grow">
 
+        <!-- Title -->
         <div class="text-center mb-8">
             <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-                कॉर्पोरेट मैनपॉवर मांग (Company Requirement)
+                कॉर्पोरेट मैनपॉवर मांग (Fast Booking)
             </h1>
             <p class="text-xs sm:text-sm text-gray-400 mt-2 max-w-2xl mx-auto">
-                पूरे भारत में अपने प्रोजेक्ट के लिए मिस्त्री, हेल्पर या मशीन ऑपरेटर की मांग और अपना प्रस्तावित रेट (Budget) यहाँ दर्ज करें।
+                ज्यादा लिखने की जरूरत नहीं। बस राज्य और कामगारों की संख्या चुनें, हमारा स्मार्ट कंप्यूटर तुरंत आपको लाइव एस्टीमेट दिखा देगा।
             </p>
         </div>
 
-        <!-- Form Card -->
+        <!-- Smart Form Card -->
         <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-10 shadow-2xl">
-            <form id="companyRequirementForm" class="space-y-6">
+            <form id="smartRequirementForm" class="space-y-6">
 
-                <!-- 1. Company Details -->
+                <!-- 1. Basic Info (Minimal Typing) -->
                 <div class="space-y-4">
-                    <div class="border-b border-gray-800 pb-2 text-brand-blueLight font-bold text-sm">
-                        <i class="fa-solid fa-building"></i> 1. कंपनी एवं संपर्क विवरण
+                    <div class="border-b border-gray-800 pb-2 text-brand-red font-bold text-sm">
+                        <i class="fa-solid fa-building"></i> 1. बुनियादी जानकारी
                     </div>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs text-gray-300 mb-1">कंपनी / ठेकेदार का नाम *</label>
-                            <input type="text" id="companyName" required placeholder="कंपनी का नाम" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                            <label class="block text-xs text-gray-300 mb-1">कंपनी / संस्था का नाम *</label>
+                            <input type="text" id="companyName" required placeholder="आपकी कंपनी" class="w-full bg-black border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none">
                         </div>
                         <div>
-                            <label class="block text-xs text-gray-300 mb-1">संपर्क व्यक्ति का नाम *</label>
-                            <input type="text" id="contactPerson" required placeholder="आपका नाम" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                            <label class="block text-xs text-gray-300 mb-1">संपर्क व्यक्ति (Contact Person) *</label>
+                            <input type="text" id="contactPerson" required placeholder="आपका नाम" class="w-full bg-black border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs text-gray-300 mb-1">मोबाइल नंबर (WhatsApp) *</label>
-                            <input type="tel" id="mobileNumber" required maxlength="10" placeholder="10 अंकों का मोबाइल नंबर" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                            <input type="tel" id="mobileNumber" required maxlength="10" placeholder="10 अंकों का नंबर" class="w-full bg-black border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none">
                         </div>
                         <div>
-                            <label class="block text-xs text-gray-300 mb-1">कार्यस्थल का राज्य *</label>
-                            <select id="stateSelect" required class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
-                                <option value="">-- राज्य चुनें --</option>
+                            <label class="block text-xs text-gray-300 mb-1">साइट का राज्य (State) - (रेट सेट करने के लिए) *</label>
+                            <select id="stateSelect" required onchange="applyRatesAndCalc()" class="w-full bg-black border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none cursor-pointer">
+                                <option value="">-- राज्य चुनें (Select State) --</option>
                                 <option value="Delhi">दिल्ली (NCR)</option>
-                                <option value="Maharashtra">महाराष्ट्र</option>
-                                <option value="Karnataka">कर्नाटक</option>
-                                <option value="Gujarat">गुजरात</option>
-                                <option value="Uttar Pradesh">उत्तर प्रदेश</option>
-                                <option value="Bihar">बिहार</option>
-                                <option value="Jharkhand">झारखंड</option>
-                                <option value="Punjab">पंजाब</option>
-                                <option value="Haryana">हरियाणा</option>
-                                <option value="Rajasthan">राजस्थान</option>
-                                <option value="West Bengal">पश्चिम बंगाल</option>
-                                <option value="Madhya Pradesh">मध्य प्रदेश</option>
-                                <option value="Odisha">ओडिशा</option>
-                                <option value="Chhattisgarh">छत्तीसगढ़</option>
-                                <option value="Tamil Nadu">तमिलनाडु</option>
-                                <option value="Other">अन्य राज्य</option>
+                                <option value="Haryana">हरियाणा (Haryana)</option>
+                                <option value="Punjab">पंजाब (Punjab)</option>
+                                <option value="UttarPradesh">उत्तर प्रदेश (UP)</option>
+                                <option value="Bihar">बिहार (Bihar)</option>
+                                <option value="Jharkhand">झारखंड (Jharkhand)</option>
+                                <option value="WestBengal">पश्चिम बंगाल (WB)</option>
+                                <option value="Odisha">ओडिशा (Odisha)</option>
+                                <option value="Maharashtra">महाराष्ट्र (Mumbai/Pune)</option>
+                                <option value="Gujarat">गुजरात (Gujarat)</option>
+                                <option value="Rajasthan">राजस्थान (Rajasthan)</option>
+                                <option value="MadhyaPradesh">मध्य प्रदेश (MP)</option>
+                                <option value="Karnataka">कर्नाटक (Bengaluru)</option>
+                                <option value="TamilNadu">तमिलनाडु (Chennai)</option>
+                                <option value="Telangana">तेलंगाना (Hyderabad)</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2. Manpower Requirement & Rates -->
+                <!-- 2. Select Manpower (Auto Calculator) -->
                 <div class="space-y-4">
-                    <div class="border-b border-gray-800 pb-2 text-brand-blueLight font-bold text-sm">
-                        <i class="fa-solid fa-users"></i> 2. कामगारों की आवश्यकता एवं कंपनी का रेट
+                    <div class="border-b border-gray-800 pb-2 text-brand-red font-bold text-sm flex justify-between">
+                        <span><i class="fa-solid fa-users"></i> 2. कामगारों की संख्या (Manpower Breakdown)</span>
+                        <span class="text-xs text-gray-400">रेट स्वतः जुड़ेगा</span>
                     </div>
 
-                    <!-- Mistry -->
-                    <div class="p-4 bg-black rounded-lg border border-gray-800 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs text-gray-300 mb-1">मिस्त्री (Skilled) की संख्या</label>
-                            <input type="number" id="mistryCount" min="0" placeholder="कितने मिस्त्री चाहिए?" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <!-- Helper -->
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center">
+                            <label class="block text-xs font-bold text-gray-300 mb-2">हेल्पर (Helper)</label>
+                            <input type="number" id="helperCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-center font-bold text-lg rounded-lg py-2 focus:border-brand-red outline-none">
+                            <p class="text-[10px] text-gray-500 mt-2">रेट: ₹<span id="rateH">0</span>/दिन</p>
                         </div>
-                        <div>
-                            <label class="block text-xs text-gray-300 mb-1">कंपनी द्वारा प्रस्तावित रेट (₹/दिन)</label>
-                            <input type="number" id="mistryRate" min="0" placeholder="आप क्या रेट देंगे?" class="w-full bg-brand-darkBg border border-gray-700 text-yellow-400 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
+                        
+                        <!-- Skilled -->
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center">
+                            <label class="block text-xs font-bold text-gray-300 mb-2">मिस्त्री (Skilled)</label>
+                            <input type="number" id="skilledCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-center font-bold text-lg rounded-lg py-2 focus:border-brand-red outline-none">
+                            <p class="text-[10px] text-gray-500 mt-2">रेट: ₹<span id="rateS">0</span>/दिन</p>
+                        </div>
+
+                        <!-- Operator -->
+                        <div class="bg-black p-4 rounded-lg border border-gray-800 text-center">
+                            <label class="block text-xs font-bold text-gray-300 mb-2">ऑपरेटर (Operator)</label>
+                            <input type="number" id="operatorCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-center font-bold text-lg rounded-lg py-2 focus:border-brand-red outline-none">
+                            <p class="text-[10px] text-gray-500 mt-2">रेट: ₹<span id="rateO">0</span>/दिन</p>
                         </div>
                     </div>
-
-                    <!-- Helper -->
-                    <div class="p-4 bg-black rounded-lg border border-gray-800 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs text-gray-300 mb-1">हेल्पर (Unskilled) की संख्या</label>
-                            <input type="number" id="helperCount" min="0" placeholder="कितने हेल्पर चाहिए?" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
-                        </div>
-                        <div>
-                            <label class="block text-xs text-gray-300 mb-1">कंपनी द्वारा प्रस्तावित रेट (₹/दिन)</label>
-                            <input type="number" id="helperRate" min="0" placeholder="आप क्या रेट देंगे?" class="w-full bg-brand-darkBg border border-gray-700 text-yellow-400 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
-                        </div>
-                    </div>
-
-                    <!-- Machine Operator -->
-                    <div class="p-4 bg-black rounded-lg border border-gray-800 space-y-3">
-                        <div>
-                            <label class="block text-xs text-gray-300 mb-1">कौन सी मशीन का ऑपरेटर चाहिए?</label>
-                            <input type="text" id="machineName" placeholder="उदा. JCB, Crane, Poclain..." class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs text-gray-300 mb-1">ऑपरेटर की संख्या</label>
-                                <input type="number" id="operatorCount" min="0" placeholder="कितने ऑपरेटर चाहिए?" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-xs text-gray-300 mb-1">ऑपरेटर का प्रस्तावित रेट (₹/दिन)</label>
-                                <input type="number" id="operatorRate" min="0" placeholder="आप क्या रेट देंगे?" class="w-full bg-brand-darkBg border border-gray-700 text-yellow-400 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Machine Helper -->
-                    <div class="p-4 bg-black rounded-lg border border-gray-800 space-y-3">
-                        <div>
-                            <label class="block text-xs text-gray-300 mb-1">कौन सी मशीन का हेल्पर चाहिए?</label>
-                            <input type="text" id="machineHelperName" placeholder="उदा. JCB Helper, Drill Helper..." class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs text-gray-300 mb-1">मशीन हेल्पर की संख्या</label>
-                                <input type="number" id="machineHelperCount" min="0" placeholder="कितने मशीन हेल्पर चाहिए?" class="w-full bg-brand-darkBg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-xs text-gray-300 mb-1">मशीन हेल्पर का प्रस्तावित रेट (₹/दिन)</label>
-                                <input type="number" id="machineHelperRate" min="0" placeholder="आप क्या रेट देंगे?" class="w-full bg-brand-darkBg border border-gray-700 text-yellow-400 rounded-lg px-3 py-2 text-sm focus:border-brand-red outline-none">
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
-                <!-- Submit Button -->
-                <div class="pt-4">
-                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-4 rounded-xl text-sm sm:text-base transition shadow-2xl flex items-center justify-center gap-2">
+                <!-- 3. SMART COMPUTER (Live Calculator) -->
+                <div class="bg-[#0a1128] p-5 rounded-xl border-2 border-[#1e3a8a] shadow-inner">
+                    <div class="flex items-center justify-between border-b border-gray-700 pb-2 mb-3">
+                        <span class="font-bold text-sm text-yellow-400"><i class="fa-solid fa-calculator"></i> लाइव कंप्यूटर एस्टीमेट</span>
+                        <span class="text-xs text-white bg-black px-2 py-1 rounded">कुल वर्कर: <strong id="compTotalWorkers">0</strong></span>
+                    </div>
+                    <div class="text-xs space-y-2 text-gray-300 font-mono">
+                        <div class="flex justify-between"><span>Helper:</span> <span id="compHelper">0 × ₹0 = ₹0</span></div>
+                        <div class="flex justify-between"><span>Skilled:</span> <span id="compSkilled">0 × ₹0 = ₹0</span></div>
+                        <div class="flex justify-between"><span>Operator:</span> <span id="compOperator">0 × ₹0 = ₹0</span></div>
+                    </div>
+                    <div class="border-t border-gray-700 mt-3 pt-2 flex justify-between items-center text-sm">
+                        <span class="font-bold text-white">अनुमानित दैनिक बिल (Daily Billing):</span>
+                        <span id="compSubtotal" class="font-bold text-xl text-green-400">₹0</span>
+                    </div>
+                </div>
+
+                <!-- 4. Quick Selections (Dropdowns) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-1">साइट पर रहने की सुविधा (Facility) *</label>
+                        <select id="facilitySelect" required class="w-full bg-black border border-gray-700 rounded-lg px-3 py-2.5 text-sm focus:border-brand-red outline-none cursor-pointer">
+                            <option value="कंपनी / ठेकेदार द्वारा उपलब्ध">कंपनी / ठेकेदार द्वारा उपलब्ध</option>
+                            <option value="वर्कर्स अपनी व्यवस्था स्वयं करेंगे">वर्कर्स अपनी व्यवस्था स्वयं करेंगे</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-1">पेमेंट चक्र (Payment Preference) *</label>
+                        <select id="paymentSelect" required class="w-full bg-black border border-gray-700 rounded-lg px-3 py-2.5 text-sm focus:border-brand-red outline-none cursor-pointer">
+                            <option value="महीने की 1 तारीख को (मासिक भुगतान)">महीने की 1 तारीख को (मासिक भुगतान)</option>
+                            <option value="हर 15 दिन में (पाक्षिक भुगतान)">हर 15 दिन में (पाक्षिक भुगतान)</option>
+                            <option value="हर 8 दिन में (साप्ताहिक भुगतान)">हर 8 दिन में (साप्ताहिक भुगतान)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 5. Additional Note (Customer Custom Text) -->
+                <div>
+                    <label class="block text-xs text-gray-300 mb-1">साइट का पूरा पता / अपनी मर्जी का कोई सुझाव लिखें (Additional Note)</label>
+                    <textarea id="additionalNote" rows="2" placeholder="साइट का पता, या कुछ खास बात जो आप हमें बताना चाहते हैं..." class="w-full bg-black border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none"></textarea>
+                </div>
+
+                <!-- Submit -->
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-4 rounded-xl text-sm sm:text-base transition shadow-2xl flex items-center justify-center gap-2">
                         <i class="fa-brands fa-whatsapp text-xl"></i>
-                        <span>WhatsApp पर अपनी मांग (Requirement) भेजें</span>
+                        <span>WhatsApp पर Requirement भेजें</span>
                     </button>
+                    <p class="text-center text-[10px] text-gray-500 mt-2">
+                        <i class="fa-solid fa-check-circle text-green-500"></i> सम्मिट करते ही पूरा फॉर्मेट ऑटोमैटिक बन जाएगा।
+                    </p>
                 </div>
 
             </form>
         </div>
-
     </main>
 
     <script>
-        document.getElementById('companyRequirementForm').addEventListener('submit', function(e) {
+        // State Pricing Database (Computer Logic)
+        const STATE_RATES = {
+            "Delhi": { helper: 1000, skilled: 1250, operator: 1650 },
+            "Haryana": { helper: 1000, skilled: 1250, operator: 1650 },
+            "Punjab": { helper: 875, skilled: 1185, operator: 1500 },
+            "UttarPradesh": { helper: 875, skilled: 1185, operator: 1500 },
+            "Rajasthan": { helper: 875, skilled: 1125, operator: 1500 },
+            "Bihar": { helper: 875, skilled: 1125, operator: 1500 },
+            "Jharkhand": { helper: 875, skilled: 1125, operator: 1500 },
+            "WestBengal": { helper: 875, skilled: 1185, operator: 1500 },
+            "Odisha": { helper: 875, skilled: 1125, operator: 1500 },
+            "MadhyaPradesh": { helper: 875, skilled: 1125, operator: 1500 },
+            "Chhattisgarh": { helper: 875, skilled: 1125, operator: 1500 },
+            "Maharashtra": { helper: 1065, skilled: 1500, operator: 1875 },
+            "Gujarat": { helper: 1000, skilled: 1315, operator: 1690 },
+            "Karnataka": { helper: 1250, skilled: 1750, operator: 2000 },
+            "TamilNadu": { helper: 1065, skilled: 1435, operator: 1750 },
+            "Telangana": { helper: 1065, skilled: 1435, operator: 1750 }
+        };
+
+        let currentRates = { helper: 0, skilled: 0, operator: 0 };
+
+        function applyRatesAndCalc() {
+            const st = document.getElementById('stateSelect').value;
+            if (st && STATE_RATES[st]) {
+                currentRates = STATE_RATES[st];
+            } else {
+                currentRates = { helper: 0, skilled: 0, operator: 0 };
+            }
+            // Update UI Labels
+            document.getElementById('rateH').textContent = currentRates.helper;
+            document.getElementById('rateS').textContent = currentRates.skilled;
+            document.getElementById('rateO').textContent = currentRates.operator;
+            
+            doCalc();
+        }
+
+        function doCalc() {
+            const hC = parseInt(document.getElementById('helperCount').value) || 0;
+            const sC = parseInt(document.getElementById('skilledCount').value) || 0;
+            const oC = parseInt(document.getElementById('operatorCount').value) || 0;
+
+            const hT = hC * currentRates.helper;
+            const sT = sC * currentRates.skilled;
+            const oT = oC * currentRates.operator;
+
+            const totalW = hC + sC + oC;
+            const subTotal = hT + sT + oT;
+
+            // Update Computer UI
+            document.getElementById('compTotalWorkers').textContent = totalW;
+            document.getElementById('compHelper').textContent = `${hC} × ₹${currentRates.helper} = ₹${hT.toLocaleString('en-IN')}`;
+            document.getElementById('compSkilled').textContent = `${sC} × ₹${currentRates.skilled} = ₹${sT.toLocaleString('en-IN')}`;
+            document.getElementById('compOperator').textContent = `${oC} × ₹${currentRates.operator} = ₹${oT.toLocaleString('en-IN')}`;
+            document.getElementById('compSubtotal').textContent = `₹${subTotal.toLocaleString('en-IN')}`;
+
+            return { hC, sC, oC, hR: currentRates.helper, sR: currentRates.skilled, oR: currentRates.operator, hT, sT, oT, totalW, subTotal };
+        }
+
+        document.getElementById('smartRequirementForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // 1. Get Company Details
-            const companyName = document.getElementById('companyName').value.trim();
-            const contactPerson = document.getElementById('contactPerson').value.trim();
-            const mobileNumber = document.getElementById('mobileNumber').value.trim();
-            const stateSelect = document.getElementById('stateSelect').value;
-
-            // Validation check for mobile
-            if(!/^[6-9]\d{9}$/.test(mobileNumber)) {
-                alert("कृपया सही 10-अंकीय मोबाइल नंबर दर्ज करें।");
+            const company = document.getElementById('companyName').value.trim();
+            const contact = document.getElementById('contactPerson').value.trim();
+            const mobile = document.getElementById('mobileNumber').value.trim();
+            const state = document.getElementById('stateSelect').options[document.getElementById('stateSelect').selectedIndex].text;
+            
+            if(!/^[6-9]\d{9}$/.test(mobile)) {
+                alert("कृपया 10-अंकीय सही मोबाइल नंबर दर्ज करें।");
                 return;
             }
 
-            // 2. Get Requirements & Rates
-            const mistryCount = document.getElementById('mistryCount').value || "0";
-            const mistryRate = document.getElementById('mistryRate').value || "NA";
-            
-            const helperCount = document.getElementById('helperCount').value || "0";
-            const helperRate = document.getElementById('helperRate').value || "NA";
+            const calc = doCalc();
+            if(calc.totalW === 0) {
+                alert("कृपया कम से कम एक वर्कर की संख्या दर्ज करें।");
+                return;
+            }
 
-            const machineName = document.getElementById('machineName').value || "कोई नहीं";
-            const operatorCount = document.getElementById('operatorCount').value || "0";
-            const operatorRate = document.getElementById('operatorRate').value || "NA";
+            const facility = document.getElementById('facilitySelect').value;
+            const payment = document.getElementById('paymentSelect').value;
+            let note = document.getElementById('additionalNote').value.trim();
+            if(!note) note = "N/A";
 
-            const machineHelperName = document.getElementById('machineHelperName').value || "कोई नहीं";
-            const machineHelperCount = document.getElementById('machineHelperCount').value || "0";
-            const machineHelperRate = document.getElementById('machineHelperRate').value || "NA";
+            // Generate Requirement ID
+            const reqId = "MM-" + new Date().getFullYear() + String(new Date().getMonth()+1).padStart(2,'0') + String(new Date().getDate()).padStart(2,'0') + "-" + Math.floor(1000 + Math.random() * 9000);
 
-            // 3. Format Message for WhatsApp
-            const message = `🏢 *COMPANY MANPOWER REQUIREMENT*\n\n` +
-                `*Company:* ${companyName}\n` +
-                `*Contact Person:* ${contactPerson}\n` +
-                `*Mobile:* ${mobileNumber}\n` +
-                `*Work State:* ${stateSelect}\n\n` +
-                `------------------------\n` +
-                `*REQUIREMENT & PROPOSED RATES*\n` +
-                `------------------------\n` +
-                `*1. Mistry (Skilled):*\n` +
-                `   - Quantity: ${mistryCount}\n` +
-                `   - Proposed Rate: ₹${mistryRate}/day\n\n` +
-                `*2. Normal Helper:*\n` +
-                `   - Quantity: ${helperCount}\n` +
-                `   - Proposed Rate: ₹${helperRate}/day\n\n` +
-                `*3. Machine Operator:*\n` +
-                `   - Machine: ${machineName}\n` +
-                `   - Quantity: ${operatorCount}\n` +
-                `   - Proposed Rate: ₹${operatorRate}/day\n\n` +
-                `*4. Machine Helper:*\n` +
-                `   - Machine: ${machineHelperName}\n` +
-                `   - Quantity: ${machineHelperCount}\n` +
-                `   - Proposed Rate: ₹${machineHelperRate}/day\n\n` +
-                `_Sent via Mukesh Manpower Website_`;
+            // Exactly matching the user's WhatsApp formatting
+            const message = `📋 *MUKESH MANPOWER*\n*NEW MANPOWER REQUIREMENT*\n\n` +
+                `*Requirement ID:* ${reqId}\n` +
+                `*Company:* ${company}\n` +
+                `*Contact Person:* ${contact}\n` +
+                `*Mobile:* ${mobile}\n` +
+                `*State:* ${state}\n` +
+                `*Site Address:* As per Note\n\n` +
+                `--------------------------------\n` +
+                `*MANPOWER BREAKDOWN*\n` +
+                `--------------------------------\n` +
+                `*Helper:* ${calc.hC} × ₹${calc.hR} = ₹${calc.hT.toLocaleString('en-IN')}\n` +
+                `*Skilled:* ${calc.sC} × ₹${calc.sR} = ₹${calc.sT.toLocaleString('en-IN')}\n` +
+                `*Operator:* ${calc.oC} × ₹${calc.oR} = ₹${calc.oT.toLocaleString('en-IN')}\n\n` +
+                `*Total Workers:* ${calc.totalW}\n` +
+                `*Estimated Daily Billing:* ₹${calc.subTotal.toLocaleString('en-IN')}\n` +
+                `*GST:* Applicable as per law\n` +
+                `*Payment Preference:* ${payment}\n` +
+                `*Facility:* ${facility}\n` +
+                `*Additional Note:* ${note}\n\n` +
+                `--------------------------------\n` +
+                `*Consent:* Confirmed (Contact Authorized)\n\n` +
+                `*MUKESH MANPOWER*\n_Right People. Right Place. Right Time._`;
 
-            // 4. Encode and Send
-            const whatsappNumber = "916379403821"; 
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-            
-            window.open(whatsappURL, '_blank');
+            const encodedMsg = encodeURIComponent(message);
+            window.open(`https://wa.me/916379403821?text=${encodedMsg}`, '_blank');
         });
     </script>
 </body>
