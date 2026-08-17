@@ -126,7 +126,7 @@
                     </div>
                 </div>
 
-                <!-- 2. Select Manpower & Budget -->
+                <!-- 2. Select Manpower & Budget (With Active oninput & onkeyup triggers) -->
                 <div class="space-y-4">
                     <div class="border-b border-gray-800 pb-2 text-brand-red font-bold text-sm">
                         <i class="fa-solid fa-users"></i> 2. कामगारों की संख्या एवं आपका प्रस्तावित रेट (Budget)
@@ -139,11 +139,11 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="helperCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="helperCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="helperRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="helperRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" onkeyup="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
@@ -154,11 +154,11 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="skilledCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="skilledCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="skilledRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="skilledRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" onkeyup="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
@@ -169,11 +169,11 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="operatorCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="operatorCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="operatorRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="operatorRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" onkeyup="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
@@ -286,19 +286,14 @@
             document.getElementById('compOperator').textContent = `${oC} × ₹${oR} = ₹${oT.toLocaleString('en-IN')}`;
             document.getElementById('compSubtotal').textContent = `₹${subTotal.toLocaleString('en-IN')}`;
 
-            document.getElementById('otH').textContent = `₹${otHelper}`;
-            document.getElementById('otS').textContent = `₹${otSkilled}`;
-            document.getElementById('otO').textContent = `₹${otOperator}`;
+            document.getElementById('otH').textContent = `₹${isNaN(otHelper) ? 0 : otHelper}`;
+            document.getElementById('otS').textContent = `₹${isNaN(otSkilled) ? 0 : otSkilled}`;
+            document.getElementById('otO').textContent = `₹${isNaN(otOperator) ? 0 : otOperator}`;
 
-            return { hC, sC, oC, hR, sR, oR, hT, sT, oT, totalW, subTotal, otHelper, otSkilled, otOperator };
+            return { hC, sC, oC, hR, sR, oR, hT, sT, oT, totalW, subTotal, otHelper: isNaN(otHelper)?0:otHelper, otSkilled: isNaN(otSkilled)?0:otSkilled, otOperator: isNaN(otOperator)?0:otOperator };
         }
 
         document.getElementById('smartRequirementForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Reset UI Errors
-            document.querySelectorAll(".error-msg").forEach(el => el.style.display = "none");
-            document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
-
-            let isValid = true;
-            const company = document.getElementById('co
+    
