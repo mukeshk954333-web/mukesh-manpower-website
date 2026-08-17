@@ -1,5 +1,5 @@
 <!-- ==========================================
-     MUKESH MANPOWER - CLIENT REQUIREMENT
+     MUKESH MANPOWER - CLIENT REQUIREMENT & AGREEMENT
      File: pages/client-requirement.html
      ========================================== -->
 
@@ -8,230 +8,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manpower Requirement - MUKESH MANPOWER</title>
+    <title>Manpower Agreement & Requirement - MUKESH MANPOWER</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="../css/client-requirement.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#DC0000',
+                            redDark: '#A80000',
+                            blue: '#002D60',
+                            blueLight: '#064A91',
+                            black: '#000000',
+                            darkBg: '#050505',
+                            cardDark: '#0D1117',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Teko"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="bg-brand-darkBg text-white font-sans antialiased min-h-screen">
 
-<section id="client-requirement" class="mm-client-section">
-    <div class="mm-client-container">
+    <!-- Navigation Header -->
+    <header class="bg-brand-black border-b border-brand-blue/60 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-2">
+                <span class="font-display text-2xl font-bold tracking-wider text-white">MUKESH</span>
+                <span class="font-display text-2xl font-bold tracking-wider text-brand-red">MANPOWER</span>
+            </a>
+            <a href="../index.html" class="text-xs font-bold bg-brand-cardDark hover:bg-brand-blue text-gray-200 px-3.5 py-2 rounded-lg border border-brand-blue transition">
+                <i class="fa-solid fa-arrow-left mr-1.5"></i> मुख्य पृष्ठ
+            </a>
+        </div>
+    </header>
 
-        <!-- Section Header -->
-        <div class="mm-client-header">
-            <div class="mm-client-badge">
-                <span class="mm-client-badge-dot"></span>
-                <span>कंपनी एवं कॉन्ट्रैक्टर के लिए</span>
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-10">
+
+        <!-- Title Banner -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-2 bg-brand-cardDark border border-brand-red/40 px-3 py-1 rounded-full text-xs text-brand-red font-bold uppercase mb-3">
+                <i class="fa-solid fa-file-contract"></i>
+                <span>Corporate & Contractor Requirement Form</span>
             </div>
-            <h2 class="mm-client-title">
-                अपनी <span>Manpower Requirement</span> भेजें
-            </h2>
-            <div class="mm-client-divider">
-                <span></span>
-                <i class="fa-solid fa-building"></i>
-                <span></span>
-            </div>
-            <p class="mm-client-subtitle">
-                आपकी आवश्यकता के अनुसार Skilled, Unskilled, Construction, Industrial एवं Support Staff उपलब्ध कराएं।
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-white">
+                मैनपॉवर आपूर्ति अनुबंध एवं मांग पत्र
+            </h1>
+            <p class="text-xs sm:text-sm text-gray-400 mt-2 max-w-2xl mx-auto">
+                कंपनियों एवं ठेकेदारों के लिए आधिकारिक मांग पत्र। कृपया मिस्त्री एवं हेल्पर की संख्या व भुगतान का समय दर्ज करें।
             </p>
         </div>
 
-        <!-- Main Content -->
-        <div class="mm-client-grid">
+        <!-- Form Card -->
+        <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-10 shadow-2xl">
+            <form id="corporateRequirementForm" class="space-y-6">
 
-            <!-- LEFT: Information -->
-            <div class="mm-client-info">
-                <div class="mm-client-info-head">
-                    <div class="mm-client-info-icon">
+                <!-- 1. Company Information -->
+                <div class="space-y-4">
+                    <div class="border-b border-gray-800 pb-2 flex items-center gap-2 text-brand-blueLight font-bold text-sm">
+                        <i class="fa-solid fa-building"></i>
+                        <span>1. कंपनी एवं संपर्क विवरण</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">कंपनी / फर्म / ठेकेदार का नाम *</label>
+                            <input type="text" id="companyName" required placeholder="कंपनी या फर्म का नाम लिखें" class="w-full bg-brand-darkBg border border-gray-800 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">मोबाइल नंबर (WhatsApp) *</label>
+                            <input type="tel" id="clientPhone" required maxlength="10" placeholder="10 अंकों का फोन नंबर" class="w-full bg-brand-darkBg border border-gray-800 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Manpower Breakdown -->
+                <div class="space-y-4">
+                    <div class="border-b border-gray-800 pb-2 flex items-center gap-2 text-brand-red font-bold text-sm">
                         <i class="fa-solid fa-users-gear"></i>
+                        <span>2. कामगारों की संख्या (मिस्त्री एवं हेल्पर)</span>
                     </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">मिस्त्री की संख्या (Skilled Mason / Carpenter) *</label>
+                            <input type="number" id="skilledCount" required min="0" placeholder="उदा. 10" class="w-full bg-brand-darkBg border border-gray-800 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">हेल्पर की संख्या (Unskilled Labour / Helper) *</label>
+                            <input type="number" id="helperCount" required min="0" placeholder="उदा. 25" class="w-full bg-brand-darkBg border border-gray-800 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none">
+                        </div>
+                    </div>
+
                     <div>
-                        <h3>आपको कितने Workers चाहिए?</h3>
-                        <p>अपनी आवश्यकता हमें बताएं</p>
+                        <label class="block text-xs font-semibold text-gray-300 mb-1">काम का क्षेत्र / Category *</label>
+                        <select id="workerCategory" required class="w-full bg-brand-darkBg border border-gray-800 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none">
+                            <option value="Civil & High Rise Construction">सिविल एवं बिल्डिंग कंस्ट्रक्शन (Civil Work)</option>
+                            <option value="Road, Highway & Bridge">सड़क, हाईवे एवं पुल निर्माण (Road/Bridge)</option>
+                            <option value="Factory & Industrial Plant">फैक्ट्री एवं इंडस्ट्रियल प्लांट (Factory/Plant)</option>
+                            <option value="Warehouse & Logistics">गोदाम एवं लोडिंग/अनलोडिंग (Warehouse)</option>
+                            <option value="Electrical & MEP Works">इलेक्ट्रिकल एवं प्लंबिंग (MEP Work)</option>
+                        </select>
                     </div>
                 </div>
 
-                <!-- Requirement Points -->
-                <div class="mm-requirement-points">
-                    <div class="mm-requirement-item">
-                        <div class="mm-requirement-icon">
-                            <i class="fa-solid fa-user-check"></i>
-                        </div>
-                        <div>
-                            <h4>Verified Manpower</h4>
-                            <p>आवश्यकता के अनुसार कामगार उपलब्ध कराने का प्रयास।</p>
-                        </div>
+                <!-- 3. Site & Payment Terms -->
+                <div class="space-y-4">
+                    <div class="border-b border-gray-800 pb-2 flex items-center gap-2 text-brand-blueLight font-bold text-sm">
+                        <i class="fa-solid fa-handshake"></i>
+                        <span>3. कार्यस्थल एवं भुगतान की शर्तें (Payment Terms)</span>
                     </div>
 
-                    <div class="mm-requirement-item">
-                        <div class="mm-requirement-icon">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <div>
-                            <h4>Quick Response</h4>
-                            <p>आपकी requirement मिलने के बाद शीघ्र संपर्क।</p>
-                        </div>
-                    </div>
-
-                    <div class="mm-requirement-item">
-                        <div class="mm-requirement-icon">
-                            <i class="fa-solid fa-helmet-safety"></i>
-                        </div>
-                        <div>
-                            <h4>Multiple Categories</h4>
-                            <p>Construction, Factory, Warehouse एवं अन्य manpower।</p>
-                        </div>
-                    </div>
-
-                    <div class="mm-requirement-item">
-                        <div class="mm-requirement-icon">
-                            <i class="fa-solid fa-file-contract"></i>
-                        </div>
-                        <div>
-                            <h4>Professional Process</h4>
-                            <p>Requirement के अनुसार manpower planning और coordination।</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Direct Contact -->
-                <div class="mm-client-direct">
                     <div>
-                        <span>तुरंत बात करें</span>
-                        <strong>+91 6379403821</strong>
+                        <label class="block text-xs font-semibold text-gray-300 mb-1">कार्यस्थल का पता (Work Location) *</label>
+                        <input type="text" id="workLocation" required placeholder="प्रोजेक्ट साइट, शहर एवं राज्य" class="w-full bg-brand-darkBg border border-gray-800 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none">
                     </div>
-                    <a href="tel:+916379403821">
-                        <i class="fa-solid fa-phone"></i>
-                        Call Now
-                    </a>
-                </div>
-            </div>
 
-            <!-- RIGHT: Requirement Form -->
-            <div class="mm-client-form-card">
-                <div class="mm-form-heading">
-                    <div>
-                        <h3>Worker Requirement Form</h3>
-                        <p>नीचे अपनी आवश्यकता भरें</p>
-                    </div>
-                    <span class="mm-form-status">
-                        <i class="fa-solid fa-circle"></i>
-                        ACTIVE
-                    </span>
-                </div>
-
-                <form id="clientRequirementForm">
-                    <!-- Company Name -->
-                    <div class="mm-form-group">
-                        <label>कंपनी / कॉन्ट्रैक्टर का नाम</label>
-                        <div class="mm-input-box">
-                            <i class="fa-solid fa-building"></i>
-                            <input type="text" id="companyName" name="companyName" placeholder="कंपनी का नाम लिखें" required>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">भुगतान का समय (Payment Settlement) *</label>
+                            <select id="paymentCycle" required class="w-full bg-brand-darkBg border border-gray-800 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none">
+                                <option value="हर 8 दिन में (साप्ताहिक भुगतान)">हर 8 दिन में (साप्ताहिक भुगतान)</option>
+                                <option value="हर 15 दिन में (पाक्षिक भुगतान)">हर 15 दिन में (पाक्षिक भुगतान)</option>
+                                <option value="महीने की 1 तारीख को (मासिक भुगतान)">महीने की 1 तारीख को (मासिक भुगतान)</option>
+                            </select>
                         </div>
-                    </div>
-
-                    <!-- Contact & Workers Count -->
-                    <div class="mm-form-row">
-                        <div class="mm-form-group">
-                            <label>मोबाइल नंबर</label>
-                            <div class="mm-input-box">
-                                <i class="fa-solid fa-phone"></i>
-                                <input type="tel" id="clientPhone" name="clientPhone" placeholder="10 अंकों का नंबर" maxlength="10" required>
-                            </div>
-                        </div>
-
-                        <div class="mm-form-group">
-                            <label>Workers की संख्या</label>
-                            <div class="mm-input-box">
-                                <i class="fa-solid fa-users"></i>
-                                <input type="number" id="workerCount" name="workerCount" placeholder="जैसे 20" min="1" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Worker Category -->
-                    <div class="mm-form-group">
-                        <label>Manpower Category</label>
-                        <div class="mm-input-box">
-                            <i class="fa-solid fa-helmet-safety"></i>
-                            <select id="workerCategory" name="workerCategory" required>
-                                <option value="">Category चुनें</option>
-                                <option value="Skilled Manpower">Skilled Manpower</option>
-                                <option value="Unskilled Labour">Unskilled Labour</option>
-                                <option value="Construction Workers">Construction Workers</option>
-                                <option value="Machine Operators">Machine Operators</option>
-                                <option value="Industrial Manpower">Industrial Manpower</option>
-                                <option value="Office & Support Staff">Office & Support Staff</option>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">रहने एवं भोजन की व्यवस्था *</label>
+                            <select id="facility" required class="w-full bg-brand-darkBg border border-gray-800 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none">
+                                <option value="कंपनी द्वारा प्रदान की जाएगी">कंपनी / ठेकेदार द्वारा उपलब्ध</option>
+                                <option value="वर्कर्स अपनी व्यवस्था स्वयं करेंगे">वर्कर्स अपनी व्यवस्था स्वयं करेंगे</option>
                             </select>
                         </div>
                     </div>
 
-                    <!-- Location -->
-                    <div class="mm-form-group">
-                        <label>Work Location</label>
-                        <div class="mm-input-box">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <input type="text" id="workLocation" name="workLocation" placeholder="काम की जगह / शहर" required>
-                        </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 mb-1">अतिरिक्त विवरण (Optional)</label>
+                        <textarea id="requirementMessage" rows="3" placeholder="साइट के विशेष नियम, टूल्स या अन्य कोई आवश्यकता..." class="w-full bg-brand-darkBg border border-gray-800 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none"></textarea>
                     </div>
+                </div>
 
-                    <!-- Requirement Details -->
-                    <div class="mm-form-group">
-                        <label>आपकी आवश्यकता</label>
-                        <textarea id="requirementMessage" name="requirementMessage" rows="4" placeholder="उदाहरण: 10 राजमिस्त्री, 20 हेल्पर और 2 JCB ऑपरेटर चाहिए..."></textarea>
-                    </div>
+                <!-- 4. Mandatory Agreement Declaration -->
+                <div class="p-4 bg-brand-darkBg rounded-xl border border-gray-800 space-y-2">
+                    <label class="flex items-start gap-2.5 cursor-pointer">
+                        <input type="checkbox" required checked disabled class="mt-1 accent-brand-red">
+                        <span class="text-xs text-gray-300 leading-relaxed">
+                            हम पुष्टि करते हैं कि साइट पर सुरक्षा उपकरण और तय समय पर भुगतान <strong>MUKESH MANPOWER (MSME Reg: UDYAM-BR-05-0036251)</strong> के नियमों के अनुसार प्रदान किया जाएगा।
+                        </span>
+                    </label>
+                </div>
 
-                    <!-- Submit -->
-                    <button type="submit" class="mm-client-submit">
+                <!-- Submit Button -->
+                <div class="space-y-3 pt-2">
+                    <button type="submit" class="w-full bg-brand-red hover:bg-brand-redDark text-white font-extrabold py-3.5 rounded-xl text-sm transition shadow-xl flex items-center justify-center gap-2">
                         <i class="fa-solid fa-paper-plane"></i>
-                        <span>Requirement भेजें</span>
+                        <span>मांग पत्र एवं एग्रीमेंट सबमिट करें</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>
+                </div>
 
-                    <!-- WhatsApp Alternative -->
-                    <a href="https://wa.me/916379403821?text=नमस्ते%20MUKESH%20MANPOWER,%20मुझे%20Workers%20की%20आवश्यकता%20है।" target="_blank" class="mm-whatsapp-option">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        WhatsApp पर Requirement भेजें
-                    </a>
-                </form>
-            </div>
-
+            </form>
         </div>
-    </div>
-</section>
 
-<!-- Direct WhatsApp Automation Script -->
-<script>
-    document.getElementById("clientRequirementForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-        const company = document.getElementById("companyName").value.trim();
-        const phone = document.getElementById("clientPhone").value.trim();
-        const count = document.getElementById("workerCount").value.trim();
-        const category = document.getElementById("workerCategory").value;
-        const location = document.getElementById("workLocation").value.trim();
-        const msg = document.getElementById("requirementMessage").value.trim();
+    </main>
 
-        const waText = `*MUKESH MANPOWER - नई क्लाइंट रिक्वायरमेंट*%0A` +
-            `🏢 *कंपनी/नाम:* ${company}%0A` +
-            `📞 *फोन:* ${phone}%0A` +
-            `👥 *वर्कर्स संख्या:* ${count}%0A` +
-            `🗂️ *कैटेगरी:* ${category}%0A` +
-            `📍 *लोकेशन:* ${location}%0A` +
-            `📝 *विवरण:* ${msg || "कोई नहीं"}`;
+    <!-- Footer -->
+    <footer class="text-center py-6 text-xs text-gray-500 border-t border-gray-900">
+        © 2026 MUKESH MANPOWER. Udyam Reg: UDYAM-BR-05-0036251. सर्वाधिकार सुरक्षित।
+    </footer>
 
-        window.open(`https://wa.me/916379403821?text=${waText}`, "_blank");
-    });
-</script>
+    <!-- Direct WhatsApp Automation Script -->
+    <script>
+        document.getElementById("corporateRequirementForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const company = document.getElementById("companyName").value.trim();
+            const phone = document.getElementById("clientPhone").value.trim();
+            const skilled = document.getElementById("skilledCount").value.trim();
+            const helper = document.getElementById("helperCount").value.trim();
+            const category = document.getElementById("workerCategory").value;
+            const location = document.getElementById("workLocation").value.trim();
+            const payment = document.getElementById("paymentCycle").value;
+            const facility = document.getElementById("facility").value;
+            const msg = document.getElementById("requirementMessage").value.trim() || "कोई नहीं";
+
+            const total = (Number(skilled) || 0) + (Number(helper) || 0);
+
+            const waText = `*📋 MUKESH MANPOWER - नई क्लाइंट रिक्वायरमेंट व एग्रीमेंट*%0A%0A` +
+                `🏢 *कंपनी/फर्म:* ${company}%0A` +
+                `📞 *फोन नंबर:* ${phone}%0A%0A` +
+                `*👥 कुल मैनपॉवर मांग: ${total} Workers*%0A` +
+                `▪️ *मिस्त्री (Skilled):* ${skilled}%0A` +
+                `▪️ *हेल्पर (Labour):* ${helper}%0A` +
+                `🗂️ *कैटेगरी:* ${category}%0A` +
+                `📍 *लोकेशन:* ${location}%0A%0A` +
+                `*💰 भुगतान व सुविधाएं:*%0A` +
+                `⏱️ *पेमेंट चक्र:* ${payment}%0A` +
+                `🏠 *रहना/खाना:* ${facility}%0A` +
+                `📝 *विवरण:* ${msg}%0A%0A` +
+                `✅ *शर्तें:* क्लाइंट द्वारा सुरक्षा एवं समय पर भुगतान स्वीकृत।`;
+
+            window.open(`https://wa.me/916379403821?text=${waText}`, "_blank");
+        });
+    </script>
 
 </body>
-  </html>
-  
+                             </html>
+                             
