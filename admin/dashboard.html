@@ -1,0 +1,170 @@
+<!-- ==========================================
+     MUKESH MANPOWER - ADMIN DASHBOARD
+     File: admin/dashboard.html
+     ========================================== -->
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MUKESH MANPOWER</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#DC0000',
+                            redDark: '#A80000',
+                            blue: '#002D60',
+                            blueLight: '#064A91',
+                            black: '#000000',
+                            darkBg: '#050505',
+                            cardDark: '#0D1117',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Teko"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-darkBg text-white font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Top Admin Header -->
+    <header class="bg-brand-black border-b border-brand-blue/60 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="font-display text-2xl font-bold tracking-wider text-white">MUKESH</span>
+                <span class="font-display text-2xl font-bold tracking-wider text-brand-red">MANPOWER</span>
+                <span class="text-[10px] font-bold bg-brand-blue text-white px-2 py-0.5 rounded border border-brand-blueLight hidden sm:inline">ADMIN PANEL</span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <a href="../index.html" class="text-xs text-gray-300 hover:text-white px-3 py-1.5 rounded-lg border border-gray-800 hover:border-brand-blue transition">
+                    <i class="fa-solid fa-globe mr-1"></i> वेबसाइट देखें
+                </a>
+                <a href="login.html" class="text-xs font-bold bg-brand-red hover:bg-brand-redDark text-white px-3.5 py-1.5 rounded-lg transition">
+                    <i class="fa-solid fa-power-off mr-1"></i> लॉगआउट
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Body -->
+    <main class="max-w-7xl mx-auto px-4 py-8 flex-1 w-full space-y-8">
+        
+        <!-- Welcome Banner -->
+        <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-xl">
+            <div>
+                <h1 class="text-2xl font-bold text-white">डैशबोर्ड ओवरव्यू</h1>
+                <p class="text-xs text-gray-400 mt-1">MUKESH MANPOWER प्रबंधन एवं डेटा कंट्रोल</p>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+                <span class="text-xs font-mono text-gray-300">सिस्टम एक्टिव</span>
+            </div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            
+            <!-- Metric 1 -->
+            <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-brand-blue/30 border border-brand-blueLight text-brand-blueLight flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-building-user"></i>
+                    </div>
+                    <a href="clients.html" class="text-xs text-brand-blueLight hover:underline font-semibold">देखें →</a>
+                </div>
+                <span class="text-xs text-gray-400 block">कुल क्लाइंट मांग (Clients)</span>
+                <strong class="text-2xl font-bold text-white mt-1 block">0</strong>
+            </div>
+
+            <!-- Metric 2 -->
+            <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-brand-red/20 border border-brand-red/40 text-brand-red flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <a href="workers.html" class="text-xs text-brand-red hover:underline font-semibold">देखें →</a>
+                </div>
+                <span class="text-xs text-gray-400 block">पंजीकृत कामगार (Workers)</span>
+                <strong class="text-2xl font-bold text-white mt-1 block">0</strong>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-green-500/20 border border-green-500/30 text-green-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <span class="text-xs text-gray-400">सत्यापित</span>
+                </div>
+                <span class="text-xs text-gray-400 block">MSME उद्यम स्थिति</span>
+                <strong class="text-base font-mono text-green-400 mt-1 block">ACTIVE</strong>
+            </div>
+
+        </div>
+
+        <!-- Direct Navigation Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <a href="clients.html" class="bg-brand-cardDark hover:border-brand-blueLight border border-gray-800 rounded-2xl p-6 transition group block">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-brand-blue text-white flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white group-hover:text-brand-blueLight transition">क्लाइंट रिक्वायरमेंट्स रिकॉर्ड</h3>
+                            <p class="text-xs text-gray-400 mt-0.5">कंपनियों द्वारा भेजी गई मैनपॉवर मांग की सूची</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-gray-500 group-hover:text-white transition"></i>
+                </div>
+            </a>
+
+            <a href="workers.html" class="bg-brand-cardDark hover:border-brand-red border border-gray-800 rounded-2xl p-6 transition group block">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-brand-red text-white flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-id-card"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white group-hover:text-brand-red transition">कामगार डेटाबेस</h3>
+                            <p class="text-xs text-gray-400 mt-0.5">जॉब के लिए पंजीकृत श्रमिकों की सूची व हुनर</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-gray-500 group-hover:text-white transition"></i>
+                </div>
+            </a>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 text-xs text-gray-600 border-t border-gray-900">
+        © 2026 MUKESH MANPOWER • Admin Management Console
+    </footer>
+
+</body>
+  </html>
+                                                                                                         
