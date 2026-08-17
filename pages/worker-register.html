@@ -1,0 +1,246 @@
+<!-- ==========================================
+     MUKESH MANPOWER - WORKER REGISTRATION
+     File: pages/worker-register.html
+     ========================================== -->
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>कामगार पंजीकरण - MUKESH MANPOWER</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS Link (Relative path to css folder) -->
+    <link rel="stylesheet" href="../css/worker-register.css">
+</head>
+<body>
+
+<section id="worker-register" class="mm-worker-section">
+    <div class="mm-worker-container">
+
+        <!-- Section Header -->
+        <div class="mm-worker-header">
+            <div class="mm-worker-badge">
+                <span class="mm-worker-dot"></span>
+                काम की तलाश है?
+            </div>
+            <h2 class="mm-worker-title">
+                कामगार पंजीकरण
+            </h2>
+            <div class="mm-worker-divider">
+                <span></span>
+                <i class="fa-solid fa-id-card"></i>
+                <span></span>
+            </div>
+            <p class="mm-worker-subtitle">
+                अपना विवरण दर्ज करें और MUKESH MANPOWER के साथ रोजगार के अवसरों से जुड़ें।
+            </p>
+        </div>
+
+        <!-- Main Registration Layout -->
+        <div class="mm-worker-layout">
+
+            <!-- Left Information Panel -->
+            <div class="mm-worker-info">
+                <div class="mm-worker-info-content">
+                    <span class="mm-info-small">MUKESH MANPOWER</span>
+                    <h3>आपके हुनर को <span>सही काम</span> से जोड़ना हमारा लक्ष्य है।</h3>
+                    <p>
+                        यदि आप Skilled, Semi-Skilled या Unskilled Worker हैं, तो अपना विवरण हमारे पास दर्ज करें। आपकी योग्यता और अनुभव के अनुसार उपलब्ध रोजगार अवसरों की जानकारी दी जाएगी।
+                    </p>
+
+                    <!-- Benefits -->
+                    <div class="mm-worker-benefits">
+                        <div class="mm-benefit">
+                            <div class="mm-benefit-icon">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <div>
+                                <strong>प्रोफाइल रजिस्ट्रेशन</strong>
+                                <small>अपनी जानकारी हमारे रिकॉर्ड में दर्ज करें</small>
+                            </div>
+                        </div>
+
+                        <div class="mm-benefit">
+                            <div class="mm-benefit-icon">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <div>
+                                <strong>रोजगार अवसर</strong>
+                                <small>उपलब्ध काम के अनुसार सीधा संपर्क</small>
+                            </div>
+                        </div>
+
+                        <div class="mm-benefit">
+                            <div class="mm-benefit-icon">
+                                <i class="fa-solid fa-phone-volume"></i>
+                            </div>
+                            <div>
+                                <strong>सीधा संपर्क</strong>
+                                <small>जरूरत पड़ने पर तुरंत WhatsApp/कॉल</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Form Card -->
+            <div class="mm-worker-form-card">
+                <div class="mm-form-heading">
+                    <div>
+                        <span>JOB REGISTRATION</span>
+                        <h3>अपनी जानकारी भरें</h3>
+                    </div>
+                    <div class="mm-form-icon">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                </div>
+
+                <form id="workerRegistrationForm">
+                    <!-- Full Name -->
+                    <div class="mm-form-group">
+                        <label for="workerName">पूरा नाम <span>*</span></label>
+                        <div class="mm-input-box">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="workerName" name="workerName" placeholder="अपना पूरा नाम लिखें" required>
+                        </div>
+                    </div>
+
+                    <!-- Mobile -->
+                    <div class="mm-form-group">
+                        <label for="workerMobile">मोबाइल नंबर <span>*</span></label>
+                        <div class="mm-input-box">
+                            <i class="fa-solid fa-phone"></i>
+                            <input type="tel" id="workerMobile" name="workerMobile" placeholder="10 अंकों का मोबाइल नंबर" maxlength="10" required>
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="mm-form-group">
+                        <label for="workerLocation">वर्तमान स्थान (गाँव / जिला / राज्य) <span>*</span></label>
+                        <div class="mm-input-box">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <input type="text" id="workerLocation" name="workerLocation" placeholder="जैसे: बांका, बिहार" required>
+                        </div>
+                    </div>
+
+                    <!-- Work Category -->
+                    <div class="mm-form-group">
+                        <label for="workerSkill">आपका काम / Skill <span>*</span></label>
+                        <div class="mm-input-box">
+                            <i class="fa-solid fa-helmet-safety"></i>
+                            <select id="workerSkill" name="workerSkill" required>
+                                <option value="">अपना काम चुनें</option>
+                                <option value="राजमिस्त्री / Mason">राजमिस्त्री / Mason</option>
+                                <option value="कारपेंटर / Carpenter">कारपेंटर / Carpenter</option>
+                                <option value="प्लंबर / Plumber">प्लंबर / Plumber</option>
+                                <option value="इलेक्ट्रीशियन / Electrician">इलेक्ट्रीशियन / Electrician</option>
+                                <option value="पेंटर / Painter">पेंटर / Painter</option>
+                                <option value="वेल्डर / Welder">वेल्डर / Welder</option>
+                                <option value="JCB Operator">JCB Operator</option>
+                                <option value="Excavator Operator">Excavator Operator</option>
+                                <option value="ड्राइवर / Driver">ड्राइवर / Driver</option>
+                                <option value="Construction Helper">Construction Helper</option>
+                                <option value="सामान्य मजदूर">सामान्य मजदूर / General Labour</option>
+                                <option value="Factory Worker">Factory Worker</option>
+                                <option value="Warehouse Worker">Warehouse Worker</option>
+                                <option value="अन्य">अन्य</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Experience & Age -->
+                    <div class="mm-form-row">
+                        <div class="mm-form-group">
+                            <label for="workerExperience">अनुभव</label>
+                            <div class="mm-input-box">
+                                <i class="fa-solid fa-clock"></i>
+                                <select id="workerExperience" name="workerExperience">
+                                    <option value="">अनुभव चुनें</option>
+                                    <option value="Fresher">Fresher (नया)</option>
+                                    <option value="1-2 वर्ष">1–2 वर्ष</option>
+                                    <option value="3-5 वर्ष">3–5 वर्ष</option>
+                                    <option value="5-10 वर्ष">5–10 वर्ष</option>
+                                    <option value="10+ वर्ष">10+ वर्ष</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mm-form-group">
+                            <label for="workerAge">उम्र</label>
+                            <div class="mm-input-box">
+                                <i class="fa-solid fa-calendar"></i>
+                                <input type="number" id="workerAge" name="workerAge" placeholder="उम्र" min="18" max="65">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="mm-form-group">
+                        <label for="workerMessage">अतिरिक्त जानकारी</label>
+                        <textarea id="workerMessage" name="workerMessage" rows="3" placeholder="अपने काम या अनुभव से संबंधित कोई अतिरिक्त बात..."></textarea>
+                    </div>
+
+                    <!-- Consent -->
+                    <label class="mm-worker-consent">
+                        <input type="checkbox" id="workerConsent" required>
+                        <span>मैं पुष्टि करता/करती हूँ कि मेरे द्वारा दी गई जानकारी सही है।</span>
+                    </label>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="mm-worker-submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Job Registration Submit करें</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <!-- WhatsApp Option -->
+                    <div class="mm-form-whatsapp">
+                        <span>WhatsApp से जानकारी भेजना चाहते हैं?</span>
+                        <a href="https://wa.me/916379403821?text=नमस्ते%20MUKESH%20MANPOWER,%20मैं%20Job%20के%20लिए%20Registration%20करना%20चाहता%20हूँ।" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp करें
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Direct WhatsApp Automation Script -->
+<script>
+    document.getElementById("workerRegistrationForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("workerName").value.trim();
+        const phone = document.getElementById("workerMobile").value.trim();
+        const location = document.getElementById("workerLocation").value.trim();
+        const skill = document.getElementById("workerSkill").value;
+        const exp = document.getElementById("workerExperience").value;
+        const age = document.getElementById("workerAge").value.trim();
+        const msg = document.getElementById("workerMessage").value.trim();
+
+        const waText = `*MUKESH MANPOWER - कामगार पंजीकरण (Job)*%0A` +
+            `👤 *नाम:* ${name}%0A` +
+            `📞 *फोन:* ${phone}%0A` +
+            `🛠️ *काम/Skill:* ${skill}%0A` +
+            `📍 *पता:* ${location}%0A` +
+            `⏳ *अनुभव:* ${exp || "लागू नहीं"}%0A` +
+            `🎂 *उम्र:* ${age || "लागू नहीं"}%0A` +
+            `📝 *अन्य विवरण:* ${msg || "कोई नहीं"}`;
+
+        window.open(`https://wa.me/916379403821?text=${waText}`, "_blank");
+    });
+</script>
+
+</body>
+                                                                             </html>
+                              
