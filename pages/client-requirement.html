@@ -18,7 +18,8 @@
       --bg-input: #1c2e59;
       --primary-blue: #1c4ed8;
       --accent-red: #e11d48;
-      --accent-green: #10b981;
+      --accent-green: #25D366;
+      --accent-green-dark: #128C7E;
       --accent-amber: #f59e0b;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
@@ -306,22 +307,6 @@
     }
 
     /* Clauses & Checkboxes */
-    .clause-box {
-      max-height: 160px;
-      overflow-y: auto;
-      background-color: var(--bg-dark);
-      border: 1px solid var(--border-color);
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .clause-box ul {
-      padding-left: 18px;
-    }
-
     .checkbox-group {
       display: flex;
       align-items: flex-start;
@@ -342,20 +327,40 @@
       font-weight: 400;
     }
 
-    /* Buttons */
+    /* Action Buttons Area */
+    .action-buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
     .btn {
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.95rem;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
       cursor: pointer;
       border: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       transition: all 0.2s;
       width: 100%;
+      text-decoration: none;
+    }
+
+    .btn-whatsapp-direct {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: white;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+      font-size: 1.05rem;
+    }
+
+    .btn-whatsapp-direct:hover {
+      background: linear-gradient(135deg, #20ba5a 0%, #0d7064 100%);
+      transform: translateY(-1px);
     }
 
     .btn-primary {
@@ -372,24 +377,13 @@
       color: white;
     }
 
-    .btn-secondary:hover {
-      background-color: #1d4ed8;
-    }
-
     .btn-outline {
       background: transparent;
       border: 1px solid var(--border-color);
       color: var(--text-main);
     }
 
-    /* Status and Feedback Elements */
-    .error-msg {
-      color: #f87171;
-      font-size: 0.8rem;
-      display: none;
-      margin-top: 4px;
-    }
-
+    /* Status and Feedback */
     .status-toast {
       padding: 12px;
       border-radius: 6px;
@@ -400,7 +394,7 @@
 
     .status-toast.success {
       background-color: rgba(16, 185, 129, 0.2);
-      border: 1px solid var(--accent-green);
+      border: 1px solid #10b981;
       color: #6ee7b7;
     }
 
@@ -410,11 +404,11 @@
       color: #fda4af;
     }
 
-    /* Modal / Success Overlay */
+    /* Modal */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       display: none;
       align-items: center;
       justify-content: center;
@@ -432,9 +426,9 @@
       text-align: center;
     }
 
-    .modal-content i {
-      font-size: 3rem;
-      color: var(--accent-green);
+    .modal-content i.success-icon {
+      font-size: 3.2rem;
+      color: #10b981;
       margin-bottom: 12px;
     }
 
@@ -505,17 +499,14 @@
         <div class="form-group">
           <label for="companyName">कंपनी / फर्म का नाम <span class="req">*</span></label>
           <input type="text" id="companyName" name="companyName" placeholder="e.g. ABC Infra Pvt Ltd" required maxlength="120" />
-          <span class="error-msg" id="err-companyName">मान्य कंपनी नाम दर्ज करें।</span>
         </div>
         <div class="form-group">
           <label for="contactPerson">अधिकृत संपर्क व्यक्ति <span class="req">*</span></label>
           <input type="text" id="contactPerson" name="contactPerson" placeholder="e.g. Ramesh Kumar (HR Manager)" required maxlength="80" />
-          <span class="error-msg" id="err-contactPerson">संपर्क व्यक्ति का नाम दर्ज करें।</span>
         </div>
         <div class="form-group">
           <label for="clientMobile">मोबाइल नंबर (10-Digit) <span class="req">*</span></label>
           <input type="tel" id="clientMobile" name="clientMobile" placeholder="9876543210" pattern="[6-9][0-9]{9}" inputmode="numeric" required />
-          <span class="error-msg" id="err-clientMobile">मान्य 10-अंकीय भारतीय मोबाइल नंबर दर्ज करें।</span>
         </div>
         <div class="form-group">
           <label for="clientEmail">ईमेल (Corporate Email)</label>
@@ -534,17 +525,15 @@
             <option value="WEST_BENGAL">पश्चिम बंगाल (West Bengal)</option>
             <option value="OTHER">अन्य राज्य (Other State)</option>
           </select>
-          <span class="error-msg" id="err-stateSelect">कृपया राज्य का चयन करें।</span>
         </div>
         <div class="form-group">
           <label for="siteAddress">साइट / प्लांट का पूरा पता <span class="req">*</span></label>
           <textarea id="siteAddress" name="siteAddress" placeholder="Plot No, Industrial Area, District, Landmark..." required maxlength="300"></textarea>
-          <span class="error-msg" id="err-siteAddress">साइट का पता आवश्यक है।</span>
         </div>
       </div>
     </div>
 
-    <!-- ADMIN PANEL: Rates Configuration (Visible ONLY in Admin Mode) -->
+    <!-- ADMIN PANEL: Rates Configuration -->
     <div class="card admin-panel" id="adminRatePanel">
       <div class="card-header">
         <i class="fa-solid fa-sliders" style="color: var(--accent-amber);"></i>
@@ -565,20 +554,6 @@
         <div class="form-group">
           <label for="admOperatorRate">ऑपरेटर दर (₹/दिन)</label>
           <input type="number" id="admOperatorRate" oninput="calculateEstimates()" min="1" step="1" />
-        </div>
-      </div>
-      <div class="grid-2" style="margin-top: 12px;">
-        <div class="form-group">
-          <label for="admOtHourlyRate">डिफ़ॉल्ट OT दर (₹/घंटा)</label>
-          <input type="number" id="admOtHourlyRate" oninput="calculateEstimates()" min="0" step="1" />
-        </div>
-        <div class="form-group">
-          <label for="admTaxTreatment">लागू टैक्स / GST मोड</label>
-          <select id="admTaxTreatment" onchange="calculateEstimates()">
-            <option value="EXCLUDED">As per applicable law (Quotation में अलग से)</option>
-            <option value="GST_18">18% GST Estimated (Indicative)</option>
-            <option value="RC_EXEMPT">RCM / Exempted Category</option>
-          </select>
         </div>
       </div>
       <div class="admin-actions">
@@ -626,7 +601,7 @@
       <div class="worker-row">
         <div class="worker-info">
           <h4>मशीन ऑपरेटर / ड्राइवर (Machine Operator / Driver)</h4>
-          <p>हाइड्रा, हाइड्रा/क्रेन ऑपरेटर, फोर्कलिफ्ट, जेसीबी ऑपरेटर</p>
+          <p>हाइड्रा, क्रेन ऑपरेटर, फोर्कलिफ्ट, जेसीबी ऑपरेटर</p>
         </div>
         <div class="worker-qty-control">
           <label for="qtyOperator">संख्या:</label>
@@ -642,23 +617,53 @@
         <div class="form-group">
           <label for="shiftType">कार्य शिफ्ट (Shift Type) <span class="req">*</span></label>
           <select id="shiftType" name="shiftType" required>
-            <option value="GENERAL_8HR">जनरल शिफ्ट (8 घंटे)</option>
-            <option value="DAY_12HR">डे शिफ्ट (12 घंटे / OT लागू)</option>
-            <option value="NIGHT_SHIFT">नाइट शिफ्ट (Night Shift)</option>
-            <option value="ROTATIONAL">रोटेशनल शिफ्ट (24x7 Coverage)</option>
+            <option value="जनरल शिफ्ट (8 घंटे)">जनरल शिफ्ट (8 घंटे)</option>
+            <option value="डे शिफ्ट (12 घंटे / OT लागू)">डे शिफ्ट (12 घंटे / OT लागू)</option>
+            <option value="नाइट शिफ्ट (Night Shift)">नाइट शिफ्ट (Night Shift)</option>
+            <option value="रोटेशनल शिफ्ट (24x7 Coverage)">रोटेशनल शिफ्ट (24x7 Coverage)</option>
           </select>
         </div>
         <div class="form-group">
           <label for="projectDuration">परियोजना अवधि (Tentative Duration) <span class="req">*</span></label>
           <select id="projectDuration" name="projectDuration" required>
-            <option value="LESS_THAN_1_MONTH">1 महीने से कम</option>
-            <option value="1_TO_3_MONTHS" selected>1 से 3 महीने</option>
-            <option value="3_TO_6_MONTHS">3 से 6 महीने</option>
-            <option value="LONG_TERM">दीर्घकालिक (Long-term / 1+ Year)</option>
+            <option value="1 महीने से कम">1 महीने से कम</option>
+            <option value="1 से 3 महीने" selected>1 से 3 महीने</option>
+            <option value="3 से 6 महीने">3 से 6 महीने</option>
+            <option value="दीर्घकालिक (Long-term / 1+ Year)">दीर्घकालिक (Long-term / 1+ Year)</option>
           </select>
         </div>
       </div>
     </div>
 
     <!-- SECTION 3: Live Preliminary Indicative Estimate -->
-    <div class="card estimate-display" id="
+    <div class="card estimate-display" id="estimateCard">
+      <div class="card-header" style="border-color: rgba(255, 255, 255, 0.15);">
+        <i class="fa-solid fa-calculator" style="color: var(--focus-ring);"></i>
+        <h2 style="color: white;">3. प्रारंभिक सांकेतिक आंकलन (Preliminary Indicative Estimate)</h2>
+      </div>
+      <p style="font-size: 0.8rem; color: #bae6fd;">
+        * यह केवल एक प्रारंभिक आंकलन है। वास्तविक दरें व कमर्शियल शर्तें उपलब्धता, लोकेशन और अंतिम कोटेशन/एग्रीमेंट के अधीन तय की जाएंगी।
+      </p>
+
+      <div class="calc-grid">
+        <div class="calc-card">
+          <span>कुल वर्कर (Workers)</span>
+          <h3 id="displayTotalWorkers">0</h3>
+        </div>
+        <div class="calc-card">
+          <span>दैनिक सब-टोटल (Daily)</span>
+          <h3 id="displayDailyTotal">₹0</h3>
+        </div>
+        <div class="calc-card">
+          <span>15-दिवसीय आंकलन</span>
+          <h3 id="display15Day">₹0</h3>
+        </div>
+        <div class="calc-card">
+          <span>30-दिवसीय आंकलन (Indicative)</span>
+          <h3 id="display30Day">₹0</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Site Facilities & Commercial Arrangements -->
+    <div clas
