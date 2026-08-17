@@ -1,6 +1,6 @@
 <!-- ==========================================
      MUKESH MANPOWER - ALL INDIA CORPORATE REQUIREMENT & ESTIMATE
-     File: pages/client-requirement.html (100% Working Live Calculator + Dynamic OT)
+     File: pages/client-requirement.html (100% Working Live Calculator)
      ========================================== -->
 
 <!DOCTYPE html>
@@ -124,7 +124,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label for="stateSelect" class="block text-xs font-semibold text-gray-300 mb-1">कार्यस्थल का राज्य (Work Location / State) <span class="text-brand-red">*</span></label>
-                            <select id="stateSelect" onchange="applyStateRates()" required class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+                            <select id="stateSelect" required class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
                                 <option value="">-- राज्य / UT चुनें --</option>
                                 <option value="Delhi">दिल्ली (NCR)</option>
                                 <option value="Haryana">हरियाणा (गुड़गांव/फरीदाबाद)</option>
@@ -194,11 +194,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
                         <div>
                             <label for="helperCount" class="block text-xs font-semibold text-gray-300 mb-1">हेल्पर / लेबर संख्या (Unskilled)</label>
-                            <input type="number" id="helperCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+                            <input type="number" id="helperCount" min="0" value="0" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
                         </div>
                         <div>
                             <label for="helperRate" class="block text-xs font-semibold text-gray-300 mb-1">हेल्पर मानक दर (₹ प्रति व्यक्ति / दिन)</label>
-                            <input type="number" id="helperRate" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
+                            <input type="number" id="helperRate" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
                         </div>
                     </div>
 
@@ -206,11 +206,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
                         <div>
                             <label for="skilledCount" class="block text-xs font-semibold text-gray-300 mb-1">मिस्त्री / कारपेंटर संख्या (Skilled)</label>
-                            <input type="number" id="skilledCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+                            <input type="number" id="skilledCount" min="0" value="0" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
                         </div>
                         <div>
                             <label for="skilledRate" class="block text-xs font-semibold text-gray-300 mb-1">मिस्त्री मानक दर (₹ प्रति व्यक्ति / दिन)</label>
-                            <input type="number" id="skilledRate" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
+                            <input type="number" id="skilledRate" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
                         </div>
                     </div>
 
@@ -218,18 +218,18 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
                         <div>
                             <label for="operatorCount" class="block text-xs font-semibold text-gray-300 mb-1">मशीन ऑपरेटर (JCB / पोकलेन / क्रेन)</label>
-                            <input type="number" id="operatorCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+                            <input type="number" id="operatorCount" min="0" value="0" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
                         </div>
                         <div>
                             <label for="operatorRate" class="block text-xs font-semibold text-gray-300 mb-1">ऑपरेटर मानक दर (₹ प्रति व्यक्ति / दिन)</label>
-                            <input type="number" id="operatorRate" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
+                            <input type="number" id="operatorRate" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
                         </div>
                     </div>
 
                     <p id="workerCountError" class="error-msg text-center font-semibold">कृपया कम से कम एक श्रेणी में न्यूनतम 1 कामगार दर्ज करें।</p>
                 </div>
 
-                <!-- Live Quotation Card & Overtime Rates -->
+                <!-- Live Quotation Card -->
                 <div class="p-4 sm:p-5 bg-black/60 rounded-xl border border-brand-blueLight/50 space-y-3">
                     <div class="flex items-center justify-between border-b border-gray-800 pb-2">
                         <span class="font-bold text-xs sm:text-sm text-brand-blueLight uppercase tracking-wider flex items-center gap-1.5">
@@ -255,22 +255,9 @@
 
                     <div class="border-t border-gray-800 pt-2 flex items-center justify-between font-bold text-sm">
                         <span class="text-white">अनुमानित दैनिक उप-योग (Subtotal):</span>
-                        <span id="summarySubtotal" class="text-brand-red text-base font-extrabold">₹0</span>
+                        <span id="summarySubtotal" class="text-brand-red text-base">₹0</span>
                     </div>
-
-                    <!-- Live Dynamic Overtime Section -->
-                    <div class="border-t border-gray-800/80 pt-2 text-[11px] text-gray-300 space-y-1">
-                        <div class="font-bold text-yellow-400 flex items-center gap-1">
-                            <i class="fa-solid fa-clock"></i> मानक ओवरटाइम दरें (8 घंटे के बाद प्रति घंटा देय):
-                        </div>
-                        <div class="grid grid-cols-3 gap-2 text-gray-400 pt-1">
-                            <div>हेल्पर OT: <strong id="otHelperText" class="text-white">₹0/घंटा</strong></div>
-                            <div>मिस्त्री OT: <strong id="otSkilledText" class="text-white">₹0/घंटा</strong></div>
-                            <div>ऑपरेटर OT: <strong id="otOperatorText" class="text-white">₹0/घंटा</strong></div>
-                        </div>
-                    </div>
-
-                    <p class="text-[11px] text-gray-400 text-right pt-1">लागू GST/कर नियमानुसार अतिरिक्त देय होगा।</p>
+                    <p class="text-[11px] text-gray-400 text-right">लागू GST/कर नियमानुसार अतिरिक्त देय होगा।</p>
                 </div>
 
                 <!-- 3. Payment Cycle & Facilities -->
@@ -286,4 +273,18 @@
                             <select id="paymentCycle" required class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
                                 <option value="हर 8 दिन में (साप्ताहिक भुगतान)">हर 8 दिन में (साप्ताहिक भुगतान)</option>
                                 <option value="हर 15 दिन में (पाक्षिक भुगतान)">हर 15 दिन में (पाक्षिक भुगतान)</option>
-                                <option value="महीने की 1 तारीख को (मासि
+                                <option value="महीने की 1 तारीख को (मासिक भुगतान)">महीने की 1 तारीख को (मासिक भुगतान)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="facility" class="block text-xs font-semibold text-gray-300 mb-1">साइट पर रहने व पानी की व्यवस्था <span class="text-brand-red">*</span></label>
+                            <select id="facility" required class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+                                <option value="कंपनी / ठेकेदार द्वारा उपलब्ध">कंपनी / ठेकेदार द्वारा उपलब्ध</option>
+                                <option value="वर्कर्स अपनी व्यवस्था स्वयं करेंगे">वर्कर्स अपनी व्यवस्था स्वयं करेंगे</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="requirementMessage" class="block text-xs font-semibold text-gray-300 mb-1">अतिरिक्त आवश्यकता / विशेष निर्देश (वैकल्पिक)</label>
+                        <textarea id="requirementMessage" rows="2" placeholder="साइट के नियम, टूल्स या अन्य विवरण..." class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm
