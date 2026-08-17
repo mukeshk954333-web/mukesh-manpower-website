@@ -16,10 +16,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- External Services CSS -->
-    <link rel="stylesheet" href="services.css">
-
-    <!-- Tailwind Custom Configuration for MUKESH MANPOWER Brand Palette -->
+    <!-- Tailwind Custom Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -64,11 +61,43 @@
                 #002D60 24px
             );
         }
+
+        /* Services Section Internal Styling */
+        .mm-services-section {
+            background-color: #F8FAFC;
+            padding: 80px 16px;
+            color: #0F172A;
+        }
+        .mm-service-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        .mm-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+        }
+        .mm-card-blue::before { background-color: #002D60; }
+        .mm-card-red::before { background-color: #DC0000; }
+        .mm-service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 45, 96, 0.1);
+        }
+        .mm-card-blue:hover { border-color: #064A91; }
+        .mm-card-red:hover { border-color: #DC0000; }
     </style>
 </head>
 <body class="bg-brand-darkBg text-white font-sans antialiased selection:bg-brand-red selection:text-white">
 
-    <!-- Top Announcement / Legal Trust Bar -->
+    <!-- Top Legal Trust Bar -->
     <div class="bg-brand-black border-b border-brand-blue/60 text-gray-300 text-xs py-2 px-4">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
             <div class="flex items-center gap-2 text-center sm:text-left">
@@ -93,7 +122,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
-                <!-- Brand Identity with Logo Image -->
+                <!-- Brand Logo & Name -->
                 <a href="#" class="flex items-center gap-3 group focus:outline-none">
                     <div class="h-12 w-auto flex items-center justify-center overflow-hidden">
                         <img src="assets/logo/mukesh-manpower-logo.png" 
@@ -123,7 +152,7 @@
                     <a href="#contact" class="hover:text-brand-red transition">संपर्क</a>
                 </nav>
 
-                <!-- Desktop Direct Action Buttons -->
+                <!-- Desktop Direct Buttons -->
                 <div class="hidden sm:flex items-center space-x-3">
                     <a href="https://wa.me/916379403821?text=नमस्ते%20MUKESH%20MANPOWER,%20मुझे%20वर्कर्स%20की%20आवश्यकता%20है।" 
                        target="_blank" 
@@ -153,7 +182,7 @@
             </div>
         </div>
 
-        <!-- Mobile Dropdown Navigation Menu -->
+        <!-- Mobile Menu Dropdown -->
         <div id="mobileMenu" class="hidden lg:hidden border-t border-brand-blue/50 bg-brand-black px-4 pt-3 pb-6 space-y-3 shadow-2xl">
             <nav class="flex flex-col space-y-2 font-semibold text-gray-200 text-base">
                 <a href="#home" class="px-3 py-2 rounded-lg bg-brand-blue text-white flex items-center justify-between">
@@ -181,7 +210,6 @@
                     <i class="fa-solid fa-chevron-right text-xs text-gray-500"></i>
                 </a>
             </nav>
-
             <div class="pt-2 grid grid-cols-2 gap-3">
                 <a href="https://wa.me/916379403821?text=नमस्ते%20MUKESH%20MANPOWER,%20मुझे%20वर्कर्स%20की%20आवश्यकता%20है।" 
                    target="_blank" 
@@ -200,15 +228,12 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-pattern relative text-white pt-12 pb-20 md:py-24 overflow-hidden border-b-4 border-brand-red">
-        
         <div class="absolute top-0 left-0 right-0 h-1.5 stripe-accent"></div>
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <!-- Hero Left -->
                 <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                    
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cardBg border border-brand-blue text-gray-200 text-xs font-semibold shadow-inner">
                         <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
                         <span>प्रमाणित एवं विश्वसनीय मैनपॉवर और कंस्ट्रक्शन सॉल्यूशंस</span>
@@ -253,13 +278,11 @@
                             <span class="text-xs font-semibold text-gray-300">कानूनी व पारदर्शी</span>
                         </div>
                     </div>
-
                 </div>
 
-                <!-- Hero Right -->
+                <!-- Hero Right Overview Card -->
                 <div class="lg:col-span-5">
                     <div class="bg-brand-cardBg rounded-2xl p-6 sm:p-8 border border-brand-blue/80 shadow-2xl backdrop-blur-sm relative">
-                        
                         <div class="flex items-center justify-between border-b border-brand-blue/60 pb-4 mb-6">
                             <div>
                                 <h3 class="text-lg font-bold text-white">सप्लाई सेवाएं</h3>
@@ -305,29 +328,4 @@
                         <div class="mt-6 pt-4 border-t border-brand-blue/60 flex items-center justify-between text-xs">
                             <span class="text-gray-400">तत्काल आवश्यकता के लिए:</span>
                             <a href="tel:+916379403821" class="text-brand-red font-bold hover:underline flex items-center gap-1">
-                                <i class="fa-solid fa-phone"></i> +91 6379403821
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="mm-services-section">
-        <div class="mm-container">
             
-            <!-- Section Header -->
-            <div class="mm-services-header">
-                <div class="mm-badge">
-                    <span class="mm-badge-dot"></span>
-                    <span>प्रमाणित एवं विश्वसनीय सेवाएं</span>
-                </div>
-                <h2 class="mm-services-title">हमारी सेवाएं</h2>
-                <div class="mm-title-divider">
-                    <span class="mm-divider-line"></span>
-                    <span class="mm-divider-icon"><i class="fa-solid fa-helmet-safety"></i></span>
-                    <span class="mm-divide
