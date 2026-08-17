@@ -16,6 +16,9 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- External Services CSS -->
+    <link rel="stylesheet" href="services.css">
+
     <!-- Tailwind Custom Configuration for MUKESH MANPOWER Brand Palette -->
     <script>
         tailwind.config = {
@@ -97,7 +100,6 @@
                              alt="MUKESH MANPOWER Logo" 
                              class="h-12 w-auto object-contain transition-transform group-hover:scale-105"
                              onerror="this.style.display='none'; document.getElementById('brandFallback').style.display='flex';">
-                        <!-- Fallback if logo image is loading/missing -->
                         <div id="brandFallback" class="hidden h-12 w-12 bg-brand-blue rounded-lg items-center justify-center text-brand-red font-black text-xl border border-brand-red">
                             MM
                         </div>
@@ -199,37 +201,31 @@
     <!-- Hero Section -->
     <section id="home" class="hero-pattern relative text-white pt-12 pb-20 md:py-24 overflow-hidden border-b-4 border-brand-red">
         
-        <!-- Brand Decorative Accent Strip -->
         <div class="absolute top-0 left-0 right-0 h-1.5 stripe-accent"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- Hero Left: Content & CTAs -->
+                <!-- Hero Left -->
                 <div class="lg:col-span-7 text-center lg:text-left space-y-6">
                     
-                    <!-- Trust Pill Badge -->
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cardBg border border-brand-blue text-gray-200 text-xs font-semibold shadow-inner">
                         <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
                         <span>प्रमाणित एवं विश्वसनीय मैनपॉवर और कंस्ट्रक्शन सॉल्यूशंस</span>
                     </div>
 
-                    <!-- Main Headline -->
                     <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                         औद्योगिक और निर्माण कार्यों के लिए <span class="text-brand-red underline decoration-brand-red/50 decoration-wavy underline-offset-8">विश्वसनीय मैनपॉवर</span> सप्लायर
                     </h1>
 
-                    <!-- Tagline Callout -->
                     <p class="font-display text-xl sm:text-2xl text-white tracking-wider uppercase font-bold">
                         <span class="text-brand-red">RIGHT PEOPLE.</span> <span class="text-gray-200">RIGHT PLACE.</span> <span class="text-brand-blueLight">RIGHT TIME.</span>
                     </p>
 
-                    <!-- Subtitle Description -->
                     <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                         MUKESH MANPOWER सरकारी नियमों के अनुसार कुशल, अर्ध-कुशल एवं अकुशल श्रमिकों की त्वरित आपूर्ति और संपूर्ण सिविल कंस्ट्रक्शन सपोर्ट प्रदान करता है।
                     </p>
 
-                    <!-- Action CTAs -->
                     <div class="pt-2 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                         <a href="#client-requirement" 
                            class="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-brand-redDark text-white font-extrabold px-7 py-4 rounded-xl text-base shadow-lg shadow-brand-red/30 transition transform hover:-translate-y-0.5 active:translate-y-0 border border-brand-red">
@@ -243,7 +239,6 @@
                         </a>
                     </div>
 
-                    <!-- Key Trust Points -->
                     <div class="pt-6 border-t border-brand-blue/50 grid grid-cols-3 gap-3 text-left">
                         <div class="flex items-center gap-2">
                             <i class="fa-solid fa-circle-check text-brand-red text-sm"></i>
@@ -261,7 +256,7 @@
 
                 </div>
 
-                <!-- Hero Right: Quick Visual Overview Card -->
+                <!-- Hero Right -->
                 <div class="lg:col-span-5">
                     <div class="bg-brand-cardBg rounded-2xl p-6 sm:p-8 border border-brand-blue/80 shadow-2xl backdrop-blur-sm relative">
                         
@@ -275,7 +270,6 @@
                             </span>
                         </div>
 
-                        <!-- Service Category Quick Grid -->
                         <div class="space-y-3.5">
                             <div class="flex items-center gap-3.5 p-3 rounded-xl bg-brand-black/90 border border-brand-blue/50 hover:border-brand-red/60 transition">
                                 <div class="w-10 h-10 rounded-lg bg-brand-red/10 text-brand-red flex items-center justify-center font-bold text-base border border-brand-red/30">
@@ -308,7 +302,6 @@
                             </div>
                         </div>
 
-                        <!-- Direct Help Box inside Card -->
                         <div class="mt-6 pt-4 border-t border-brand-blue/60 flex items-center justify-between text-xs">
                             <span class="text-gray-400">तत्काल आवश्यकता के लिए:</span>
                             <a href="tel:+916379403821" class="text-brand-red font-bold hover:underline flex items-center gap-1">
@@ -323,8 +316,18 @@
         </div>
     </section>
 
-    <!-- Mobile Menu Toggle Script -->
-    <script>
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuIcon = document.getEle
+    <!-- Services Section -->
+    <section id="services" class="mm-services-section">
+        <div class="mm-container">
+            
+            <!-- Section Header -->
+            <div class="mm-services-header">
+                <div class="mm-badge">
+                    <span class="mm-badge-dot"></span>
+                    <span>प्रमाणित एवं विश्वसनीय सेवाएं</span>
+                </div>
+                <h2 class="mm-services-title">हमारी सेवाएं</h2>
+                <div class="mm-title-divider">
+                    <span class="mm-divider-line"></span>
+                    <span class="mm-divider-icon"><i class="fa-solid fa-helmet-safety"></i></span>
+                    <span class="mm-divide
