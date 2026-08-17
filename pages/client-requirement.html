@@ -42,6 +42,12 @@
         }
     </script>
     <style>
+        input[readonly] {
+            background-color: #161b22;
+            cursor: not-allowed;
+            color: #facc15;
+            border-color: #374151;
+        }
         .error-msg {
             color: #ef4444;
             font-size: 0.75rem;
@@ -140,10 +146,10 @@
                 यह प्रारंभिक आवश्यकता पत्र है। MUKESH MANPOWER की टीम आपकी साइट शर्तों और मैनपॉवर उपलब्धता की समीक्षा करके औपचारिक कोटेशन व अनुबंध हेतु संपर्क करेगी।
             </p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-                <a id="waDirectBtn" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
-                    <i class="fa-brands fa-whatsapp text-base" aria-hidden="true"></i> <span>WhatsApp पर विवरण भेजें</span>
+                <a id="waDirectBtn" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                    <i class="fa-brands fa-whatsapp text-lg" aria-hidden="true"></i> <span>WhatsApp पर विवरण भेजें</span>
                 </a>
-                <button type="button" id="newReqBtn" onclick="resetRequirementForm()" class="bg-brand-blue hover:bg-brand-blueLight text-white font-bold py-3 px-6 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2 focus:outline-none">
+                <button type="button" id="newReqBtn" onclick="resetRequirementForm()" class="bg-brand-blue hover:bg-brand-blueLight text-white font-bold py-3.5 px-6 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2 focus:outline-none">
                     <i class="fa-solid fa-plus" aria-hidden="true"></i> <span>नई Requirement दर्ज करें</span>
                 </button>
             </div>
@@ -233,7 +239,7 @@
                         <span class="text-brand-red font-bold text-sm flex items-center gap-2">
                             <i class="fa-solid fa-users-gear" aria-hidden="true"></i> 2. कामगार संख्या एवं मानक सांकेतिक दरें (प्रति 8 घंटे)
                         </span>
-                        <span class="text-[11px] text-gray-400">राज्यवार मानक दरें स्वतः लोड</span>
+                        <span class="text-[11px] text-gray-400">राज्यवार दरें स्वतः लोड</span>
                     </div>
 
                     <!-- Helpers -->
@@ -263,5 +269,4 @@
                     <!-- Operators -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
                         <div>
-                            <label for="operatorCount" class="block text-xs font-semibold text-gray-300 mb-1">मशीन ऑपरेटर (JCB / पोकलेन / क्रेन)</label>
-                            <input type="number" id="operatorCount" min="0" max="500" value="0" oninput="doC
+                            <label for="operatorCount" class="block text-xs font-semibold tex
