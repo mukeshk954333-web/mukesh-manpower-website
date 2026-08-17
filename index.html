@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUKESH MANPOWER - Right People. Right Place. Right Time.</title>
+    <title>MUKESH MANPOWER - Professional & Construction Manpower Solutions</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Tailwind Custom Configuration -->
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -29,8 +28,7 @@
                             blueLight: '#064A91',
                             black: '#000000',
                             darkBg: '#050505',
-                            cardBg: '#0D1117',
-                            white: '#FFFFFF',
+                            cardDark: '#0D1117',
                         }
                     },
                     fontFamily: {
@@ -41,291 +39,162 @@
             }
         }
     </script>
-
-    <style>
-        html { scroll-behavior: smooth; }
-        
-        .hero-pattern {
-            background-color: #050505;
-            background-image: radial-gradient(#002D60 1px, transparent 1px), radial-gradient(#002D60 1px, #050505 1px);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
-        }
-
-        .stripe-accent {
-            background: repeating-linear-gradient(
-                -45deg,
-                #DC0000,
-                #DC0000 12px,
-                #002D60 12px,
-                #002D60 24px
-            );
-        }
-
-        /* Services Section Internal Styling */
-        .mm-services-section {
-            background-color: #F8FAFC;
-            padding: 80px 16px;
-            color: #0F172A;
-        }
-        .mm-service-card {
-            background-color: #FFFFFF;
-            border: 1px solid #E2E8F0;
-            border-radius: 14px;
-            padding: 30px 24px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-        }
-        .mm-service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 4px;
-        }
-        .mm-card-blue::before { background-color: #002D60; }
-        .mm-card-red::before { background-color: #DC0000; }
-        .mm-service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 45, 96, 0.1);
-        }
-        .mm-card-blue:hover { border-color: #064A91; }
-        .mm-card-red:hover { border-color: #DC0000; }
-    </style>
 </head>
-<body class="bg-brand-darkBg text-white font-sans antialiased selection:bg-brand-red selection:text-white">
+<body class="bg-brand-darkBg text-white font-sans antialiased">
 
-    <!-- Top Legal Trust Bar -->
-    <div class="bg-brand-black border-b border-brand-blue/60 text-gray-300 text-xs py-2 px-4">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="flex items-center gap-2 text-center sm:text-left">
-                <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-green-500/10 text-green-400 border border-green-500/20">
-                    <i class="fa-solid fa-circle-check mr-1.5 text-[9px]"></i> MSME UDYAM CERTIFIED
-                </span>
-                <span class="text-gray-600 hidden sm:inline">•</span>
-                <span class="font-mono text-gray-300">Reg No: UDYAM-BR-05-0036251</span>
-            </div>
-            <div class="flex items-center gap-4 text-gray-300">
-                <span class="hidden md:inline"><i class="fa-solid fa-location-dot text-brand-red mr-1.5"></i> Dhobni Chowk, Banka, Bihar</span>
-                <span class="hidden md:inline text-gray-700">|</span>
-                <a href="mailto:mukeshmanpower2026@gmail.com" class="hover:text-white transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-envelope text-brand-red"></i> mukeshmanpower2026@gmail.com
-                </a>
-            </div>
-        </div>
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-blue text-[11px] font-semibold py-1.5 px-4 text-center border-b border-brand-blueLight/40 flex justify-center items-center gap-2">
+        <span class="bg-brand-red text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase">MSME Govt. Registered</span>
+        <span>उद्यम पंजीकरण संख्या: UDYAM-BR-05-0036251 | हेल्पलाइन: +91 6379403821</span>
     </div>
 
     <!-- Main Navigation Header -->
-    <header class="bg-brand-black sticky top-0 z-50 shadow-md border-b border-brand-blue/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                
-                <!-- Brand Logo & Name -->
-                <a href="#" class="flex items-center gap-3 group focus:outline-none">
-                    <div class="h-12 w-auto flex items-center justify-center overflow-hidden">
-                        <img src="assets/logo/mukesh-manpower-logo.png" 
-                             alt="MUKESH MANPOWER Logo" 
-                             class="h-12 w-auto object-contain transition-transform group-hover:scale-105"
-                             onerror="this.style.display='none'; document.getElementById('brandFallback').style.display='flex';">
-                        <div id="brandFallback" class="hidden h-12 w-12 bg-brand-blue rounded-lg items-center justify-center text-brand-red font-black text-xl border border-brand-red">
-                            MM
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-1.5">
-                            <span class="font-display text-3xl font-bold tracking-wider text-white uppercase leading-none">MUKESH</span>
-                            <span class="font-display text-3xl font-bold tracking-wider text-brand-red uppercase leading-none">MANPOWER</span>
-                        </div>
-                        <p class="text-[10px] font-extrabold tracking-widest text-gray-400 uppercase mt-0.5">Right People. Right Place. Right Time.</p>
-                    </div>
+    <header class="bg-brand-black border-b border-brand-blue/60 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="font-display text-3xl font-bold tracking-wider text-white">MUKESH</span>
+                <span class="font-display text-3xl font-bold tracking-wider text-brand-red">MANPOWER</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300">
+                <a href="index.html" class="text-brand-red hover:text-white transition">होम</a>
+                <a href="pages/services.html" class="hover:text-brand-red transition">सेवाएं</a>
+                <a href="pages/client-requirement.html" class="hover:text-brand-red transition">क्लाइंट मांग</a>
+                <a href="pages/worker-register.html" class="hover:text-brand-red transition">कामगार पंजीकरण</a>
+                <a href="pages/about.html" class="hover:text-brand-red transition">हमारे बारे में</a>
+                <a href="pages/contact.html" class="hover:text-brand-red transition">संपर्क</a>
+            </nav>
+
+            <!-- Call & Admin Buttons -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="tel:+916379403821" class="bg-brand-red hover:bg-brand-redDark text-white text-xs font-bold px-3.5 py-2 rounded-lg transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone"></i> +91 6379403821
                 </a>
-
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden lg:flex items-center space-x-8 font-semibold text-sm text-gray-200">
-                    <a href="#home" class="text-brand-red font-bold transition">मुख्य पृष्ठ</a>
-                    <a href="#services" class="hover:text-brand-red transition">सेवाएं</a>
-                    <a href="#client-requirement" class="hover:text-brand-red transition">हायर वर्कर्स</a>
-                    <a href="#worker-register" class="hover:text-brand-red transition">जॉब रजिस्ट्रेशन</a>
-                    <a href="#about" class="hover:text-brand-red transition">हमारे बारे में</a>
-                    <a href="#contact" class="hover:text-brand-red transition">संपर्क</a>
-                </nav>
-
-                <!-- Desktop Direct Buttons -->
-                <div class="hidden sm:flex items-center space-x-3">
-                    <a href="https://wa.me/916379403821?text=नमस्ते%20MUKESH%20MANPOWER,%20मुझे%20वर्कर्स%20की%20आवश्यकता%20है।" 
-                       target="_blank" 
-                       class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-sm transition active:scale-95">
-                        <i class="fa-brands fa-whatsapp text-base"></i>
-                        <span>व्हाट्सएप</span>
-                    </a>
-                    <a href="tel:+916379403821" 
-                       class="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blueLight text-white px-4 py-2.5 rounded-lg text-sm font-bold border border-brand-blueLight shadow-sm transition active:scale-95">
-                        <i class="fa-solid fa-phone text-white text-xs"></i>
-                        <span>+91 6379403821</span>
-                    </a>
-                </div>
-
-                <!-- Mobile Hamburger Button -->
-                <div class="flex items-center gap-2 lg:hidden">
-                    <a href="tel:+916379403821" class="sm:hidden w-10 h-10 rounded-lg bg-brand-blue text-white flex items-center justify-center text-sm shadow">
-                        <i class="fa-solid fa-phone"></i>
-                    </a>
-                    <button type="button" 
-                            id="mobileMenuBtn" 
-                            aria-label="Toggle Menu" 
-                            class="w-10 h-10 rounded-lg bg-brand-cardBg text-white border border-brand-blue hover:bg-brand-blue flex items-center justify-center focus:outline-none transition">
-                        <i id="menuIcon" class="fa-solid fa-bars text-lg"></i>
-                    </button>
-                </div>
+                <a href="admin/login.html" class="bg-brand-cardDark hover:bg-brand-blue text-gray-300 hover:text-white text-xs font-bold px-3 py-2 rounded-lg border border-brand-blue transition">
+                    <i class="fa-solid fa-lock"></i>
+                </a>
             </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white text-xl p-2">
+                <i id="menuIcon" class="fa-solid fa-bars"></i>
+            </button>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden lg:hidden border-t border-brand-blue/50 bg-brand-black px-4 pt-3 pb-6 space-y-3 shadow-2xl">
-            <nav class="flex flex-col space-y-2 font-semibold text-gray-200 text-base">
-                <a href="#home" class="px-3 py-2 rounded-lg bg-brand-blue text-white flex items-center justify-between">
-                    <span>मुख्य पृष्ठ</span>
-                    <i class="fa-solid fa-chevron-right text-xs text-brand-red"></i>
-                </a>
-                <a href="#services" class="px-3 py-2 rounded-lg hover:bg-brand-cardBg text-white flex items-center justify-between">
-                    <span>हमारी सेवाएं</span>
-                    <i class="fa-solid fa-chevron-right text-xs text-gray-500"></i>
-                </a>
-                <a href="#client-requirement" class="px-3 py-2 rounded-lg hover:bg-brand-cardBg text-white flex items-center justify-between">
-                    <span>कंपनी आवश्यकता (Hire Workers)</span>
-                    <i class="fa-solid fa-chevron-right text-xs text-gray-500"></i>
-                </a>
-                <a href="#worker-register" class="px-3 py-2 rounded-lg hover:bg-brand-cardBg text-white flex items-center justify-between">
-                    <span>कामगार पंजीकरण (Job Apply)</span>
-                    <i class="fa-solid fa-chevron-right text-xs text-gray-500"></i>
-                </a>
-                <a href="#about" class="px-3 py-2 rounded-lg hover:bg-brand-cardBg text-white flex items-center justify-between">
-                    <span>हमारे बारे में</span>
-                    <i class="fa-solid fa-chevron-right text-xs text-gray-500"></i>
-                </a>
-                <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-brand-cardBg text-white flex items-center justify-between">
-                    <span>संपर्क सूत्र</span>
-                    <i class="fa-solid fa-chevron-right text-xs text-gray-500"></i>
-                </a>
-            </nav>
-            <div class="pt-2 grid grid-cols-2 gap-3">
-                <a href="https://wa.me/916379403821?text=नमस्ते%20MUKESH%20MANPOWER,%20मुझे%20वर्कर्स%20की%20आवश्यकता%20है।" 
-                   target="_blank" 
-                   class="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-2.5 rounded-lg text-sm shadow">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>WhatsApp</span>
-                </a>
-                <a href="tel:+916379403821" 
-                   class="flex items-center justify-center gap-2 bg-brand-blue hover:bg-brand-blueLight text-white font-bold py-2.5 rounded-lg text-sm shadow border border-brand-blueLight">
-                    <i class="fa-solid fa-phone text-xs"></i>
-                    <span>Direct Call</span>
-                </a>
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardDark border-b border-brand-blue px-4 py-4 space-y-3 text-sm font-semibold">
+            <a href="index.html" class="block text-brand-red">होम</a>
+            <a href="pages/services.html" class="block text-gray-300 hover:text-white">सेवाएं</a>
+            <a href="pages/client-requirement.html" class="block text-gray-300 hover:text-white">क्लाइंट मांग</a>
+            <a href="pages/worker-register.html" class="block text-gray-300 hover:text-white">कामगार पंजीकरण</a>
+            <a href="pages/about.html" class="block text-gray-300 hover:text-white">हमारे बारे में</a>
+            <a href="pages/contact.html" class="block text-gray-300 hover:text-white">संपर्क</a>
+            <div class="pt-2 border-t border-gray-800 flex gap-2">
+                <a href="tel:+916379403821" class="flex-1 bg-brand-red text-center py-2 rounded-lg text-xs font-bold text-white">Call Now</a>
+                <a href="admin/login.html" class="bg-brand-blue px-3 py-2 rounded-lg text-xs font-bold text-white"><i class="fa-solid fa-lock"></i></a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-pattern relative text-white pt-12 pb-20 md:py-24 overflow-hidden border-b-4 border-brand-red">
-        <div class="absolute top-0 left-0 right-0 h-1.5 stripe-accent"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Hero Left -->
-                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cardBg border border-brand-blue text-gray-200 text-xs font-semibold shadow-inner">
-                        <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
-                        <span>प्रमाणित एवं विश्वसनीय मैनपॉवर और कंस्ट्रक्शन सॉल्यूशंस</span>
-                    </div>
+    <section class="relative py-16 sm:py-24 px-4 overflow-hidden border-b border-brand-blue/40">
+        <div class="max-w-5xl mx-auto text-center space-y-6">
+            <div class="inline-flex items-center gap-2 bg-brand-cardDark border border-brand-blue px-4 py-1.5 rounded-full text-xs font-bold text-gray-300">
+                <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
+                <span>विश्वसनीय, कुशल एवं प्रमाणित वर्कफोर्स समाधान</span>
+            </div>
 
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                        औद्योगिक और निर्माण कार्यों के लिए <span class="text-brand-red underline decoration-brand-red/50 decoration-wavy underline-offset-8">विश्वसनीय मैनपॉवर</span> सप्लायर
-                    </h1>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                कंस्ट्रक्शन और औद्योगिक प्रोजेक्ट्स के लिए <br class="hidden sm:inline">
+                <span class="text-brand-red">सही मैनपॉवर समाधान</span>
+            </h1>
 
-                    <p class="font-display text-xl sm:text-2xl text-white tracking-wider uppercase font-bold">
-                        <span class="text-brand-red">RIGHT PEOPLE.</span> <span class="text-gray-200">RIGHT PLACE.</span> <span class="text-brand-blueLight">RIGHT TIME.</span>
-                    </p>
+            <p class="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                राजमिस्त्री, कारपेंटर, हेल्पर, सिविल मजदूर और मशीन ऑपरेटर्स की त्वरित एवं पारदर्शी आपूर्ति। भारत सरकार के MSME द्वारा अधिकृत।
+            </p>
 
-                    <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        MUKESH MANPOWER सरकारी नियमों के अनुसार कुशल, अर्ध-कुशल एवं अकुशल श्रमिकों की त्वरित आपूर्ति और संपूर्ण सिविल कंस्ट्रक्शन सपोर्ट प्रदान करता है।
-                    </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="pages/client-requirement.html" class="w-full sm:w-auto bg-brand-red hover:bg-brand-redDark text-white font-extrabold px-6 py-3.5 rounded-xl text-sm transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-building"></i>
+                    <span>वर्कर्स की मांग करें (Clients)</span>
+                </a>
+                <a href="pages/worker-register.html" class="w-full sm:w-auto bg-brand-blue hover:bg-brand-blueLight border border-brand-blueLight text-white font-extrabold px-6 py-3.5 rounded-xl text-sm transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>कामगार पंजीकरण (Job)</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-                    <div class="pt-2 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                        <a href="#client-requirement" 
-                           class="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-brand-redDark text-white font-extrabold px-7 py-4 rounded-xl text-base shadow-lg shadow-brand-red/30 transition transform hover:-translate-y-0.5 active:translate-y-0 border border-brand-red">
-                            <i class="fa-solid fa-building-user text-lg"></i>
-                            <span>कंपनी को Workers चाहिए</span>
-                        </a>
-                        <a href="#worker-register" 
-                           class="inline-flex items-center justify-center gap-3 bg-brand-blue hover:bg-brand-blueLight text-white font-bold px-7 py-4 rounded-xl text-base border-2 border-brand-blueLight shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0">
-                            <i class="fa-solid fa-id-card text-brand-red text-lg"></i>
-                            <span>Job के लिए Register करें</span>
-                        </a>
-                    </div>
-
-                    <div class="pt-6 border-t border-brand-blue/50 grid grid-cols-3 gap-3 text-left">
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-circle-check text-brand-red text-sm"></i>
-                            <span class="text-xs font-semibold text-gray-300">100% सत्यापित लेबर</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-circle-check text-brand-red text-sm"></i>
-                            <span class="text-xs font-semibold text-gray-300">ऑन-टाइम डिलीवरी</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-circle-check text-brand-red text-sm"></i>
-                            <span class="text-xs font-semibold text-gray-300">कानूनी व पारदर्शी</span>
-                        </div>
-                    </div>
+    <!-- Quick Features Section -->
+    <section class="py-12 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-brand-cardDark border border-brand-blue p-6 rounded-2xl">
+                <div class="w-10 h-10 rounded-lg bg-brand-blue text-white flex items-center justify-center text-lg mb-3">
+                    <i class="fa-solid fa-shield-halved"></i>
                 </div>
+                <h3 class="text-base font-bold text-white">100% कानूनी एवं प्रमाणित</h3>
+                <p class="text-xs text-gray-400 mt-1">MSME पंजीकृत (UDYAM-BR-05-0036251) और पूर्ण कानूनी अनुपालन के साथ कार्य।</p>
+            </div>
+            <div class="bg-brand-cardDark border border-brand-blue p-6 rounded-2xl">
+                <div class="w-10 h-10 rounded-lg bg-brand-red text-white flex items-center justify-center text-lg mb-3">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3 class="text-base font-bold text-white">त्वरित मैनपॉवर मोबिलाइजेशन</h3>
+                <p class="text-xs text-gray-400 mt-1">आपकी प्रोजेक्ट साइट और आवश्यकता के अनुसार न्यूनतम समय में कामगारों की उपलब्धता।</p>
+            </div>
+            <div class="bg-brand-cardDark border border-brand-blue p-6 rounded-2xl">
+                <div class="w-10 h-10 rounded-lg bg-brand-blueLight text-white flex items-center justify-center text-lg mb-3">
+                    <i class="fa-solid fa-handshake"></i>
+                </div>
+                <h3 class="text-base font-bold text-white">पारदर्शी व सीधा संपर्क</h3>
+                <p class="text-xs text-gray-400 mt-1">बिना किसी बिचौलिया परेशानी के कंपनी और कामगार के बीच सीधा और ईमानदार तालमेल।</p>
+            </div>
+        </div>
+    </section>
 
-                <!-- Hero Right Overview Card -->
-                <div class="lg:col-span-5">
-                    <div class="bg-brand-cardBg rounded-2xl p-6 sm:p-8 border border-brand-blue/80 shadow-2xl backdrop-blur-sm relative">
-                        <div class="flex items-center justify-between border-b border-brand-blue/60 pb-4 mb-6">
-                            <div>
-                                <h3 class="text-lg font-bold text-white">सप्लाई सेवाएं</h3>
-                                <p class="text-xs text-gray-400">उपलब्ध मैनपॉवर श्रेणियां</p>
-                            </div>
-                            <span class="px-2.5 py-1 rounded bg-brand-blue text-white border border-brand-blueLight text-xs font-bold font-mono">
-                                24/7 ACTIVE
-                            </span>
-                        </div>
+    <!-- Footer -->
+    <footer class="bg-brand-black border-t border-brand-blue/60 py-10 px-4 mt-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-xs text-gray-400">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <span class="font-display text-2xl font-bold text-white">MUKESH</span>
+                    <span class="font-display text-2xl font-bold text-brand-red">MANPOWER</span>
+                </div>
+                <p class="leading-relaxed">विश्वसनीय और कुशल वर्कफोर्स आपूर्ति हेतु एक अग्रणी एमएसएमई पंजीकृत प्रतिष्ठान।</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-3">महत्वपूर्ण लिंक्स</h4>
+                <ul class="space-y-2">
+                    <li><a href="pages/services.html" class="hover:text-white">हमारी सेवाएं</a></li>
+                    <li><a href="pages/client-requirement.html" class="hover:text-white">क्लाइंट मांग फॉर्म</a></li>
+                    <li><a href="pages/worker-register.html" class="hover:text-white">जॉब रजिस्ट्रेशन</a></li>
+                    <li><a href="pages/about.html" class="hover:text-white">कंपनी प्रोफाइल</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-3">कानूनी नीतियां</h4>
+                <ul class="space-y-2">
+                    <li><a href="pages/privacy-policy.html" class="hover:text-white">गोपनीयता नीति</a></li>
+                    <li><a href="pages/terms.html" class="hover:text-white">नियम एवं शर्तें</a></li>
+                    <li><a href="admin/login.html" class="hover:text-white">एडमिन लॉगिन</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-3">संपर्क केंद्र</h4>
+                <p class="leading-relaxed">धोबनी चौक, बांका, बिहार - 813104</p>
+                <p class="mt-2 text-brand-red font-bold font-mono">+91 6379403821</p>
+                <p class="mt-1">mukeshmanpower2026@gmail.com</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-gray-900 mt-8 pt-4 text-center text-[11px] text-gray-600">
+            © 2026 MUKESH MANPOWER. Udyam Reg: UDYAM-BR-05-0036251. सर्वाधिकार सुरक्षित।
+        </div>
+    </footer>
 
-                        <div class="space-y-3.5">
-                            <div class="flex items-center gap-3.5 p-3 rounded-xl bg-brand-black/90 border border-brand-blue/50 hover:border-brand-red/60 transition">
-                                <div class="w-10 h-10 rounded-lg bg-brand-red/10 text-brand-red flex items-center justify-center font-bold text-base border border-brand-red/30">
-                                    <i class="fa-solid fa-trowel-bricks"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="text-sm font-bold text-white">कुशल कारीगर (Skilled Manpower)</h4>
-                                    <p class="text-xs text-gray-400">राजमिस्त्री, कारपेंटर, प्लंबर, इलेक्ट्रीशियन</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-3.5 p-3 rounded-xl bg-brand-black/90 border border-brand-blue/50 hover:border-brand-blueLight transition">
-                                <div class="w-10 h-10 rounded-lg bg-brand-blue text-white flex items-center justify-center font-bold text-base border border-brand-blueLight">
-                                    <i class="fa-solid fa-person-digging"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="text-sm font-bold text-white">कंस्ट्रक्शन हेल्पर (Unskilled Labor)</h4>
-                                    <p class="text-xs text-gray-400">लोडिंग/अनलोडिंग, साइट खुदाई, सिविल सहायक</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-3.5 p-3 rounded-xl bg-brand-black/90 border border-brand-blue/50 hover:border-brand-red/60 transition">
-                                <div class="w-10 h-10 rounded-lg bg-brand-red/10 text-brand-red flex items-center justify-center font-bold text-base border border-brand-red/30">
-                                    <i class="fa-solid fa-truck-monster"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="text-sm font-bold text-white">साइट प्रिपरेशन & मशीनरी ऑपरेटर</h4>
-                                    <p class="text-xs text-gray-400">जेसीबी/एक्सकेवेटर ऑपरेटर, लैंड लेवलिंग</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-6 pt-4 border-t border-brand-blue/60 flex items-center justify-between text-xs">
-                            <span class="text-gray-400">तत्काल आवश्यकता के लिए:</span>
-                            <a href="tel:+916379403821" class="text-brand-red font-bold hover:underline flex items-center gap-1">
-            
+    <!-- Global JS Link -->
+    <script src="js/main.js"></script>
+</body>
+</html>
