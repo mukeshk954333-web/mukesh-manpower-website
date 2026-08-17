@@ -1,0 +1,95 @@
+<!-- ==========================================
+     MUKESH MANPOWER - ADMIN LOGIN
+     File: admin/login.html
+     ========================================== -->
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - MUKESH MANPOWER</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#DC0000',
+                            redDark: '#A80000',
+                            blue: '#002D60',
+                            blueLight: '#064A91',
+                            black: '#000000',
+                            darkBg: '#050505',
+                            cardDark: '#0D1117',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Teko"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-darkBg text-white font-sans antialiased min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-md bg-brand-cardDark border border-brand-blue border-t-4 border-t-brand-red rounded-2xl p-6 sm:p-8 shadow-2xl">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-blue/30 border border-brand-blueLight text-brand-red text-2xl mb-4">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h1 class="text-2xl font-bold tracking-tight text-white">MUKESH MANPOWER</h1>
+            <p class="text-xs text-gray-400 mt-1">सुरक्षित एडमिन कंट्रोल पैनल</p>
+        </div>
+
+        <!-- Login Form -->
+        <form id="adminLoginForm" class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-gray-300 mb-1">एडमिन ईमेल आईडी *</label>
+                <div class="relative">
+                    <i class="fa-solid fa-envelope absolute left-3.5 top-3.5 text-gray-500 text-sm"></i>
+                    <input type="email" id="adminEmail" required placeholder="admin@example.com" class="w-full bg-brand-darkBg border border-gray-800 text-white rounded-lg pl-10 pr-3 py-2.5 text-sm focus:border-brand-red outline-none">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-gray-300 mb-1">पासवर्ड *</label>
+                <div class="relative">
+                    <i class="fa-solid fa-key absolute left-3.5 top-3.5 text-gray-500 text-sm"></i>
+                    <input type="password" id="adminPassword" required placeholder="••••••••" class="w-full bg-brand-darkBg border border-gray-800 text-white rounded-lg pl-10 pr-3 py-2.5 text-sm focus:border-brand-red outline-none">
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-brand-blue hover:bg-brand-blueLight text-white font-extrabold py-3 rounded-lg text-sm transition shadow-lg flex items-center justify-center gap-2 border border-brand-blueLight mt-2">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span>लॉगिन करें</span>
+            </button>
+        </form>
+
+        <div class="mt-6 pt-4 border-t border-gray-800 text-center">
+            <a href="../index.html" class="text-xs text-gray-400 hover:text-white transition flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-arrow-left text-[10px]"></i> वेबसाइट पर वापस जाएं
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
