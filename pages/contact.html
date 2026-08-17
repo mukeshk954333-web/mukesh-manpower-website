@@ -1,0 +1,139 @@
+<!-- ==========================================
+     MUKESH MANPOWER - CONTACT US PAGE
+     File: pages/contact.html
+     ========================================== -->
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>संपर्क करें - MUKESH MANPOWER</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#DC0000',
+                            redDark: '#A80000',
+                            blue: '#002D60',
+                            blueLight: '#064A91',
+                            black: '#000000',
+                            darkBg: '#050505',
+                            cardDark: '#0D1117',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Teko"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-darkBg text-white font-sans antialiased">
+
+    <!-- Navigation Header -->
+    <header class="bg-brand-black border-b border-brand-blue/60 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-2">
+                <span class="font-display text-2xl font-bold tracking-wider text-white">MUKESH</span>
+                <span class="font-display text-2xl font-bold tracking-wider text-brand-red">MANPOWER</span>
+            </a>
+            <a href="../index.html" class="text-xs font-bold bg-brand-cardDark hover:bg-brand-blue text-gray-200 px-3.5 py-2 rounded-lg border border-brand-blue transition">
+                <i class="fa-solid fa-arrow-left mr-1.5"></i> मुख्य पृष्ठ
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-12">
+
+        <!-- Heading -->
+        <div class="text-center mb-12">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-blueLight bg-brand-cardDark border border-brand-blueLight/30 px-3 py-1 rounded-full">
+                Get In Touch
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold mt-4 text-white">संपर्क करें (Contact Us)</h1>
+            <p class="text-gray-400 text-sm mt-2">किसी भी मैनपॉवर आवश्यकता या पूछताछ के लिए हमसे सीधे जुड़ें</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            
+            <!-- Direct Call & WhatsApp Card -->
+            <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/30 text-brand-red flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-phone-volume"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">सीधा फोन / WhatsApp</h3>
+                    <p class="text-xs text-gray-400 mb-4">तत्काल सहायता और त्वरित बातचीत के लिए संपर्क करें।</p>
+                    <p class="text-lg font-mono font-bold text-brand-red mb-4">+91 6379403821</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                    <a href="tel:+916379403821" class="bg-brand-blue hover:bg-brand-blueLight text-white text-xs font-bold py-2.5 px-3 rounded-lg text-center transition">
+                        <i class="fa-solid fa-phone mr-1"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/916379403821?text=नमस्ते%20MUKESH%20MANPOWER" target="_blank" class="bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs font-bold py-2.5 px-3 rounded-lg text-center transition">
+                        <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Email Card -->
+            <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-blue text-white flex items-center justify-center text-xl mb-4 border border-brand-blueLight">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">आधिकारिक ईमेल</h3>
+                    <p class="text-xs text-gray-400 mb-4">औपचारिक पूछताछ, टेंडर और प्रोजेक्ट विवरण भेजने हेतु।</p>
+                    <p class="text-sm font-semibold text-gray-200 break-all mb-4">mukeshmanpower2026@gmail.com</p>
+                </div>
+                <div class="pt-2">
+                    <a href="mailto:mukeshmanpower2026@gmail.com" class="block w-full bg-brand-darkBg hover:bg-brand-blue text-gray-200 hover:text-white border border-brand-blue text-xs font-bold py-2.5 px-3 rounded-lg text-center transition">
+                        <i class="fa-solid fa-paper-plane mr-1.5"></i> ईमेल भेजें
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Office Address Card -->
+        <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-8">
+            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-map-location-dot text-brand-red"></i>
+                <span>मुख्य कार्यालय पता</span>
+            </h3>
+            <div class="text-sm text-gray-300 space-y-2">
+                <p><strong class="text-white">प्रतिष्ठान का नाम:</strong> MUKESH MANPOWER</p>
+                <p><strong class="text-white">स्थान:</strong> धोबनी चौक, ग्राम: तेलिया बगीचा</p>
+                <p><strong class="text-white">प्रखंड एवं जिला:</strong> बांका, बिहार - 813104</p>
+                <p class="text-xs text-gray-500 pt-2">उद्यम पंजीकरण संख्या: UDYAM-BR-05-0036251</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-xs text-gray-500 border-t border-gray-900">
+        © 2026 MUKESH MANPOWER. सर्वाधिकार सुरक्षित।
+    </footer>
+
+</body>
+                     </html>
+
