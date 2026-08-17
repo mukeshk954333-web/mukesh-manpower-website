@@ -1,0 +1,123 @@
+<!-- ==========================================
+     MUKESH MANPOWER - ADMIN WORKERS LIST
+     File: admin/workers.html
+     ========================================== -->
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Database - MUKESH MANPOWER</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#DC0000',
+                            redDark: '#A80000',
+                            blue: '#002D60',
+                            blueLight: '#064A91',
+                            black: '#000000',
+                            darkBg: '#050505',
+                            cardDark: '#0D1117',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Teko"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-darkBg text-white font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Top Admin Header -->
+    <header class="bg-brand-black border-b border-brand-blue/60 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="dashboard.html" class="flex items-center gap-2">
+                    <span class="font-display text-2xl font-bold tracking-wider text-white">MUKESH</span>
+                    <span class="font-display text-2xl font-bold tracking-wider text-brand-red">MANPOWER</span>
+                </a>
+                <span class="text-[10px] font-bold bg-brand-red text-white px-2 py-0.5 rounded hidden sm:inline">WORKERS DB</span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <a href="dashboard.html" class="text-xs text-gray-300 hover:text-white px-3 py-1.5 rounded-lg border border-gray-800 hover:border-brand-blue transition">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> डैशबोर्ड
+                </a>
+                <a href="login.html" class="text-xs font-bold bg-brand-red hover:bg-brand-redDark text-white px-3.5 py-1.5 rounded-lg transition">
+                    <i class="fa-solid fa-power-off mr-1"></i> लॉगआउट
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8 flex-1 w-full space-y-6">
+        
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+                <h1 class="text-2xl font-bold text-white">पंजीकृत कामगार डेटाबेस</h1>
+                <p class="text-xs text-gray-400 mt-1">जॉब के लिए पंजीकृत श्रमिकों की सूची व योग्यता</p>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="location.reload()" class="bg-brand-cardDark hover:bg-brand-blue border border-gray-800 text-xs px-3 py-2 rounded-lg text-gray-200 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-arrows-rotate"></i> रिफ्रेश
+                </button>
+            </div>
+        </div>
+
+        <!-- Table Card -->
+        <div class="bg-brand-cardDark border border-brand-blue rounded-2xl overflow-hidden shadow-xl">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="border-b border-gray-800 bg-brand-black/60 text-gray-400 uppercase font-mono text-[11px]">
+                            <th class="p-4">कामगार का नाम</th>
+                            <th class="p-4">फोन नंबर</th>
+                            <th class="p-4">कौशल / Skill</th>
+                            <th class="p-4">अनुभव</th>
+                            <th class="p-4">स्थान</th>
+                            <th class="p-4">तारीख</th>
+                            <th class="p-4 text-center">एक्शन</th>
+                        </tr>
+                    </thead>
+                    <tbody id="workersTableBody" class="divide-y divide-gray-800/60 text-gray-300">
+                        <tr>
+                            <td colspan="7" class="p-8 text-center text-gray-500">
+                                <i class="fa-solid fa-user-slash text-3xl mb-2 block"></i>
+                                अभी कोई नया रजिस्ट्रेशन नहीं है। फॉर्म सबमिशन के बाद रिकॉर्ड यहाँ दिखेंगे।
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 text-xs text-gray-600 border-t border-gray-900">
+        © 2026 MUKESH MANPOWER • Admin Management Console
+    </footer>
+
+</body>
+</html>
+
