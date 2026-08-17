@@ -66,7 +66,7 @@
                 कॉर्पोरेट मैनपॉवर मांग (Fast Booking)
             </h1>
             <p class="text-xs sm:text-sm text-gray-400 mt-2 max-w-2xl mx-auto">
-                कामगारों की संख्या, प्रस्तावित बजट और ओवरटाइम घंटे दर्ज करें। हमारा स्मार्ट सिस्टम तुरंत लाइव एस्टीमेट बनाकर हमें WhatsApp कर देगा।
+                कामगारों की संख्या और अपना प्रस्तावित बजट (Rate) दर्ज करें। हमारा स्मार्ट सिस्टम तुरंत आपका एस्टीमेट बनाकर हमें WhatsApp कर देगा।
             </p>
         </div>
 
@@ -139,11 +139,11 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="helperCount" min="0" value="0" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="helperCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="helperRate" min="0" placeholder="आपका रेट ₹" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="helperRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
@@ -154,11 +154,11 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="skilledCount" min="0" value="0" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="skilledCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="skilledRate" min="0" placeholder="आपका रेट ₹" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="skilledRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
@@ -169,57 +169,40 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="operatorCount" min="0" value="0" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="operatorCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="operatorRate" min="0" placeholder="आपका रेट ₹" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="operatorRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Overtime Hours Configuration -->
-                <div class="p-4 bg-black rounded-lg border border-gray-800 flex items-center justify-between flex-wrap gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-yellow-400 mb-0.5"><i class="fa-solid fa-clock"></i> प्रतिदिन ओवरटाइम (OT) घंटे:</label>
-                        <span class="text-[10px] text-gray-400">नॉर्मल ड्यूटी (8 घंटे) के बाद अतिरिक्त कार्य समय</span>
-                    </div>
-                    <div class="w-32">
-                        <input type="number" id="otHoursInput" min="0" max="6" value="2" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded-lg py-2 focus:border-brand-red outline-none">
-                    </div>
-                </div>
-
                 <!-- 3. SMART COMPUTER (Live Calculator) -->
                 <div class="bg-[#0a1128] p-5 rounded-xl border-2 border-[#1e3a8a] shadow-inner">
                     <div class="flex items-center justify-between border-b border-gray-700 pb-2 mb-3">
-                        <span class="font-bold text-sm text-yellow-400"><i class="fa-solid fa-calculator"></i> लाइव एस्टीमेट (कंप्यूटर कैलकुलेटर)</span>
+                        <span class="font-bold text-sm text-yellow-400"><i class="fa-solid fa-calculator"></i> एस्टीमेट (आपके बजट अनुसार)</span>
                         <span class="text-xs text-white bg-black px-2 py-1 rounded border border-gray-700">कुल वर्कर: <strong id="compTotalWorkers" class="text-yellow-400 text-sm">0</strong></span>
                     </div>
                     <div class="text-xs space-y-2 text-gray-300 font-mono">
-                        <div class="flex justify-between"><span>Helper (Normal):</span> <span id="compHelper">0 × ₹0 = ₹0</span></div>
-                        <div class="flex justify-between"><span>Skilled (Normal):</span> <span id="compSkilled">0 × ₹0 = ₹0</span></div>
-                        <div class="flex justify-between"><span>Operator (Normal):</span> <span id="compOperator">0 × ₹0 = ₹0</span></div>
+                        <div class="flex justify-between"><span>Helper:</span> <span id="compHelper">0 × ₹0 = ₹0</span></div>
+                        <div class="flex justify-between"><span>Skilled:</span> <span id="compSkilled">0 × ₹0 = ₹0</span></div>
+                        <div class="flex justify-between"><span>Operator:</span> <span id="compOperator">0 × ₹0 = ₹0</span></div>
                     </div>
-                    <div class="border-t border-gray-700 mt-3 pt-2 flex justify-between items-center text-sm font-bold">
-                        <span class="text-white">नॉर्मल दैनिक उप-योग (Subtotal):</span>
-                        <span id="compSubtotal" class="text-green-400 text-lg font-mono">₹0</span>
+                    <div class="border-t border-gray-700 mt-3 pt-2 flex justify-between items-center text-sm">
+                        <span class="font-bold text-white">अनुमानित दैनिक बिल (Subtotal):</span>
+                        <span id="compSubtotal" class="font-bold text-xl text-green-400">₹0</span>
                     </div>
 
-                    <!-- OT Calculation Display (1.5x Multiplier) -->
-                    <div class="border-t border-gray-700/80 mt-3 pt-2 text-xs text-gray-300 space-y-1">
-                        <div class="font-bold text-yellow-400 flex items-center gap-1">
-                            <i class="fa-solid fa-business-time"></i> ओवरटाइम गणना (<span id="displayOtHours">2</span> घंटे प्रति दिन @ 1.5x):
-                        </div>
-                        <div class="grid grid-cols-3 gap-2 font-mono text-[11px] bg-black/60 p-2 rounded border border-gray-800 text-center">
-                            <div>Helper OT: <strong id="otH" class="text-white block">₹0</strong></div>
-                            <div>Skilled OT: <strong id="otS" class="text-white block">₹0</strong></div>
-                            <div>Operator OT: <strong id="otO" class="text-white block">₹0</strong></div>
-                        </div>
-                        <div class="flex justify-between items-center pt-2 text-sm font-bold border-t border-gray-800">
-                            <span class="text-yellow-300">कुल अनुमानित दैनिक खर्च (Normal + OT):</span>
-                            <span id="grandTotal" class="text-yellow-400 text-xl font-mono">₹0</span>
+                    <!-- OT Indication based on Client's Budget -->
+                    <div class="border-t border-gray-700/80 mt-3 pt-2 text-[10px] text-gray-400">
+                        <div class="font-bold text-yellow-400 mb-1"><i class="fa-solid fa-clock text-xs"></i> 8 घंटे के बाद ओवरटाइम दरें (आपके रेट के आधार पर):</div>
+                        <div class="flex justify-between font-mono bg-black/50 p-1.5 rounded">
+                            <span>H-OT: <span id="otH" class="text-white">₹0</span>/hr</span>
+                            <span>S-OT: <span id="otS" class="text-white">₹0</span>/hr</span>
+                            <span>O-OT: <span id="otO" class="text-white">₹0</span>/hr</span>
                         </div>
                     </div>
                 </div>
@@ -271,7 +254,6 @@
         </div>
     </main>
 
-    <!-- JavaScript Calculation Engine -->
     <script>
         function doCalc() {
             // Get Counts
@@ -279,22 +261,46 @@
             const sC = parseInt(document.getElementById('skilledCount').value) || 0;
             const oC = parseInt(document.getElementById('operatorCount').value) || 0;
 
-            // Get Rates
+            // Get Rates (Client's Budget)
             const hR = parseInt(document.getElementById('helperRate').value) || 0;
             const sR = parseInt(document.getElementById('skilledRate').value) || 0;
             const oR = parseInt(document.getElementById('operatorRate').value) || 0;
 
-            // Get OT Hours
-            const otHours = parseFloat(document.getElementById('otHoursInput').value) || 0;
-            document.getElementById('displayOtHours').textContent = otHours;
-
-            // Normal Totals
+            // Calculate Totals
             const hT = hC * hR;
             const sT = sC * sR;
             const oT = oC * oR;
+
             const totalW = hC + sC + oC;
             const subTotal = hT + sT + oT;
 
-            // OT Calculation: Hourly Rate = Rate / 8, OT Rate = Hourly Rate * 1.5 (1.5x premium)
-            const hOTRate = Math.round((hR / 8) * 1.5);
-            const sOTRate = Math.
+            // OT Calculation based on Client's Budget
+            const otHelper = Math.round(hR / 8);
+            const otSkilled = Math.round(sR / 8);
+            const otOperator = Math.round(oR / 8);
+
+            // Update Computer UI
+            document.getElementById('compTotalWorkers').textContent = totalW;
+            document.getElementById('compHelper').textContent = `${hC} × ₹${hR} = ₹${hT.toLocaleString('en-IN')}`;
+            document.getElementById('compSkilled').textContent = `${sC} × ₹${sR} = ₹${sT.toLocaleString('en-IN')}`;
+            document.getElementById('compOperator').textContent = `${oC} × ₹${oR} = ₹${oT.toLocaleString('en-IN')}`;
+            document.getElementById('compSubtotal').textContent = `₹${subTotal.toLocaleString('en-IN')}`;
+
+            document.getElementById('otH').textContent = `₹${otHelper}`;
+            document.getElementById('otS').textContent = `₹${otSkilled}`;
+            document.getElementById('otO').textContent = `₹${otOperator}`;
+
+            return { hC, sC, oC, hR, sR, oR, hT, sT, oT, totalW, subTotal, otHelper, otSkilled, otOperator };
+        }
+
+        document.getElementById('smartRequirementForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Reset UI Errors
+            document.querySelectorAll(".error-msg").forEach(el => el.style.display = "none");
+            document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
+
+            let isValid = true;
+            const company = document.getElementById('companyName').value.trim();
+            const contact = document.getElementById('contactPerson').value.trim();
+            const mobi
