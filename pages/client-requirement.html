@@ -279,21 +279,28 @@
             "OtherUT": { helper: 1000, skilled: 1300, operator: 1650 }
         };
 
-        // राज्य बदलने पर दरें ऑटो-अपडेट करना
-        document.getElementById("stateSelect").addEventListener("change", function () {
-            const selectedState = this.value;
+        function updateRates() {
+            const selectedState = document.getElementById("stateSelect").value;
             if (statePricing[selectedState]) {
                 document.getElementById("helperRate").value = statePricing[selectedState].helper;
                 document.getElementById("skilledRate").value = statePricing[selectedState].skilled;
                 document.getElementById("operatorRate").value = statePricing[selectedState].operator;
+            } else {
+                document.getElementById("helperRate").value = "";
+                document.getElementById("skilledRate").value = "";
+                document.getElementById("operatorRate").value = "";
             }
-        });
+        }
+
+        // राज्य बदलने पर तुरंत दरें अपडेट होंगी
+        document.getElementById("stateSelect").addEventListener("change", updateRates);
 
         // WhatsApp फॉर्म सबमिशन
         document.getElementById("allIndiaClientForm").addEventListener("submit", function (e) {
             e.preventDefault();
 
-            const state = document.getElementById("stateSelect").value;
+            const stateSelect = document.getElementById("stateSelect");
+            const state = stateSelect.options[stateSelect.selectedIndex].text;
             const company = document.getElementById("companyName").value.trim();
             const phone = document.getElementById("clientPhone").value.trim();
             const address = document.getElementById("siteAddress").value.trim();
@@ -301,10 +308,4 @@
             const helperCount = Number(document.getElementById("helperCount").value) || 0;
             const helperRate = Number(document.getElementById("helperRate").value) || 0;
 
-            const skilledCount = Number(document.getElementById("skilledCount").value) || 0;
-            const skilledRate = Number(document.getElementById("skilledRate").value) || 0;
-
-            const operatorCount = Number(document.getElementById("operatorCount").value) || 0;
-            const operatorRate = Number(document.getElementById("operatorRate").value) || 0;
-
-            const payment = document.getElementById("paymentCycle"
+            const skilledCount = Number(document.getElementById("skill
