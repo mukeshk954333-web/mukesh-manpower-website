@@ -66,7 +66,7 @@
                 कॉर्पोरेट मैनपॉवर मांग (Fast Booking)
             </h1>
             <p class="text-xs sm:text-sm text-gray-400 mt-2 max-w-2xl mx-auto">
-                कामगारों की संख्या, प्रस्तावित बजट और ओवरटाइम घंटे दर्ज करें। हमारा स्मार्ट सिस्टम तुरंत लाइव एस्टीमेट बनाकर हमें WhatsApp कर देगा।
+                कामगारों की संख्या और अपना प्रस्तावित बजट (Rate) दर्ज करें। हमारा स्मार्ट सिस्टम तुरंत लाइव एस्टीमेट बनाकर हमें WhatsApp कर देगा।
             </p>
         </div>
 
@@ -180,17 +180,6 @@
                     </div>
                 </div>
 
-                <!-- Overtime Hours Configuration -->
-                <div class="p-4 bg-black rounded-lg border border-gray-800 flex items-center justify-between flex-wrap gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-yellow-400 mb-0.5"><i class="fa-solid fa-clock"></i> प्रतिदिन ओवरटाइम (OT) घंटे:</label>
-                        <span class="text-[10px] text-gray-400">नॉर्मल ड्यूटी (8 घंटे) के बाद अतिरिक्त कार्य समय (डिफ़ॉल्ट 0)</span>
-                    </div>
-                    <div class="w-32">
-                        <input type="number" id="otHoursInput" min="0" max="10" value="0" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded-lg py-2 focus:border-brand-red outline-none">
-                    </div>
-                </div>
-
                 <!-- 3. SMART COMPUTER (Live Calculator) -->
                 <div class="bg-[#0a1128] p-5 rounded-xl border-2 border-[#1e3a8a] shadow-inner">
                     <div class="flex items-center justify-between border-b border-gray-700 pb-2 mb-3">
@@ -203,19 +192,8 @@
                         <div class="flex justify-between"><span>Operator:</span> <span id="compOperator">0 × ₹0 = ₹0</span></div>
                     </div>
                     <div class="border-t border-gray-700 mt-3 pt-2 flex justify-between items-center text-sm font-bold">
-                        <span class="text-white">अनुमानित दैनिक उप-योग (Subtotal):</span>
+                        <span class="text-white">अनुमानित दैनिक बिल (Subtotal):</span>
                         <span id="compSubtotal" class="text-green-400 text-lg font-mono">₹0</span>
-                    </div>
-
-                    <!-- OT Calculation Display (1.5x Multiplier) -->
-                    <div class="border-t border-gray-700/80 mt-3 pt-2 text-xs text-gray-300 space-y-1">
-                        <div class="font-bold text-yellow-400 flex items-center gap-1">
-                            <i class="fa-solid fa-business-time"></i> ओवरटाइम गणना (<span id="displayOtHours">0</span> घंटे प्रति दिन @ 1.5x):
-                        </div>
-                        <div class="flex justify-between items-center pt-2 text-sm font-bold border-t border-gray-800 mt-2">
-                            <span class="text-yellow-300">कुल दैनिक खर्च (Normal + OT):</span>
-                            <span id="grandTotal" class="text-yellow-400 text-xl font-mono">₹0</span>
-                        </div>
                     </div>
                 </div>
 
@@ -279,10 +257,6 @@
             const sR = parseInt(document.getElementById('skilledRate').value) || 0;
             const oR = parseInt(document.getElementById('operatorRate').value) || 0;
 
-            // Get OT Hours
-            const otHours = parseFloat(document.getElementById('otHoursInput').value) || 0;
-            document.getElementById('displayOtHours').textContent = otHours;
-
             // Normal Totals
             const hT = hC * hR;
             const sT = sC * sR;
@@ -290,18 +264,45 @@
             const totalW = hC + sC + oC;
             const subTotal = hT + sT + oT;
 
-            // OT Calculation: Hourly Rate = Rate / 8, OT Rate = Hourly Rate * 1.5
-            const hOTRate = Math.round((hR / 8) * 1.5) || 0;
-            const sOTRate = Math.round((sR / 8) * 1.5) || 0;
-            const oOTRate = Math.round((oR / 8) * 1.5) || 0;
-
-            const hOTTotal = hC * hOTRate * otHours;
-            const sOTTotal = sC * sOTRate * otHours;
-            const oOTTotal = oC * oOTRate * otHours;
-            const totalOTAmount = hOTTotal + sOTTotal + oOTTotal;
-
-            const grandTotal = subTotal + totalOTAmount;
-
             // Update UI
             document.getElementById('compTotalWorkers').textContent = totalW;
-            document.getElementById(
+            document.getElementById('compHelper').textContent = `${hC} × ₹${hR} = ₹${hT.toLocaleString('en-IN')}`;
+            document.getElementById('compSkilled').textContent = `${sC} × ₹${sR} = ₹${sT.toLocaleString('en-IN')}`;
+            document.getElementById('compOperator').textContent = `${oC} × ₹${oR} = ₹${oT.toLocaleString('en-IN')}`;
+            document.getElementById('compSubtotal').textContent = `₹${subTotal.toLocaleString('en-IN')}`;
+
+            return { 
+                hC, sC, oC, hR, sR, oR, hT, sT, oT, totalW, subTotal 
+            };
+        }
+
+        // Real-time calculation triggers
+        const allInputs = ['helperCount', 'helperRate', 'skilledCount', 'skilledRate', 'operatorCount', 'operatorRate'];
+        allInputs.forEach(id => {
+            const el = document.getElementById(id);
+            if(el) {
+                el.addEventListener('input', doCalc);
+                el.addEventListener('keyup', doCalc);
+                el.addEventListener('change', doCalc);
+            }
+        });
+
+        // Form Submit Handler (WhatsApp Builder)
+        document.getElementById('smartRequirementForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Reset UI Errors
+            document.querySelectorAll(".error-msg").forEach(el => el.style.display = "none");
+            document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
+
+            let isValid = true;
+            const company = document.getElementById('companyName').value.trim();
+            const contact = document.getElementById('contactPerson').value.trim();
+            const mobile = document.getElementById('mobileNumber').value.trim();
+            const state = document.getElementById('stateSelect').value;
+            const consent = document.getElementById('consentCheck').checked;
+            
+            if(!company) { document.getElementById("companyError").style.display = "block"; document.getElementById("companyName").classList.add("input-error"); isValid = false; }
+            if(!contact) { document.getElementById("contactError").style.display = "block"; document.getElementById("contactPerson").classList.add("input-error"); isValid = false; }
+            if(!/^[6-9]\d{9}$/.test(mobile)) { document.getElementById("phoneError").style.display = "block"; document.getElementById("mobileNumber").classList.add("input-error"); isValid = false; }
+  
