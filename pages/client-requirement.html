@@ -184,7 +184,7 @@
                 <div class="p-4 bg-black rounded-lg border border-gray-800 flex items-center justify-between flex-wrap gap-3">
                     <div>
                         <label class="block text-xs font-bold text-yellow-400 mb-0.5"><i class="fa-solid fa-clock"></i> प्रतिदिन ओवरटाइम (OT) घंटे:</label>
-                        <span class="text-[10px] text-gray-400">नॉर्मल ड्यूटी (8 घंटे) के बाद अतिरिक्त कार्य समय</span>
+                        <span class="text-[10px] text-gray-400">नॉर्मल ड्यूटी (8 घंटे) के बाद अतिरिक्त कार्य समय (डिफ़ॉल्ट 0)</span>
                     </div>
                     <div class="w-32">
                         <input type="number" id="otHoursInput" min="0" max="10" value="0" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded-lg py-2 focus:border-brand-red outline-none">
@@ -198,27 +198,22 @@
                         <span class="text-xs text-white bg-black px-2 py-1 rounded border border-gray-700">कुल वर्कर: <strong id="compTotalWorkers" class="text-yellow-400 text-sm">0</strong></span>
                     </div>
                     <div class="text-xs space-y-2 text-gray-300 font-mono">
-                        <div class="flex justify-between"><span>Helper (Normal):</span> <span id="compHelper">0 × ₹0 = ₹0</span></div>
-                        <div class="flex justify-between"><span>Skilled (Normal):</span> <span id="compSkilled">0 × ₹0 = ₹0</span></div>
-                        <div class="flex justify-between"><span>Operator (Normal):</span> <span id="compOperator">0 × ₹0 = ₹0</span></div>
+                        <div class="flex justify-between"><span>Helper:</span> <span id="compHelper">0 × ₹0 = ₹0</span></div>
+                        <div class="flex justify-between"><span>Skilled:</span> <span id="compSkilled">0 × ₹0 = ₹0</span></div>
+                        <div class="flex justify-between"><span>Operator:</span> <span id="compOperator">0 × ₹0 = ₹0</span></div>
                     </div>
                     <div class="border-t border-gray-700 mt-3 pt-2 flex justify-between items-center text-sm font-bold">
-                        <span class="text-white">नॉर्मल दैनिक उप-योग (Subtotal):</span>
+                        <span class="text-white">अनुमानित दैनिक उप-योग (Subtotal):</span>
                         <span id="compSubtotal" class="text-green-400 text-lg font-mono">₹0</span>
                     </div>
 
                     <!-- OT Calculation Display (1.5x Multiplier) -->
-                    <div class="border-t border-gray-700/80 mt-3 pt-2 text-xs text-gray-300 space-y-1" id="otDisplayBox">
+                    <div class="border-t border-gray-700/80 mt-3 pt-2 text-xs text-gray-300 space-y-1">
                         <div class="font-bold text-yellow-400 flex items-center gap-1">
                             <i class="fa-solid fa-business-time"></i> ओवरटाइम गणना (<span id="displayOtHours">0</span> घंटे प्रति दिन @ 1.5x):
                         </div>
-                        <div class="grid grid-cols-3 gap-2 font-mono text-[11px] bg-black/60 p-2 rounded border border-gray-800 text-center">
-                            <div>Helper OT: <strong id="otH" class="text-white block">₹0</strong></div>
-                            <div>Skilled OT: <strong id="otS" class="text-white block">₹0</strong></div>
-                            <div>Operator OT: <strong id="otO" class="text-white block">₹0</strong></div>
-                        </div>
-                        <div class="flex justify-between items-center pt-2 text-sm font-bold border-t border-gray-800">
-                            <span class="text-yellow-300">कुल अनुमानित दैनिक खर्च (Normal + OT):</span>
+                        <div class="flex justify-between items-center pt-2 text-sm font-bold border-t border-gray-800 mt-2">
+                            <span class="text-yellow-300">कुल दैनिक खर्च (Normal + OT):</span>
                             <span id="grandTotal" class="text-yellow-400 text-xl font-mono">₹0</span>
                         </div>
                     </div>
@@ -236,8 +231,8 @@
                     <div>
                         <label class="block text-xs text-gray-300 mb-1">पेमेंट चक्र (Payment Rule) <span class="text-brand-red">*</span></label>
                         <select id="paymentSelect" required class="w-full bg-black border border-gray-700 text-white rounded-lg px-3 py-2.5 text-sm focus:border-brand-red outline-none cursor-pointer">
-                            <option value="हर 15 दिन में (पाक्षिक भुगतान)">हर 15 दिन में (पाक्षिक भुगतान)</option>
                             <option value="महीने की 1 तारीख को (मासिक भुगतान)">महीने की 1 तारीख को (मासिक भुगतान)</option>
+                            <option value="हर 15 दिन में (पाक्षिक भुगतान)">हर 15 दिन में (पाक्षिक भुगतान)</option>
                             <option value="हर 8 दिन में (साप्ताहिक भुगतान)">हर 8 दिन में (साप्ताहिक भुगतान)</option>
                         </select>
                     </div>
@@ -288,14 +283,25 @@
             const otHours = parseFloat(document.getElementById('otHoursInput').value) || 0;
             document.getElementById('displayOtHours').textContent = otHours;
 
-            // Show/Hide OT Display Box based on OT Hours
-            const otDisplayBox = document.getElementById('otDisplayBox');
-            if(otHours > 0) {
-                otDisplayBox.style.display = "block";
-            } else {
-                otDisplayBox.style.display = "none";
-            }
-
             // Normal Totals
             const hT = hC * hR;
-            
+            const sT = sC * sR;
+            const oT = oC * oR;
+            const totalW = hC + sC + oC;
+            const subTotal = hT + sT + oT;
+
+            // OT Calculation: Hourly Rate = Rate / 8, OT Rate = Hourly Rate * 1.5
+            const hOTRate = Math.round((hR / 8) * 1.5) || 0;
+            const sOTRate = Math.round((sR / 8) * 1.5) || 0;
+            const oOTRate = Math.round((oR / 8) * 1.5) || 0;
+
+            const hOTTotal = hC * hOTRate * otHours;
+            const sOTTotal = sC * sOTRate * otHours;
+            const oOTTotal = oC * oOTRate * otHours;
+            const totalOTAmount = hOTTotal + sOTTotal + oOTTotal;
+
+            const grandTotal = subTotal + totalOTAmount;
+
+            // Update UI
+            document.getElementById('compTotalWorkers').textContent = totalW;
+            document.getElementById(
