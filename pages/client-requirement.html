@@ -72,8 +72,7 @@
 
         <!-- Smart Form Card -->
         <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-10 shadow-2xl">
-            <!-- onsubmit added to prevent default reload and call sendWhatsApp -->
-            <form id="smartRequirementForm" class="space-y-6" onsubmit="event.preventDefault(); sendWhatsApp();" novalidate autocomplete="off">
+            <form id="smartRequirementForm" class="space-y-6" onsubmit="sendWhatsApp(event)" novalidate autocomplete="off">
 
                 <!-- 1. Basic Info -->
                 <div class="space-y-4">
@@ -84,12 +83,12 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs text-gray-300 mb-1">कंपनी / संस्था का नाम <span class="text-brand-red">*</span></label>
-                            <input type="text" id="companyName" required placeholder="आपकी कंपनी का नाम" class="w-full bg-black border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none transition">
+                            <input type="text" id="companyName" placeholder="आपकी कंपनी का नाम" class="w-full bg-black border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none transition">
                             <p class="error-msg" id="companyError">कृपया कंपनी का नाम लिखें।</p>
                         </div>
                         <div>
                             <label class="block text-xs text-gray-300 mb-1">संपर्क व्यक्ति (HR / Manager) <span class="text-brand-red">*</span></label>
-                            <input type="text" id="contactPerson" required placeholder="आपका नाम" class="w-full bg-black border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none transition">
+                            <input type="text" id="contactPerson" placeholder="आपका नाम" class="w-full bg-black border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none transition">
                             <p class="error-msg" id="contactError">कृपया अपना नाम लिखें।</p>
                         </div>
                     </div>
@@ -97,12 +96,12 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs text-gray-300 mb-1">मोबाइल नंबर (WhatsApp) <span class="text-brand-red">*</span></label>
-                            <input type="tel" id="mobileNumber" required maxlength="10" placeholder="10 अंकों का नंबर" class="w-full bg-black border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none transition">
+                            <input type="tel" id="mobileNumber" maxlength="10" placeholder="10 अंकों का नंबर" class="w-full bg-black border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none transition">
                             <p class="error-msg" id="phoneError">सही 10-अंकीय मोबाइल नंबर लिखें।</p>
                         </div>
                         <div>
                             <label class="block text-xs text-gray-300 mb-1">कार्यस्थल का राज्य (Work State) <span class="text-brand-red">*</span></label>
-                            <select id="stateSelect" required class="w-full bg-black border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none cursor-pointer">
+                            <select id="stateSelect" class="w-full bg-black border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none cursor-pointer">
                                 <option value="">-- राज्य चुनें --</option>
                                 <option value="Delhi (NCR)">दिल्ली (NCR)</option>
                                 <option value="Haryana">हरियाणा</option>
@@ -140,11 +139,11 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="helperCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="helperCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="helperRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="helperRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
@@ -155,11 +154,11 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="skilledCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="skilledCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="skilledRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="skilledRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
@@ -170,11 +169,11 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="operatorCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="operatorCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="operatorRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="operatorRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
@@ -202,14 +201,14 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs text-gray-300 mb-1">साइट पर रहने की सुविधा (Facility) <span class="text-brand-red">*</span></label>
-                        <select id="facilitySelect" required class="w-full bg-black border border-gray-700 text-white rounded-lg px-3 py-2.5 text-sm focus:border-brand-red outline-none cursor-pointer">
+                        <select id="facilitySelect" class="w-full bg-black border border-gray-700 text-white rounded-lg px-3 py-2.5 text-sm focus:border-brand-red outline-none cursor-pointer">
                             <option value="कंपनी / ठेकेदार द्वारा उपलब्ध">कंपनी / ठेकेदार द्वारा उपलब्ध (Free)</option>
                             <option value="वर्कर्स अपनी व्यवस्था स्वयं करेंगे">वर्कर्स अपनी व्यवस्था स्वयं करेंगे (Self)</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-xs text-gray-300 mb-1">पेमेंट चक्र (Payment Rule) <span class="text-brand-red">*</span></label>
-                        <select id="paymentSelect" required class="w-full bg-black border border-gray-700 text-white rounded-lg px-3 py-2.5 text-sm focus:border-brand-red outline-none cursor-pointer">
+                        <select id="paymentSelect" class="w-full bg-black border border-gray-700 text-white rounded-lg px-3 py-2.5 text-sm focus:border-brand-red outline-none cursor-pointer">
                             <option value="महीने की 1 तारीख को (मासिक भुगतान)">महीने की 1 तारीख को (मासिक भुगतान)</option>
                             <option value="हर 15 दिन में (पाक्षिक भुगतान)">हर 15 दिन में (पाक्षिक भुगतान)</option>
                             <option value="हर 8 दिन में (साप्ताहिक भुगतान)">हर 8 दिन में (साप्ताहिक भुगतान)</option>
@@ -225,7 +224,7 @@
                 <!-- Privacy check -->
                 <div class="pt-2 border-t border-gray-800">
                     <label class="flex items-start gap-2.5 cursor-pointer text-gray-200">
-                        <input type="checkbox" id="consentCheck" required class="mt-0.5 accent-brand-red h-4 w-4 rounded border-gray-700">
+                        <input type="checkbox" id="consentCheck" class="mt-0.5 accent-brand-red h-4 w-4 rounded border-gray-700">
                         <span class="text-xs">
                             मैं इस अनुमान के लिए WhatsApp पर संपर्क करने की अनुमति देता हूँ। (दरें आपसी सहमति से फाइनल होंगी)
                         </span>
@@ -233,9 +232,9 @@
                     <p class="error-msg" id="consentError">सबमिट करने के लिए सहमति बॉक्स पर टिक करें।</p>
                 </div>
 
-                <!-- Submit Button (Changed type to submit, handling done in onsubmit) -->
+                <!-- Submit Button -->
                 <div class="pt-2">
-                    <button type="submit" id="submitBtn" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-4 rounded-xl text-sm sm:text-base transition shadow-2xl flex items-center justify-center gap-2">
+                    <button type="submit" id="submitBtn" class="w-full bg-green-600 hover:bg-green-700 active:scale-95 text-white font-extrabold py-4 rounded-xl text-sm sm:text-base transition shadow-2xl flex items-center justify-center gap-2">
                         <i class="fa-brands fa-whatsapp text-xl"></i>
                         <span>WhatsApp पर Requirement भेजें</span>
                     </button>
@@ -259,41 +258,53 @@
                 const sR = parseInt(document.getElementById('skilledRate').value) || 0;
                 const oR = parseInt(document.getElementById('operatorRate').value) || 0;
 
-                // Normal Totals
+                // Totals
                 const hT = hC * hR;
                 const sT = sC * sR;
                 const oT = oC * oR;
                 const totalW = hC + sC + oC;
                 const subTotal = hT + sT + oT;
 
-                // Update UI
+                // Update UI Display
                 document.getElementById('compTotalWorkers').textContent = totalW;
                 document.getElementById('compHelper').textContent = `${hC} × ₹${hR} = ₹${hT.toLocaleString('en-IN')}`;
                 document.getElementById('compSkilled').textContent = `${sC} × ₹${sR} = ₹${sT.toLocaleString('en-IN')}`;
                 document.getElementById('compOperator').textContent = `${oC} × ₹${oR} = ₹${oT.toLocaleString('en-IN')}`;
                 document.getElementById('compSubtotal').textContent = `₹${subTotal.toLocaleString('en-IN')}`;
 
-                return { 
-                    hC, sC, oC, hR, sR, oR, hT, sT, oT, totalW, subTotal 
-                };
+                return { hC, sC, oC, hR, sR, oR, hT, sT, oT, totalW, subTotal };
             } catch (err) {
                 console.error("कैलकुलेशन में एरर: ", err);
                 return null;
             }
         }
 
-        function sendWhatsApp() {
-            try {
-                // Reset UI Errors
-                document.querySelectorAll(".error-msg").forEach(el => el.style.display = "none");
-                document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
+        function sendWhatsApp(e) {
+            if(e) e.preventDefault();
 
-                let isValid = true;
-                const company = document.getElementById('companyName').value.trim();
-                const contact = document.getElementById('contactPerson').value.trim();
-                const mobile = document.getElementById('mobileNumber').value.trim();
-                const state = document.getElementById('stateSelect').value;
-                const consent = document.getElementById('consentCheck').checked;
-                
-                if(!company) { document.getElementById("companyError").style.display = "block"; document.getElementById("companyName").classList.add("input-error"); isValid = false; }
-                if(!contact) { document.getElementById("contactError").style.display = "block"; document.getElementById("contactPerson").classList.add("
+            // Reset UI Errors
+            document.querySelectorAll(".error-msg").forEach(el => el.style.display = "none");
+            document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
+
+            let isValid = true;
+            const company = document.getElementById('companyName').value.trim();
+            const contact = document.getElementById('contactPerson').value.trim();
+            const mobile = document.getElementById('mobileNumber').value.trim();
+            const state = document.getElementById('stateSelect').value;
+            const consent = document.getElementById('consentCheck').checked;
+            const facility = document.getElementById('facilitySelect').value;
+            const payment = document.getElementById('paymentSelect').value;
+            const notes = document.getElementById('additionalNote').value.trim();
+
+            if(!company) {
+                document.getElementById("companyError").style.display = "block";
+                document.getElementById("companyName").classList.add("input-error");
+                isValid = false;
+            }
+            if(!contact) {
+                document.getElementById("contactError").style.display = "block";
+                document.getElementById("contactPerson").classList.add("input-error");
+                isValid = false;
+            }
+            if(!mobile || mobile.length < 10) {
+                document.getElementById("phoneError").style.display = "blo
