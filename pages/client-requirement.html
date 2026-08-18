@@ -41,6 +41,11 @@
         .error-msg { color: #ef4444; font-size: 0.75rem; margin-top: 0.25rem; display: none; }
         .input-error { border-color: #ef4444 !important; box-shadow: 0 0 0 1px #ef4444 !important; }
         button, input, select, textarea { touch-action: manipulation; }
+        /* Chrome, Safari, Edge, Opera - Hide arrows in number input */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        /* Firefox - Hide arrows in number input */
+        input[type=number] { -moz-appearance: textfield; }
     </style>
 </head>
 <body class="bg-brand-darkBg text-white font-sans antialiased min-h-screen flex flex-col justify-between">
@@ -70,7 +75,7 @@
             </p>
         </div>
 
-        <!-- Smart Form Card (Form tag removed to prevent reload issues) -->
+        <!-- Smart Form Card -->
         <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-10 shadow-2xl">
             <div id="smartRequirementForm" class="space-y-6">
 
@@ -96,7 +101,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs text-gray-300 mb-1">मोबाइल नंबर (WhatsApp) <span class="text-brand-red">*</span></label>
-                            <input type="tel" id="mobileNumber" maxlength="10" placeholder="10 अंकों का नंबर" class="w-full bg-black border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none transition">
+                            <input type="tel" id="mobileNumber" maxlength="10" placeholder="10 अंकों का नंबर" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full bg-black border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-sm focus:border-brand-red outline-none transition">
                             <p class="error-msg" id="phoneError">सही 10-अंकीय मोबाइल नंबर लिखें।</p>
                         </div>
                         <div>
@@ -128,9 +133,10 @@
 
                 <!-- 2. Select Manpower & Budget -->
                 <div class="space-y-4">
-                    <div class="border-b border-gray-800 pb-2 text-brand-red font-bold text-sm">
-                        <i class="fa-solid fa-users"></i> 2. कामगारों की संख्या एवं आपका प्रस्तावित रेट (Budget)
+                    <div class="border-b border-gray-800 pb-2 text-brand-red font-bold text-sm flex justify-between items-center">
+                        <span><i class="fa-solid fa-users"></i> 2. कामगारों की संख्या एवं आपका प्रस्तावित रेट</span>
                     </div>
+                    <p class="error-msg text-center font-bold !mt-0" id="workerCountError">कम से कम 1 वर्कर चुनना अनिवार्य है।</p>
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <!-- Helper -->
@@ -139,11 +145,12 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="helperCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="helperCount" min="0" value="0" placeholder="0" oninput="enforcePositive(this); doCalc();" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="helperRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="helperRate" min="0" placeholder="आपका रेट ₹" oninput="enforcePositive(this); doCalc();" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <p class="error-msg text-center" id="helperRateError">रेट अनिवार्य है</p>
                                 </div>
                             </div>
                         </div>
@@ -154,11 +161,12 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="skilledCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="skilledCount" min="0" value="0" placeholder="0" oninput="enforcePositive(this); doCalc();" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="skilledRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="skilledRate" min="0" placeholder="आपका रेट ₹" oninput="enforcePositive(this); doCalc();" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <p class="error-msg text-center" id="skilledRateError">रेट अनिवार्य है</p>
                                 </div>
                             </div>
                         </div>
@@ -169,11 +177,12 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="operatorCount" min="0" value="0" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="operatorCount" min="0" value="0" placeholder="0" oninput="enforcePositive(this); doCalc();" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="operatorRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="operatorRate" min="0" placeholder="आपका रेट ₹" oninput="enforcePositive(this); doCalc();" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <p class="error-msg text-center" id="operatorRateError">रेट अनिवार्य है</p>
                                 </div>
                             </div>
                         </div>
@@ -244,66 +253,45 @@
         </div>
     </main>
 
-    <!-- JavaScript Calculation Engine -->
+    <!-- JavaScript Calculation & Validation Engine -->
     <script>
+        // Constants
+        const WHATSAPP_NUMBER = "916379403821";
+
+        // Enforce positive numbers only
+        function enforcePositive(el) {
+            if (el.value < 0) {
+                el.value = Math.abs(el.value);
+            }
+        }
+
+        // Calculation Engine
         function doCalc() {
             try {
-                // Get Counts
-                const hC = parseInt(document.getElementById('helperCount').value) || 0;
-                const sC = parseInt(document.getElementById('skilledCount').value) || 0;
-                const oC = parseInt(document.getElementById('operatorCount').value) || 0;
+                // Ensure reset of visual errors on input
+                document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
+                document.querySelectorAll(".error-msg").forEach(el => el.style.display = "none");
 
-                // Get Rates
-                const hR = parseInt(document.getElementById('helperRate').value) || 0;
-                const sR = parseInt(document.getElementById('skilledRate').value) || 0;
-                const oR = parseInt(document.getElementById('operatorRate').value) || 0;
+                // Get Counts (default to 0)
+                const hC = Math.max(0, parseInt(document.getElementById('helperCount').value) || 0);
+                const sC = Math.max(0, parseInt(document.getElementById('skilledCount').value) || 0);
+                const oC = Math.max(0, parseInt(document.getElementById('operatorCount').value) || 0);
 
-                // Totals
+                // Get Rates (default to 0)
+                const hR = Math.max(0, parseInt(document.getElementById('helperRate').value) || 0);
+                const sR = Math.max(0, parseInt(document.getElementById('skilledRate').value) || 0);
+                const oR = Math.max(0, parseInt(document.getElementById('operatorRate').value) || 0);
+
+                // Normal Totals
                 const hT = hC * hR;
                 const sT = sC * sR;
                 const oT = oC * oR;
                 const totalW = hC + sC + oC;
                 const subTotal = hT + sT + oT;
 
-                // Update UI Display
-                document.getElementById('compTotalWorkers').textContent = totalW;
-                document.getElementById('compHelper').textContent = `${hC} × ₹${hR} = ₹${hT.toLocaleString('en-IN')}`;
-                document.getElementById('compSkilled').textContent = `${sC} × ₹${sR} = ₹${sT.toLocaleString('en-IN')}`;
-                document.getElementById('compOperator').textContent = `${oC} × ₹${oR} = ₹${oT.toLocaleString('en-IN')}`;
-                document.getElementById('compSubtotal').textContent = `₹${subTotal.toLocaleString('en-IN')}`;
-
-                return { hC, sC, oC, hR, sR, oR, hT, sT, oT, totalW, subTotal };
-            } catch (err) {
-                console.error("Error in Calculation: ", err);
-                return null;
-            }
-        }
-
-        function sendWhatsApp() {
-            // Reset UI Errors
-            document.querySelectorAll(".error-msg").forEach(el => el.style.display = "none");
-            document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
-
-            let isValid = true;
-            const company = document.getElementById('companyName').value.trim();
-            const contact = document.getElementById('contactPerson').value.trim();
-            const mobile = document.getElementById('mobileNumber').value.trim();
-            const state = document.getElementById('stateSelect').value;
-            const consent = document.getElementById('consentCheck').checked;
-            const facility = document.getElementById('facilitySelect').value;
-            const payment = document.getElementById('paymentSelect').value;
-            const notes = document.getElementById('additionalNote').value.trim();
-
-            if(!company) {
-                document.getElementById("companyError").style.display = "block";
-                document.getElementById("companyName").classList.add("input-error");
-                isValid = false;
-            }
-            if(!contact) {
-                document.getElementById("contactError").style.display = "block";
-                document.getElementById("contactPerson").classList.add("input-error");
-                isValid = false;
-            }
-            if(!mobile || mobile.length < 10) {
-                document.getElementById("phoneError").style.display = "block";
-                document.g
+                // Update UI formatting in Indian Standard
+                document.getElementById('compTotalWorkers').textContent = totalW.toLocaleString('en-IN');
+                document.getElementById('compHelper').textContent = `${hC} × ₹${hR.toLocaleString('en-IN')} = ₹${hT.toLocaleString('en-IN')}`;
+                document.getElementById('compSkilled').textContent = `${sC} × ₹${sR.toLocaleString('en-IN')} = ₹${sT.toLocaleString('en-IN')}`;
+                document.getElementById('compOperator').textContent = `${oC} × ₹${oR.toLocaleString('en-IN')} = ₹${oT.toLocaleString('en-IN')}`;
+                document.getElementById('compSubtotal').textContent = `₹${subTotal.toLoca
