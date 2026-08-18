@@ -70,9 +70,9 @@
             </p>
         </div>
 
-        <!-- Smart Form Card -->
+        <!-- Smart Form Card (Form tag removed to prevent reload issues) -->
         <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-10 shadow-2xl">
-            <form id="smartRequirementForm" class="space-y-6" onsubmit="sendWhatsApp(event)" novalidate autocomplete="off">
+            <div id="smartRequirementForm" class="space-y-6">
 
                 <!-- 1. Basic Info -->
                 <div class="space-y-4">
@@ -234,13 +234,13 @@
 
                 <!-- Submit Button -->
                 <div class="pt-2">
-                    <button type="submit" id="submitBtn" class="w-full bg-green-600 hover:bg-green-700 active:scale-95 text-white font-extrabold py-4 rounded-xl text-sm sm:text-base transition shadow-2xl flex items-center justify-center gap-2">
+                    <button type="button" id="submitBtn" onclick="sendWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 active:scale-95 text-white font-extrabold py-4 rounded-xl text-sm sm:text-base transition shadow-2xl flex items-center justify-center gap-2">
                         <i class="fa-brands fa-whatsapp text-xl"></i>
                         <span>WhatsApp पर Requirement भेजें</span>
                     </button>
                 </div>
 
-            </form>
+            </div>
         </div>
     </main>
 
@@ -274,14 +274,12 @@
 
                 return { hC, sC, oC, hR, sR, oR, hT, sT, oT, totalW, subTotal };
             } catch (err) {
-                console.error("कैलकुलेशन में एरर: ", err);
+                console.error("Error in Calculation: ", err);
                 return null;
             }
         }
 
-        function sendWhatsApp(e) {
-            if(e) e.preventDefault();
-
+        function sendWhatsApp() {
             // Reset UI Errors
             document.querySelectorAll(".error-msg").forEach(el => el.style.display = "none");
             document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
@@ -307,4 +305,5 @@
                 isValid = false;
             }
             if(!mobile || mobile.length < 10) {
-                document.getElementById("phoneError").style.display = "blo
+                document.getElementById("phoneError").style.display = "block";
+                document.g
