@@ -1,6 +1,18 @@
 <!-- ==========================================
-     MUKESH MANPOWER - ALL INDIA CORPORATE REQUIREMENT & ESTIMATE
-     File: pages/client-requirement.html (100% Working Live Calculator)
+     MUKESH MANPOWER
+     ALL INDIA CORPORATE REQUIREMENT & ESTIMATE
+     File: pages/client-requirement.html
+
+     FEATURES:
+     - Live Manpower Calculator
+     - Editable Rates
+     - Daily / 7 / 15 / 30 Days Estimate
+     - Overtime Calculator
+     - Shift Management
+     - Direct WhatsApp Submit
+     - Client Mobile Number in WhatsApp
+     - Requirement ID
+     - Responsive Mobile Design
      ========================================== -->
 
 <!DOCTYPE html>
@@ -8,17 +20,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>All India Manpower Requirement & Estimate - MUKESH MANPOWER</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Tailwind CSS CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -44,6 +60,7 @@
             }
         }
     </script>
+
     <style>
         .error-msg {
             color: #ef4444;
@@ -51,240 +68,526 @@
             margin-top: 0.25rem;
             display: none;
         }
+
         .input-error {
             border-color: #ef4444 !important;
         }
+
+        input:disabled,
+        select:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .rate-input {
+            color: #facc15 !important;
+            font-weight: 700;
+        }
+
+        .calculator-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        @media (max-width: 640px) {
+            .calculator-row {
+                flex-direction: column;
+                gap: 2px;
+            }
+        }
     </style>
 </head>
+
 <body class="bg-brand-darkBg text-white font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Header Navigation -->
-    <header class="bg-brand-black border-b border-brand-blue/60 sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-            <a href="../index.html" class="flex items-center gap-2">
-                <span class="font-display text-2xl font-bold tracking-wider text-white">MUKESH</span>
-                <span class="font-display text-2xl font-bold tracking-wider text-brand-red">MANPOWER</span>
-            </a>
-            <a href="../index.html" class="text-xs font-bold bg-brand-cardDark hover:bg-brand-blue text-gray-200 px-3.5 py-2 rounded-lg border border-brand-blue transition">
-                <i class="fa-solid fa-arrow-left mr-1.5"></i> होमपेज
-            </a>
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="bg-brand-black border-b border-brand-blue/60 sticky top-0 z-50">
+
+    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+
+        <a href="../index.html"
+           class="flex items-center gap-2">
+
+            <span class="font-display text-2xl font-bold tracking-wider text-white">
+                MUKESH
+            </span>
+
+            <span class="font-display text-2xl font-bold tracking-wider text-brand-red">
+                MANPOWER
+            </span>
+
+        </a>
+
+        <a href="../index.html"
+           class="text-xs font-bold bg-brand-cardDark hover:bg-brand-blue text-gray-200 px-3.5 py-2 rounded-lg border border-brand-blue transition">
+
+            <i class="fa-solid fa-arrow-left mr-1.5"></i>
+            होमपेज
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main class="max-w-4xl mx-auto px-4 py-8 sm:py-10 w-full flex-grow">
+
+
+    <!-- =====================================================
+         TITLE
+         ===================================================== -->
+
+    <div class="text-center mb-8">
+
+        <div class="inline-flex items-center gap-2 bg-brand-cardDark border border-brand-red/40 px-3 py-1 rounded-full text-xs text-brand-red font-bold uppercase mb-3">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>
+                MSME Reg: UDYAM-BR-05-0036251 | All India Supply
+            </span>
+
         </div>
-    </header>
 
-    <!-- Main Container -->
-    <main class="max-w-4xl mx-auto px-4 py-8 sm:py-10 w-full flex-grow">
+        <h1 class="text-2xl sm:text-4xl font-extrabold text-white">
 
-        <!-- Title Banner -->
-        <div class="text-center mb-8">
-            <div class="inline-flex items-center gap-2 bg-brand-cardDark border border-brand-red/40 px-3 py-1 rounded-full text-xs text-brand-red font-bold uppercase mb-3">
-                <i class="fa-solid fa-shield-halved"></i>
-                <span>MSME Reg: UDYAM-BR-05-0036251 | All India Supply</span>
-            </div>
-            <h1 class="text-2xl sm:text-4xl font-extrabold text-white">
-                कॉर्पोरेट मैनपॉवर मांग एवं कोटेशन फॉर्म
-            </h1>
-            <p class="text-xs sm:text-sm text-gray-400 mt-2 max-w-2xl mx-auto">
-                पूरे भारत के प्रोजेक्ट्स के लिए कुशल, अकुशल कामगार एवं मशीन ऑपरेटर की मांग दर्ज करें। राज्य चुनते ही मानक दरें स्वतः लागू हो जाएँगी।
-            </p>
+            कॉर्पोरेट मैनपॉवर मांग एवं कोटेशन फॉर्म
+
+        </h1>
+
+        <p class="text-xs sm:text-sm text-gray-400 mt-2 max-w-2xl mx-auto">
+
+            पूरे भारत के प्रोजेक्ट्स के लिए कुशल, अकुशल कामगार एवं मशीन ऑपरेटर की
+            मांग दर्ज करें। राज्य चुनते ही मानक दरें स्वतः लागू हो जाएँगी।
+
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         SUCCESS BOX
+         ===================================================== -->
+
+    <div id="successBox"
+         class="hidden mb-8 bg-brand-cardDark border-2 border-emerald-500/80 rounded-2xl p-6 sm:p-8 shadow-2xl text-center space-y-4">
+
+        <div class="w-16 h-16 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl border border-emerald-500/30">
+
+            <i class="fa-solid fa-check"></i>
+
         </div>
 
-        <!-- Success Modal / Card -->
-        <div id="successBox" class="hidden mb-8 bg-brand-cardDark border-2 border-emerald-500/80 rounded-2xl p-6 sm:p-8 shadow-2xl text-center space-y-4">
-            <div class="w-16 h-16 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl border border-emerald-500/30">
-                <i class="fa-solid fa-check"></i>
-            </div>
-            <h2 class="text-xl sm:text-2xl font-bold text-white">Requirement सफलतापूर्वक तैयार हो गई है!</h2>
-            <p class="text-xs sm:text-sm text-gray-300">
-                आपकी Requirement ID: <span id="displayReqId" class="font-mono font-bold text-brand-red bg-black/50 px-2 py-1 rounded"></span>
-            </p>
-            <p class="text-xs text-gray-400 max-w-lg mx-auto">
-                हमारी टीम आपकी आवश्यकता की समीक्षा करके जल्द संपर्क करेगी। नीचे दिए गए बटन से आप इस कोटेशन को सीधे WhatsApp पर भी भेज सकते हैं।
-            </p>
-            <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-                <a id="waDirectBtn" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-6 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg">
-                    <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp पर भेजें
-                </a>
-                <button type="button" id="newReqBtn" class="bg-brand-blue hover:bg-brand-blueLight text-white font-bold py-2.5 px-6 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-plus"></i> नई Requirement दर्ज करें
-                </button>
-            </div>
-        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">
 
-        <!-- Form Card -->
-        <div id="formCard" class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-10 shadow-2xl">
-            <form id="allIndiaClientForm" class="space-y-6" novalidate>
+            Requirement सफलतापूर्वक तैयार हो गई है!
 
-                <!-- 1. Location & Company Section -->
-                <div class="space-y-4">
-                    <div class="border-b border-gray-800 pb-2 flex items-center gap-2 text-brand-blueLight font-bold text-sm">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>1. प्रोजेक्ट लोकेशन एवं कंपनी विवरण</span>
-                    </div>
+        </h2>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label for="stateSelect" class="block text-xs font-semibold text-gray-300 mb-1">कार्यस्थल का राज्य (Work Location / State) <span class="text-brand-red">*</span></label>
-                            <select id="stateSelect" required class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
-                                <option value="">-- राज्य / UT चुनें --</option>
-                                <option value="Delhi">दिल्ली (NCR)</option>
-                                <option value="Haryana">हरियाणा (गुड़गांव/फरीदाबाद)</option>
-                                <option value="Punjab">पंजाब</option>
-                                <option value="UttarPradesh">उत्तर प्रदेश</option>
-                                <option value="Bihar">बिहार</option>
-                                <option value="Jharkhand">झारखंड</option>
-                                <option value="WestBengal">पश्चिम बंगाल</option>
-                                <option value="Odisha">ओडिशा</option>
-                                <option value="Maharashtra">महाराष्ट्र (मुंबई/पुणे)</option>
-                                <option value="Gujarat">गुजरात</option>
-                                <option value="Rajasthan">राजस्थान</option>
-                                <option value="MadhyaPradesh">मध्य प्रदेश</option>
-                                <option value="Chhattisgarh">छत्तीसगढ़</option>
-                                <option value="Karnataka">कर्नाटक (बेंगलुरु)</option>
-                                <option value="TamilNadu">तमिलनाडु</option>
-                                <option value="Telangana">तेलंगाना (हैदराबाद)</option>
-                                <option value="AndhraPradesh">आंध्र प्रदेश</option>
-                                <option value="Kerala">केरल</option>
-                                <option value="Uttarakhand">उत्तराखंड</option>
-                                <option value="HimachalPradesh">हिमाचल प्रदेश</option>
-                                <option value="Assam">असम एवं पूर्वोत्तर राज्य</option>
-                                <option value="JammuKashmir">जम्मू और कश्मीर</option>
-                                <option value="Goa">गोवा</option>
-                                <option value="OtherUT">अन्य केंद्र शासित प्रदेश</option>
-                            </select>
-                            <p id="stateError" class="error-msg">कृपया कार्यस्थल का राज्य चुनें।</p>
-                        </div>
+        <p class="text-xs sm:text-sm text-gray-300">
 
-                        <div>
-                            <label for="companyName" class="block text-xs font-semibold text-gray-300 mb-1">कंपनी / ठेकेदार का नाम <span class="text-brand-red">*</span></label>
-                            <input type="text" id="companyName" required placeholder="कंपनी या फर्म का नाम लिखें" class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
-                            <p id="companyError" class="error-msg">कृपया कंपनी या फर्म का नाम दर्ज करें।</p>
-                        </div>
-                    </div>
+            आपकी Requirement ID:
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label for="contactPerson" class="block text-xs font-semibold text-gray-300 mb-1">संपर्क व्यक्ति का नाम (Contact Person) <span class="text-brand-red">*</span></label>
-                            <input type="text" id="contactPerson" required placeholder="उदा. राहुल कुमार" class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
-                            <p id="contactPersonError" class="error-msg">कृपया संपर्क व्यक्ति का नाम दर्ज करें।</p>
-                        </div>
-                        <div>
-                            <label for="clientPhone" class="block text-xs font-semibold text-gray-300 mb-1">मोबाइल नंबर (WhatsApp सक्षम) <span class="text-brand-red">*</span></label>
-                            <input type="tel" id="clientPhone" required maxlength="10" placeholder="10 अंकों का मोबाइल नंबर (6, 7, 8 या 9 से शुरू)" class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
-                            <p id="phoneError" class="error-msg">मान्य 10 अंकों का मोबाइल नंबर दर्ज करें (6, 7, 8, 9 से शुरू)।</p>
-                        </div>
-                    </div>
+            <span id="displayReqId"
+                  class="font-mono font-bold text-brand-red bg-black/50 px-2 py-1 rounded">
+            </span>
+
+        </p>
+
+        <p class="text-xs text-gray-400 max-w-lg mx-auto">
+
+            WhatsApp खुल गया है। WhatsApp में तैयार किया गया message
+            भेजने के लिए Send दबाएँ।
+
+        </p>
+
+        <button type="button"
+                id="newReqBtn"
+                class="bg-brand-blue hover:bg-brand-blueLight text-white font-bold py-2.5 px-6 rounded-xl text-xs sm:text-sm transition">
+
+            <i class="fa-solid fa-plus mr-1"></i>
+            नई Requirement दर्ज करें
+
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         FORM CARD
+         ===================================================== -->
+
+    <div id="formCard"
+         class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-10 shadow-2xl">
+
+        <form id="allIndiaClientForm"
+              class="space-y-6"
+              novalidate>
+
+
+            <!-- =================================================
+                 1. LOCATION & COMPANY
+                 ================================================= -->
+
+            <div class="space-y-4">
+
+                <div class="border-b border-gray-800 pb-2 flex items-center gap-2 text-brand-blueLight font-bold text-sm">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        1. प्रोजेक्ट लोकेशन एवं कंपनी विवरण
+                    </span>
+
+                </div>
+
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                    <!-- STATE -->
 
                     <div>
-                        <label for="siteAddress" class="block text-xs font-semibold text-gray-300 mb-1">प्रोजेक्ट साइट का सटीक पता <span class="text-brand-red">*</span></label>
-                        <input type="text" id="siteAddress" required placeholder="साइट का नाम, लैंडमार्क, शहर व पिनकोड" class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
-                        <p id="addressError" class="error-msg">कृपया प्रोजेक्ट साइट का पूरा पता दर्ज करें।</p>
-                    </div>
-                </div>
 
-                <!-- 2. Manpower Breakdown & Smart Rates -->
-                <div class="space-y-4">
-                    <div class="border-b border-gray-800 pb-2 flex items-center justify-between">
-                        <span class="text-brand-red font-bold text-sm flex items-center gap-2">
-                            <i class="fa-solid fa-users-gear"></i> 2. कामगार संख्या एवं मानक दैनिक दरें (प्रति 8 घंटे)
-                        </span>
-                        <span class="text-[11px] text-gray-400">दरें स्वतः सेट</span>
-                    </div>
+                        <label for="stateSelect"
+                               class="block text-xs font-semibold text-gray-300 mb-1">
 
-                    <!-- Helpers -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
-                        <div>
-                            <label for="helperCount" class="block text-xs font-semibold text-gray-300 mb-1">हेल्पर / लेबर संख्या (Unskilled)</label>
-                            <input type="number" id="helperCount" min="0" value="0" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
-                        </div>
-                        <div>
-                            <label for="helperRate" class="block text-xs font-semibold text-gray-300 mb-1">हेल्पर मानक दर (₹ प्रति व्यक्ति / दिन)</label>
-                            <input type="number" id="helperRate" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
-                        </div>
-                    </div>
+                            कार्यस्थल का राज्य
+                            <span class="text-brand-red">*</span>
 
-                    <!-- Skilled Masons -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
-                        <div>
-                            <label for="skilledCount" class="block text-xs font-semibold text-gray-300 mb-1">मिस्त्री / कारपेंटर संख्या (Skilled)</label>
-                            <input type="number" id="skilledCount" min="0" value="0" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
-                        </div>
-                        <div>
-                            <label for="skilledRate" class="block text-xs font-semibold text-gray-300 mb-1">मिस्त्री मानक दर (₹ प्रति व्यक्ति / दिन)</label>
-                            <input type="number" id="skilledRate" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
-                        </div>
-                    </div>
+                        </label>
 
-                    <!-- Operators -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
-                        <div>
-                            <label for="operatorCount" class="block text-xs font-semibold text-gray-300 mb-1">मशीन ऑपरेटर (JCB / पोकलेन / क्रेन)</label>
-                            <input type="number" id="operatorCount" min="0" value="0" class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
-                        </div>
-                        <div>
-                            <label for="operatorRate" class="block text-xs font-semibold text-gray-300 mb-1">ऑपरेटर मानक दर (₹ प्रति व्यक्ति / दिन)</label>
-                            <input type="number" id="operatorRate" placeholder="दर (₹)" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 font-bold rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
-                        </div>
-                    </div>
+                        <select id="stateSelect"
+                                required
+                                class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
 
-                    <p id="workerCountError" class="error-msg text-center font-semibold">कृपया कम से कम एक श्रेणी में न्यूनतम 1 कामगार दर्ज करें।</p>
-                </div>
+                            <option value="">
+                                -- राज्य / UT चुनें --
+                            </option>
 
-                <!-- Live Quotation Card -->
-                <div class="p-4 sm:p-5 bg-black/60 rounded-xl border border-brand-blueLight/50 space-y-3">
-                    <div class="flex items-center justify-between border-b border-gray-800 pb-2">
-                        <span class="font-bold text-xs sm:text-sm text-brand-blueLight uppercase tracking-wider flex items-center gap-1.5">
-                            <i class="fa-solid fa-calculator"></i> Preliminary Estimate Summary
-                        </span>
-                        <span class="text-xs text-gray-400">कुल कामगार: <strong id="summaryTotalWorkers" class="text-white">0</strong></span>
+                            <option value="Delhi">दिल्ली (NCR)</option>
+                            <option value="Haryana">हरियाणा (गुड़गांव/फरीदाबाद)</option>
+                            <option value="Punjab">पंजाब</option>
+                            <option value="UttarPradesh">उत्तर प्रदेश</option>
+                            <option value="Bihar">बिहार</option>
+                            <option value="Jharkhand">झारखंड</option>
+                            <option value="WestBengal">पश्चिम बंगाल</option>
+                            <option value="Odisha">ओडिशा</option>
+                            <option value="Maharashtra">महाराष्ट्र (मुंबई/पुणे)</option>
+                            <option value="Gujarat">गुजरात</option>
+                            <option value="Rajasthan">राजस्थान</option>
+                            <option value="MadhyaPradesh">मध्य प्रदेश</option>
+                            <option value="Chhattisgarh">छत्तीसगढ़</option>
+                            <option value="Karnataka">कर्नाटक (बेंगलुरु)</option>
+                            <option value="TamilNadu">तमिलनाडु</option>
+                            <option value="Telangana">तेलंगाना (हैदराबाद)</option>
+                            <option value="AndhraPradesh">आंध्र प्रदेश</option>
+                            <option value="Kerala">केरल</option>
+                            <option value="Uttarakhand">उत्तराखंड</option>
+                            <option value="HimachalPradesh">हिमाचल प्रदेश</option>
+                            <option value="Assam">असम एवं पूर्वोत्तर राज्य</option>
+                            <option value="JammuKashmir">जम्मू और कश्मीर</option>
+                            <option value="Goa">गोवा</option>
+                            <option value="OtherUT">अन्य केंद्र शासित प्रदेश</option>
+
+                        </select>
+
+                        <p id="stateError" class="error-msg">
+                            कृपया कार्यस्थल का राज्य चुनें।
+                        </p>
+
                     </div>
 
-                    <div class="text-xs space-y-1.5 text-gray-300">
-                        <div class="flex justify-between">
-                            <span>हेल्पर कुल:</span>
-                            <span id="summaryHelperRow">0 × ₹0 = ₹0</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>मिस्त्री कुल:</span>
-                            <span id="summarySkilledRow">0 × ₹0 = ₹0</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>ऑपरेटर कुल:</span>
-                            <span id="summaryOperatorRow">0 × ₹0 = ₹0</span>
-                        </div>
-                    </div>
 
-                    <div class="border-t border-gray-800 pt-2 flex items-center justify-between font-bold text-sm">
-                        <span class="text-white">अनुमानित दैनिक उप-योग (Subtotal):</span>
-                        <span id="summarySubtotal" class="text-brand-red text-base">₹0</span>
-                    </div>
-                    <p class="text-[11px] text-gray-400 text-right">लागू GST/कर नियमानुसार अतिरिक्त देय होगा।</p>
-                </div>
-
-                <!-- 3. Payment Cycle & Facilities -->
-                <div class="space-y-4">
-                    <div class="border-b border-gray-800 pb-2 flex items-center gap-2 text-brand-blueLight font-bold text-sm">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
-                        <span>3. भुगतान प्राथमिकता एवं साइट सुविधाएं</span>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label for="paymentCycle" class="block text-xs font-semibold text-gray-300 mb-1">भुगतान चक्र (Payment Preference) <span class="text-brand-red">*</span></label>
-                            <select id="paymentCycle" required class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
-                                <option value="हर 8 दिन में (साप्ताहिक भुगतान)">हर 8 दिन में (साप्ताहिक भुगतान)</option>
-                                <option value="हर 15 दिन में (पाक्षिक भुगतान)">हर 15 दिन में (पाक्षिक भुगतान)</option>
-                                <option value="महीने की 1 तारीख को (मासिक भुगतान)">महीने की 1 तारीख को (मासिक भुगतान)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="facility" class="block text-xs font-semibold text-gray-300 mb-1">साइट पर रहने व पानी की व्यवस्था <span class="text-brand-red">*</span></label>
-                            <select id="facility" required class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
-                                <option value="कंपनी / ठेकेदार द्वारा उपलब्ध">कंपनी / ठेकेदार द्वारा उपलब्ध</option>
-                                <option value="वर्कर्स अपनी व्यवस्था स्वयं करेंगे">वर्कर्स अपनी व्यवस्था स्वयं करेंगे</option>
-                            </select>
-                        </div>
-                    </div>
+                    <!-- COMPANY -->
 
                     <div>
-                        <label for="requirementMessage" class="block text-xs font-semibold text-gray-300 mb-1">अतिरिक्त आवश्यकता / विशेष निर्देश (वैकल्पिक)</label>
-                        <textarea id="requirementMessage" rows="2" placeholder="साइट के नियम, टूल्स या अन्य विवरण..." class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm
+
+                        <label for="companyName"
+                               class="block text-xs font-semibold text-gray-300 mb-1">
+
+                            कंपनी / ठेकेदार का नाम
+                            <span class="text-brand-red">*</span>
+
+                        </label>
+
+                        <input type="text"
+                               id="companyName"
+                               required
+                               placeholder="कंपनी या फर्म का नाम लिखें"
+                               class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+
+                        <p id="companyError" class="error-msg">
+                            कृपया कंपनी या फर्म का नाम दर्ज करें।
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTACT -->
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                    <div>
+
+                        <label for="contactPerson"
+                               class="block text-xs font-semibold text-gray-300 mb-1">
+
+                            संपर्क व्यक्ति का नाम
+                            <span class="text-brand-red">*</span>
+
+                        </label>
+
+                        <input type="text"
+                               id="contactPerson"
+                               required
+                               placeholder="उदा. राहुल कुमार"
+                               class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+
+                        <p id="contactPersonError" class="error-msg">
+                            कृपया संपर्क व्यक्ति का नाम दर्ज करें।
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="clientPhone"
+                               class="block text-xs font-semibold text-gray-300 mb-1">
+
+                            मोबाइल नंबर (WhatsApp)
+                            <span class="text-brand-red">*</span>
+
+                        </label>
+
+                        <input type="tel"
+                               id="clientPhone"
+                               required
+                               maxlength="10"
+                               inputmode="numeric"
+                               placeholder="10 अंकों का मोबाइल नंबर"
+                               class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+
+                        <p id="phoneError" class="error-msg">
+                            मान्य 10 अंकों का मोबाइल नंबर दर्ज करें।
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADDRESS -->
+
+                <div>
+
+                    <label for="siteAddress"
+                           class="block text-xs font-semibold text-gray-300 mb-1">
+
+                        प्रोजेक्ट साइट का सटीक पता
+                        <span class="text-brand-red">*</span>
+
+                    </label>
+
+                    <input type="text"
+                           id="siteAddress"
+                           required
+                           placeholder="साइट का नाम, लैंडमार्क, शहर व पिनकोड"
+                           class="w-full bg-brand-darkBg border border-gray-700 text-white rounded-lg px-3.5 py-2.5 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+
+                    <p id="addressError" class="error-msg">
+                        कृपया प्रोजेक्ट साइट का पूरा पता दर्ज करें।
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 2. MANPOWER
+                 ================================================= -->
+
+            <div class="space-y-4">
+
+                <div class="border-b border-gray-800 pb-2 flex items-center justify-between">
+
+                    <span class="text-brand-red font-bold text-sm flex items-center gap-2">
+
+                        <i class="fa-solid fa-users-gear"></i>
+
+                        2. कामगार संख्या एवं दरें
+
+                    </span>
+
+                    <span class="text-[11px] text-gray-400">
+                        Editable Rate
+                    </span>
+
+                </div>
+
+
+                <!-- HELPER -->
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
+
+                    <div>
+
+                        <label for="helperCount"
+                               class="block text-xs font-semibold text-gray-300 mb-1">
+
+                            हेल्पर / लेबर संख्या
+
+                        </label>
+
+                        <input type="number"
+                               id="helperCount"
+                               min="0"
+                               value="0"
+                               inputmode="numeric"
+                               class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="helperRate"
+                               class="block text-xs font-semibold text-gray-300 mb-1">
+
+                            हेल्पर Rate
+                            (₹ / व्यक्ति / दिन)
+
+                        </label>
+
+                        <input type="number"
+                               id="helperRate"
+                               min="0"
+                               step="1"
+                               placeholder="Rate डालें"
+                               class="rate-input w-full bg-gray-900 border border-gray-700 rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
+
+                    </div>
+
+                </div>
+
+
+                <!-- SKILLED -->
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
+
+                    <div>
+
+                        <label for="skilledCount"
+                               class="block text-xs font-semibold text-gray-300 mb-1">
+
+                            मिस्त्री / कारपेंटर संख्या
+
+                        </label>
+
+                        <input type="number"
+                               id="skilledCount"
+                               min="0"
+                               value="0"
+                               inputmode="numeric"
+                               class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="skilledRate"
+                               class="block text-xs font-semibold text-gray-300 mb-1">
+
+                            Skilled Rate
+                            (₹ / व्यक्ति / दिन)
+
+                        </label>
+
+                        <input type="number"
+                               id="skilledRate"
+                               min="0"
+                               step="1"
+                               placeholder="Rate डालें"
+                               class="rate-input w-full bg-gray-900 border border-gray-700 rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
+
+                    </div>
+
+                </div>
+
+
+                <!-- OPERATOR -->
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-brand-darkBg rounded-xl border border-gray-800">
+
+                    <div>
+
+                        <label for="operatorCount"
+                               class="block text-xs font-semibold text-gray-300 mb-1">
+
+                            मशीन ऑपरेटर
+                            (JCB / पोकलेन / क्रेन)
+
+                        </label>
+
+                        <input type="number"
+                               id="operatorCount"
+                               min="0"
+                               value="0"
+                               inputmode="numeric"
+                               class="w-full bg-brand-cardDark border border-gray-700 text-white rounded-lg px-3.5 py-2 text-xs sm:text-sm focus:border-brand-red outline-none transition">
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="operatorRate"
+                               class="block text-xs font-semibold text-gray-300 mb-1">
+
+                            Operator Rate
+                            (₹ / व्यक्ति / दिन)
+
+                        </label>
+
+                        <input type="number"
+                               id="operatorRate"
+                               min="0"
+                               step="1"
+                               placeholder="Rate डालें"
+                               class="rate-input w-full bg-gray-900 border border-gray-700 rounded-lg px-3.5 py-2 text-xs sm:text-sm outline-none">
+
+                    </div>
+
+                </div>
+
+
+                <p id="workerCountError"
+                   class="error-msg text-center font-semibold">
+
+                    कम से कम 1 कामगार दर्ज करें।
+
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 3. SHIFT + OT
+                 ================================================= -->
+
+            <div class="space-y-4">
+
+                <div class=
