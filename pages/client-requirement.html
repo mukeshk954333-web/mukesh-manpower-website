@@ -66,13 +66,14 @@
                 कॉर्पोरेट मैनपॉवर मांग (Fast Booking)
             </h1>
             <p class="text-xs sm:text-sm text-gray-400 mt-2 max-w-2xl mx-auto">
-                कामगारों की संख्या और अपना प्रस्तावित बजट (Rate) दर्ज करें। हमारा स्मार्ट सिस्टम तुरंत लाइव एस्टीमेट बनाकर हमें WhatsApp कर देगा।
+                कामगारों की संख्या और अपना प्रस्तावित बजट (Rate) दर्ज करें। हमारा स्मार्ट सिस्टम तुरंत आपका एस्टीमेट बनाकर हमें WhatsApp कर देगा।
             </p>
         </div>
 
         <!-- Smart Form Card -->
         <div class="bg-brand-cardDark border border-brand-blue rounded-2xl p-6 sm:p-10 shadow-2xl">
-            <form id="smartRequirementForm" class="space-y-6" novalidate autocomplete="off">
+            <!-- onsubmit added to prevent default reload and call sendWhatsApp -->
+            <form id="smartRequirementForm" class="space-y-6" onsubmit="event.preventDefault(); sendWhatsApp();" novalidate autocomplete="off">
 
                 <!-- 1. Basic Info -->
                 <div class="space-y-4">
@@ -139,11 +140,11 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="helperCount" min="0" value="0" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="helperCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="helperRate" min="0" placeholder="आपका रेट ₹" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="helperRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
@@ -154,11 +155,11 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="skilledCount" min="0" value="0" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="skilledCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="skilledRate" min="0" placeholder="आपका रेट ₹" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="skilledRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
@@ -169,11 +170,11 @@
                             <div class="space-y-3">
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">संख्या (Count):</span>
-                                    <input type="number" id="operatorCount" min="0" value="0" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="operatorCount" min="0" value="0" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-white text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                                 <div>
                                     <span class="text-[10px] text-gray-500 block mb-1">प्रस्तावित रेट (₹/दिन):</span>
-                                    <input type="number" id="operatorRate" min="0" placeholder="आपका रेट ₹" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
+                                    <input type="number" id="operatorRate" min="0" placeholder="आपका रेट ₹" oninput="doCalc()" onkeyup="doCalc()" onchange="doCalc()" class="w-full bg-gray-900 border border-gray-700 text-yellow-400 text-center font-bold rounded px-2 py-1.5 focus:border-brand-red outline-none">
                                 </div>
                             </div>
                         </div>
@@ -232,7 +233,7 @@
                     <p class="error-msg" id="consentError">सबमिट करने के लिए सहमति बॉक्स पर टिक करें।</p>
                 </div>
 
-                <!-- Submit Button -->
+                <!-- Submit Button (Changed type to submit, handling done in onsubmit) -->
                 <div class="pt-2">
                     <button type="submit" id="submitBtn" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-4 rounded-xl text-sm sm:text-base transition shadow-2xl flex items-center justify-center gap-2">
                         <i class="fa-brands fa-whatsapp text-xl"></i>
@@ -247,62 +248,52 @@
     <!-- JavaScript Calculation Engine -->
     <script>
         function doCalc() {
-            // Get Counts
-            const hC = parseInt(document.getElementById('helperCount').value) || 0;
-            const sC = parseInt(document.getElementById('skilledCount').value) || 0;
-            const oC = parseInt(document.getElementById('operatorCount').value) || 0;
+            try {
+                // Get Counts
+                const hC = parseInt(document.getElementById('helperCount').value) || 0;
+                const sC = parseInt(document.getElementById('skilledCount').value) || 0;
+                const oC = parseInt(document.getElementById('operatorCount').value) || 0;
 
-            // Get Rates
-            const hR = parseInt(document.getElementById('helperRate').value) || 0;
-            const sR = parseInt(document.getElementById('skilledRate').value) || 0;
-            const oR = parseInt(document.getElementById('operatorRate').value) || 0;
+                // Get Rates
+                const hR = parseInt(document.getElementById('helperRate').value) || 0;
+                const sR = parseInt(document.getElementById('skilledRate').value) || 0;
+                const oR = parseInt(document.getElementById('operatorRate').value) || 0;
 
-            // Normal Totals
-            const hT = hC * hR;
-            const sT = sC * sR;
-            const oT = oC * oR;
-            const totalW = hC + sC + oC;
-            const subTotal = hT + sT + oT;
+                // Normal Totals
+                const hT = hC * hR;
+                const sT = sC * sR;
+                const oT = oC * oR;
+                const totalW = hC + sC + oC;
+                const subTotal = hT + sT + oT;
 
-            // Update UI
-            document.getElementById('compTotalWorkers').textContent = totalW;
-            document.getElementById('compHelper').textContent = `${hC} × ₹${hR} = ₹${hT.toLocaleString('en-IN')}`;
-            document.getElementById('compSkilled').textContent = `${sC} × ₹${sR} = ₹${sT.toLocaleString('en-IN')}`;
-            document.getElementById('compOperator').textContent = `${oC} × ₹${oR} = ₹${oT.toLocaleString('en-IN')}`;
-            document.getElementById('compSubtotal').textContent = `₹${subTotal.toLocaleString('en-IN')}`;
+                // Update UI
+                document.getElementById('compTotalWorkers').textContent = totalW;
+                document.getElementById('compHelper').textContent = `${hC} × ₹${hR} = ₹${hT.toLocaleString('en-IN')}`;
+                document.getElementById('compSkilled').textContent = `${sC} × ₹${sR} = ₹${sT.toLocaleString('en-IN')}`;
+                document.getElementById('compOperator').textContent = `${oC} × ₹${oR} = ₹${oT.toLocaleString('en-IN')}`;
+                document.getElementById('compSubtotal').textContent = `₹${subTotal.toLocaleString('en-IN')}`;
 
-            return { 
-                hC, sC, oC, hR, sR, oR, hT, sT, oT, totalW, subTotal 
-            };
+                return { 
+                    hC, sC, oC, hR, sR, oR, hT, sT, oT, totalW, subTotal 
+                };
+            } catch (err) {
+                console.error("कैलकुलेशन में एरर: ", err);
+                return null;
+            }
         }
 
-        // Real-time calculation triggers
-        const allInputs = ['helperCount', 'helperRate', 'skilledCount', 'skilledRate', 'operatorCount', 'operatorRate'];
-        allInputs.forEach(id => {
-            const el = document.getElementById(id);
-            if(el) {
-                el.addEventListener('input', doCalc);
-                el.addEventListener('keyup', doCalc);
-                el.addEventListener('change', doCalc);
-            }
-        });
+        function sendWhatsApp() {
+            try {
+                // Reset UI Errors
+                document.querySelectorAll(".error-msg").forEach(el => el.style.display = "none");
+                document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
 
-        // Form Submit Handler (WhatsApp Builder)
-        document.getElementById('smartRequirementForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Reset UI Errors
-            document.querySelectorAll(".error-msg").forEach(el => el.style.display = "none");
-            document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
-
-            let isValid = true;
-            const company = document.getElementById('companyName').value.trim();
-            const contact = document.getElementById('contactPerson').value.trim();
-            const mobile = document.getElementById('mobileNumber').value.trim();
-            const state = document.getElementById('stateSelect').value;
-            const consent = document.getElementById('consentCheck').checked;
-            
-            if(!company) { document.getElementById("companyError").style.display = "block"; document.getElementById("companyName").classList.add("input-error"); isValid = false; }
-            if(!contact) { document.getElementById("contactError").style.display = "block"; document.getElementById("contactPerson").classList.add("input-error"); isValid = false; }
-            if(!/^[6-9]\d{9}$/.test(mobile)) { document.getElementById("phoneError").style.display = "block"; document.getElementById("mobileNumber").classList.add("input-error"); isValid = false; }
-  
+                let isValid = true;
+                const company = document.getElementById('companyName').value.trim();
+                const contact = document.getElementById('contactPerson').value.trim();
+                const mobile = document.getElementById('mobileNumber').value.trim();
+                const state = document.getElementById('stateSelect').value;
+                const consent = document.getElementById('consentCheck').checked;
+                
+                if(!company) { document.getElementById("companyError").style.display = "block"; document.getElementById("companyName").classList.add("input-error"); isValid = false; }
+                if(!contact) { document.getElementById("contactError").style.display = "block"; document.getElementById("contactPerson").classList.add("
